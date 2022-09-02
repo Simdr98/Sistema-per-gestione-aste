@@ -1,23 +1,24 @@
-version: '3.7'
+version: "3.7"
 services:
     aste:
-        image: postgres
+        image: mysql
         restart: always
         environment:
-          - POSTGRES_USER=postgres
-          - POSTGRES_PASSWORD=postgres
-          - TZ=Europe/Rome
-          - PGTZ=Europe/Rome
+          MYSQL_USER: user
+          MYSQL_PASSWORD: password
         ports:
-          - 5432:5432
-        volumes: 
-          - ./seed.sql:/docker-entrypoint-initdb.d/seed.sql          
-    web-node:
+          - 3306:3306
+        env_file:
+          - .env
+        volumes:
+        - ./seed.sql:/docker-entrypoint-initdb.d/seed.sql
+        - ./img:/usr/src/app/img        
+    node:
         build: .
         restart: always
         ports:
           - 8080:8080
         env_file:
-          - .env  
+          - .env
         depends_on:
           - aste
