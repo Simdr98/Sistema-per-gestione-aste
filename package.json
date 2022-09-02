@@ -1,0 +1,19 @@
+{
+  "name": "progetto_programmazione_avanzata",
+  "version": "1.0.0",
+  "description": "Progetto di programmazione avanzata A.A. 2021/2022",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Simdr98/Sistema-per-gestione-aste.git"
+  },
+  "author": "\"Di Rado Simone\", \"Marconi Sciarroni Monica\"",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Simdr98/Sistema-per-gestione-aste/issues"
+  },
+  "homepage": "https://github.com/Simdr98/Sistema-per-gestione-aste#readme"
+}
