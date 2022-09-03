@@ -21,7 +21,7 @@ export const Offerta = connection.define('offerta', {
     },
 
     idUtente:{
-        type: DataTypes.INTEGER,
+        type: DataTypes.STRING,
         primaryKey: false,
         allowNull: false
     },

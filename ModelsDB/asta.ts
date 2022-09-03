@@ -15,7 +15,7 @@ export const Asta = connection.define('asta', {
         allowNull: false
     },
 
-    username_creator:{
+    idUtente_creator:{
         type: DataTypes.STRING,
         primaryKey: false,
         allowNull: false
@@ -76,7 +76,7 @@ export const Asta = connection.define('asta', {
     },
 
     idUtente_vincitore:{
-        type: DataTypes.STRING,
+        type: DataTypes.INTEGER,
         primaryKey: false,
         defaultValue: null
     },
@@ -95,4 +95,14 @@ export const Asta = connection.define('asta', {
 
 })
 
-//code
+/*
+export async function astaExist(id: number):Promise<any>{
+    let risultato: any;
+    try{
+        risultato = await Asta.findByPk(id, {raw:true});
+    }
+    catch{
+        console.log("L'asta non esiste");
+    }
+};
+*/

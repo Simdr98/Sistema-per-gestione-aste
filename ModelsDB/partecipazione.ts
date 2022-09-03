@@ -1,6 +1,6 @@
 import { Singleton } from "./SingletonDB";
 import { DataTypes, Sequelize } from "sequelize";
-import { timeStamp } from "console";
+//import { timeStamp } from "console";
 
 const connection: Sequelize = Singleton.getIstance().getConnection();
 
@@ -22,7 +22,7 @@ const connection: Sequelize = Singleton.getIstance().getConnection();
     },
 
     idUtente:{
-        type: DataTypes.INTEGER,
+        type: DataTypes.STRING,
         primaryKey: false,
         allowNull: false
     },
@@ -34,7 +34,7 @@ const connection: Sequelize = Singleton.getIstance().getConnection();
     },
 
     vincita:{
-        type: DataTypes.TINYINT,
+        type: DataTypes.BOOLEAN,
         primaryKey: false,
         allowNull: false
     },
@@ -49,6 +49,6 @@ const connection: Sequelize = Singleton.getIstance().getConnection();
         type: DataTypes.TIME,
         primaryKey: false,
         allowNull: false,
-        // defaultValue: timeStamp ???
+        defaultValue:Sequelize.literal('CURRENT_TIMESTAMP(3)')
     }
 })

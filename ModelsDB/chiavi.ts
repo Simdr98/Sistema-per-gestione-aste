@@ -27,4 +27,12 @@ export const Chiavi = connection.define('chiavi', {
     }
 })
 
-//code
+export async function userExist(id: number):Promise<any>{
+    let risultato: any;
+    try{
+        risultato = await Chiavi.findByPk(id, {raw:true});
+    }
+    catch{
+        console.log("Chiave non valida");
+    }
+};
