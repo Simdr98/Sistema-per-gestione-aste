@@ -91,8 +91,11 @@ export const Asta = connection.define('asta', {
         type: DataTypes.INTEGER,
         primaryKey: false,
         defaultValue: null
-    }
+    },
 
+},
+{
+    modelName: 'asta'
 })
 
 /*

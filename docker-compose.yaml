@@ -8,8 +8,6 @@ services:
             - .env
         ports:
           - 3306:3306
-        env_file:
-          - .env
         volumes:
         - ./seed.sql:/docker-entrypoint-initdb.d/seed.sql
                   
