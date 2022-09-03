@@ -15,5 +15,14 @@
   "bugs": {
     "url": "https://github.com/Simdr98/Sistema-per-gestione-aste/issues"
   },
-  "homepage": "https://github.com/Simdr98/Sistema-per-gestione-aste#readme"
+  "homepage": "https://github.com/Simdr98/Sistema-per-gestione-aste#readme",
+  "dependencies": {
+    "express": "^4.18.1",
+    "requirejs": "^2.3.6",
+    "sequelize": "^6.21.4",
+    "ws": "^8.8.1"
+  },
+  "devDependencies": {
+    "@types/node": "^18.7.14"
+  }
 }
