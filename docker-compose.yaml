@@ -1,18 +1,18 @@
 version: "3.7"
 services:
-    aste:
+    db:
         image: mysql
         restart: always
-        environment:
-          MYSQL_USER: user
-          MYSQL_PASSWORD: password
+        command: --default-authentication-plugin=mysql_native_password
+        env_file:
+            - .env
         ports:
           - 3306:3306
         env_file:
           - .env
         volumes:
         - ./seed.sql:/docker-entrypoint-initdb.d/seed.sql
-        - ./img:/usr/src/app/img        
+                  
     node:
         build: .
         restart: always
@@ -21,4 +21,4 @@ services:
         env_file:
           - .env
         depends_on:
-          - aste
+          - db
