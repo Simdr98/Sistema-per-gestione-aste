@@ -12,9 +12,30 @@ class NoCreate implements Msg {
     }
 }
 
+class NoVisualizeAsta implements Msg {
+    getMsg():{testo:string} {
+        return {testo: "La visualizzazione dell'asta non è andata a buon fine."}
+    }
+}
+
+class NoVisualizeCredito implements Msg {
+    getMsg():{testo:string} {
+        return {testo: "La visualizzazione del credito residuo non è andata a buon fine."}
+    }
+}
+
+class NoCredit implements Msg {
+    getMsg():{testo:string} {
+        return {testo: "Credito insufficiente."}
+    }
+}
+
 export enum ErrorMsgEnum {
     NoAuth,
     NoCreate,
+    NoVisualizeAsta,
+    NoVisualizeCredito,
+    NoCredit,
 }
 
 export function getErrorMsg(type: ErrorMsgEnum): Msg{
@@ -26,6 +47,15 @@ export function getErrorMsg(type: ErrorMsgEnum): Msg{
         case ErrorMsgEnum.NoCreate:
             msgval = new NoCreate();
             break;
+        case ErrorMsgEnum.NoVisualizeAsta:
+            msgval = new NoVisualizeAsta();
+            break;
+        case ErrorMsgEnum.NoCredit:
+            msgval = new NoCredit();
+            break;
+        case ErrorMsgEnum.NoVisualizeCredito:
+        msgval = new NoVisualizeCredito();
+        break;
     }
     return msgval;
 }
