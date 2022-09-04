@@ -30,12 +30,26 @@ class NoCredit implements Msg {
     }
 }
 
+class NoRefill implements Msg {
+    getMsg():{testo:string} {
+        return {testo: "La ricarica del credito dell'utente non è andata a buon fine."}
+    }
+}
+
+class NoStorico implements Msg {
+    getMsg():{testo:string} {
+        return {testo: "La visualizzazione dello storico delle aste non è andata a buon fine."}
+    }
+}
+
 export enum ErrorMsgEnum {
     NoAuth,
     NoCreate,
     NoVisualizeAsta,
     NoVisualizeCredito,
     NoCredit,
+    NoRefill,
+    NoStorico,
 }
 
 export function getErrorMsg(type: ErrorMsgEnum): Msg{
@@ -54,8 +68,14 @@ export function getErrorMsg(type: ErrorMsgEnum): Msg{
             msgval = new NoCredit();
             break;
         case ErrorMsgEnum.NoVisualizeCredito:
-        msgval = new NoVisualizeCredito();
-        break;
+            msgval = new NoVisualizeCredito();
+            break;
+        case ErrorMsgEnum.NoRefill:
+            msgval = new NoRefill();
+            break;
+        case ErrorMsgEnum.NoStorico:
+            msgval = new NoStorico();
+            break;
     }
     return msgval;
 }
