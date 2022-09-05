@@ -42,6 +42,30 @@ class NoStorico implements Msg {
     }
 }
 
+class NoHeader implements Msg {
+    getMsg():{testo:string} {
+        return {testo: "La richiesta non contiene l'header"}
+    }
+}
+
+class NoToken implements Msg {
+    getMsg():{testo:string} {
+        return {testo: "Token inesistente"}
+    }
+}
+
+class NoTokenValid implements Msg {
+    getMsg():{testo:string} {
+        return {testo: "Token non valido"}
+    }
+}
+
+class NoValidIdUtente implements Msg {
+    getMsg():{testo:string} {
+        return {testo: "Id utente non valido"}
+    }
+}
+
 export enum ErrorMsgEnum {
     NoAuth,
     NoCreate,
@@ -50,6 +74,10 @@ export enum ErrorMsgEnum {
     NoCredit,
     NoRefill,
     NoStorico,
+    NoHeader,
+    NoToken,
+    NoTokenValid,
+    NoValidIdUtente,
 }
 
 export function getErrorMsg(type: ErrorMsgEnum): Msg{
@@ -75,6 +103,18 @@ export function getErrorMsg(type: ErrorMsgEnum): Msg{
             break;
         case ErrorMsgEnum.NoStorico:
             msgval = new NoStorico();
+            break;
+        case ErrorMsgEnum.NoHeader:
+            msgval = new NoHeader();
+            break;
+        case ErrorMsgEnum.NoToken:
+            msgval = new NoToken();
+            break;
+        case ErrorMsgEnum.NoTokenValid:
+            msgval = new NoTokenValid();
+            break;
+        case ErrorMsgEnum.NoValidIdUtente:
+            msgval = new NoValidIdUtente();
             break;
     }
     return msgval;

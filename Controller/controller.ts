@@ -42,7 +42,7 @@ export async function creazioneAsta(req: any, res: any): Promise<void> {
     
 //funzione che permette di visualizzare le aste filtrate per il valore dello stato (rotta: visualizzaAsteFiltroStato)
 /**
- * controllo inserimento stringhe, controllo esistenza asta
+ * controllo inserimento stringhe
  * @param tipo_asta 
  * @param res 
  */
@@ -85,7 +85,7 @@ export async function visualizzaAsteFiltroTipo(req: any, res: any): Promise<void
 
 //funzione che permette di visualizzare le aste filtrate per il valore dello stato (rotta: visualizzaAsteFiltroStato)
 /**
- * controllo inserimento stringhe, controllo esistenza asta
+ * controllo inserimento stringhe
  * @param tipo_asta 
  * @param res 
  */

@@ -60,7 +60,7 @@ export async function uPartecipant(id:string):Promise<any>{
     let user: any;
     user = userExist(id);
 
-    if(user.ruolo == 'bid_partecipant') return user;
+    if(user.ruolo == 'bid_participant') return user;
     else if(!user) return false;
     else return false;   
 }
