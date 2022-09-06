@@ -8,7 +8,7 @@ class NoAuth implements Msg {
 
 class NoCreate implements Msg {
     getMsg():{testo:string} {
-        return {testo: "La creazione dell'asta non è andata a buon fine."}
+        return {testo: "La creazione non è andata a buon fine."}
     }
 }
 
@@ -66,6 +66,36 @@ class NoValidIdUtente implements Msg {
     }
 }
 
+class NoAutorization implements Msg {
+    getMsg():{testo:string} {
+        return {testo: "Id utente non valido"}
+    }
+}
+
+class NoExistUtente implements Msg {
+    getMsg():{testo:string} {
+        return {testo: "Utente inesistente"}
+    }
+}
+
+class NoExistAsta implements Msg {
+    getMsg():{testo:string} {
+        return {testo: "Asta inesistente"}
+    }
+}
+
+class NoMinBid implements Msg {
+    getMsg():{testo:string} {
+        return {testo: "La quota inserita non raggiunge la puntata minima"}
+    }
+}
+
+class NoBid implements Msg {
+    getMsg():{testo:string} {
+        return {testo: "Offerta non consentita"}
+    }
+}
+
 export enum ErrorMsgEnum {
     NoAuth,
     NoCreate,
@@ -78,6 +108,11 @@ export enum ErrorMsgEnum {
     NoToken,
     NoTokenValid,
     NoValidIdUtente,
+    NoAutorization,
+    NoExistUtente,
+    NoExistAsta,
+    NoMinBid,
+    NoBid
 }
 
 export function getErrorMsg(type: ErrorMsgEnum): Msg{
@@ -116,6 +151,21 @@ export function getErrorMsg(type: ErrorMsgEnum): Msg{
         case ErrorMsgEnum.NoValidIdUtente:
             msgval = new NoValidIdUtente();
             break;
+        case ErrorMsgEnum.NoAutorization:
+            msgval = new NoAutorization();
+            break;
+        case ErrorMsgEnum.NoExistUtente:
+            msgval = new NoExistUtente();
+                break;
+        case ErrorMsgEnum.NoExistAsta:
+            msgval = new NoExistAsta();
+                break;
+        case ErrorMsgEnum.NoMinBid:
+            msgval = new NoMinBid();
+                break;
+        case ErrorMsgEnum.NoBid:
+            msgval = new NoBid();
+                break;
     }
     return msgval;
 }

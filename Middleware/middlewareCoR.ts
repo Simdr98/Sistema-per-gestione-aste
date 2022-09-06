@@ -34,7 +34,7 @@ export const creaOfferta = [
      * middleware.controlloBidParticipant
      * middleware.creditoSufficiente
      * middleware.controlloNumOfferte
-     * middleware.controlloCampiOfferta (non vuoti, formattati bene, validi)
+     * middleware.controlloCampiOfferta (non vuoti, formattati bene, validi e offerta =min prezzo)
      */
 ];
 
