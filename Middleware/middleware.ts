@@ -50,7 +50,7 @@ export function verifyAndAuthenticate(req: any, res: any, next: any){
     try{
         let decoded = jwt.verify(req.token, process.env.KEY!);
         if(decoded !== null){
-            req.user = decoded;
+            req.utente = decoded;
             next();
         } 
     }
@@ -60,7 +60,7 @@ export function verifyAndAuthenticate(req: any, res: any, next: any){
 }
 
 export function checkPayload(req: any, res: any, next: any){
-    if((req.utente.ruolo === 'Admin' || req.user.ruolo === 'bid_creator' || req.user.ruolo === 'bid_participant')
+    if((req.utente.ruolo === 'Admin' || req.utente.ruolo === 'bid_creator' || req.utente.ruolo === 'bid_participant')
     && (typeof req.utente.idUtente === 'string') && (req.utente.idUtente.length <= 50)
     && (req.utente.idUtente != null)){
         next();
