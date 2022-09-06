@@ -60,12 +60,6 @@ class NoTokenValid implements Msg {
     }
 }
 
-class NoValidIdUtente implements Msg {
-    getMsg():{testo:string} {
-        return {testo: "Id utente non valido"}
-    }
-}
-
 class NoAutorization implements Msg {
     getMsg():{testo:string} {
         return {testo: "Id utente non valido"}
@@ -96,6 +90,18 @@ class NoBid implements Msg {
     }
 }
 
+class NoCorrect implements Msg {
+    getMsg():{testo:string} {
+        return {testo: "Dati non corretti"}
+    }
+}
+
+class NoRoute implements Msg {
+    getMsg():{testo:string} {
+        return {testo: "La rotta è inesistente"}
+    }
+}
+
 export enum ErrorMsgEnum {
     NoAuth,
     NoCreate,
@@ -107,12 +113,13 @@ export enum ErrorMsgEnum {
     NoHeader,
     NoToken,
     NoTokenValid,
-    NoValidIdUtente,
     NoAutorization,
     NoExistUtente,
     NoExistAsta,
     NoMinBid,
-    NoBid
+    NoBid,
+    NoCorrect,
+    NoRoute
 }
 
 export function getErrorMsg(type: ErrorMsgEnum): Msg{
@@ -148,9 +155,6 @@ export function getErrorMsg(type: ErrorMsgEnum): Msg{
         case ErrorMsgEnum.NoTokenValid:
             msgval = new NoTokenValid();
             break;
-        case ErrorMsgEnum.NoValidIdUtente:
-            msgval = new NoValidIdUtente();
-            break;
         case ErrorMsgEnum.NoAutorization:
             msgval = new NoAutorization();
             break;
@@ -165,6 +169,12 @@ export function getErrorMsg(type: ErrorMsgEnum): Msg{
                 break;
         case ErrorMsgEnum.NoBid:
             msgval = new NoBid();
+                break;
+        case ErrorMsgEnum.NoCorrect:
+            msgval = new NoCorrect();
+                break;
+        case ErrorMsgEnum.NoRoute:
+            msgval = new NoRoute();
                 break;
     }
     return msgval;
