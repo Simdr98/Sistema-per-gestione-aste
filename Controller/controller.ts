@@ -38,7 +38,7 @@ export async function creazioneAsta(req: any, res: any): Promise<void> {
                                     stato: "non ancora aperta"}).then((asta: any) => {
             //creazione risposta
             const nuova_risposta = getSuccessMsg(SuccessMsgEnum.AstaCreata).getMsg();
-            res.status(nuova_risposta.codice).json({descrizione: nuova_risposta.testo, asta:asta});
+            res.status(nuova_risposta.codice).json({stato: nuova_risposta.testo, risultato:asta});
         });
     } catch{(error: any) => {
             controllerErrors(ErrorMsgEnum.NoCreate, error, res);
@@ -60,7 +60,7 @@ export async function visualizzaAsteFiltroTipo(req: any, res: any): Promise<void
             raw: true
         }).then((risultato: any) => {
             const nuova_risposta = getSuccessMsg(SuccessMsgEnum.AstaVisualizzata).getMsg();
-            res.status(nuova_risposta.codice).json({descrizione:nuova_risposta.testo, risultato:risultato});
+            res.status(nuova_risposta.codice).json({stato:nuova_risposta.testo, risultato:risultato});
         }).catch((error) => {
                 controllerErrors(ErrorMsgEnum.NoVisualizeAsta, error, res);
             });
@@ -71,7 +71,7 @@ export async function visualizzaAsteFiltroTipo(req: any, res: any): Promise<void
             raw: true
         }).then((risultato: any) => {
                 const nuova_risposta = getSuccessMsg(SuccessMsgEnum.AstaVisualizzata).getMsg();
-                res.status(nuova_risposta.codice).json({descrizione:nuova_risposta.testo, risultato:risultato});
+                res.status(nuova_risposta.codice).json({stato:nuova_risposta.testo, risultato:risultato});
         }).catch((error) => {
                 controllerErrors(ErrorMsgEnum.NoVisualizeAsta, error, res);
             });
@@ -103,7 +103,7 @@ export async function visualizzaAsteFiltroTipo(req: any, res: any): Promise<void
             raw: true
         }).then((risultato: any) => {
             const nuova_risposta = getSuccessMsg(SuccessMsgEnum.AstaVisualizzata).getMsg();
-            res.status(nuova_risposta.codice).json({descrizione:nuova_risposta.testo, risultato:risultato});
+            res.status(nuova_risposta.codice).json({stato:nuova_risposta.testo, risultato:risultato});
         }).catch((error) => {
                 controllerErrors(ErrorMsgEnum.NoVisualizeAsta, error, res);
             });
@@ -114,7 +114,7 @@ export async function visualizzaAsteFiltroTipo(req: any, res: any): Promise<void
             raw: true
         }).then((risultato: any) => {
             const nuova_risposta = getSuccessMsg(SuccessMsgEnum.AstaVisualizzata).getMsg();
-            res.status(nuova_risposta.codice).json({descrizione:nuova_risposta.testo, risultato:risultato});
+            res.status(nuova_risposta.codice).json({stato:nuova_risposta.testo, risultato:risultato});
         }).catch((error) => {
                 controllerErrors(ErrorMsgEnum.NoVisualizeAsta, error, res);
             });
@@ -125,7 +125,7 @@ export async function visualizzaAsteFiltroTipo(req: any, res: any): Promise<void
             raw: true
         }).then((risultato: any) => {
             const nuova_risposta = getSuccessMsg(SuccessMsgEnum.AstaVisualizzata).getMsg();
-            res.status(nuova_risposta.codice).json({descrizione:nuova_risposta.testo, risultato:risultato});
+            res.status(nuova_risposta.codice).json({stato:nuova_risposta.testo, risultato:risultato});
         }).catch((error) => {
                 controllerErrors(ErrorMsgEnum.NoVisualizeAsta, error, res);
             });
@@ -144,7 +144,7 @@ export async function creaOfferta(req: any, res: any): Promise<void> {   //contr
     try {
         await offertaClass.Offerta.create(req.body).then((offerta: any) => {
             const nuova_risposta = getSuccessMsg(SuccessMsgEnum.OffertaCreata).getMsg();
-            res.status(nuova_risposta.codice).json({Descrizione: nuova_risposta.testo, offerta: offerta});
+            res.status(nuova_risposta.codice).json({stato: nuova_risposta.testo, risultato: offerta});
         });
     } catch{(error: any) => {
         controllerErrors(ErrorMsgEnum.NoCredit, error, res);
@@ -169,7 +169,7 @@ export async function visualizzaCredito(req: any, res: any): Promise<void>{
             var risultato = {credito: utente.credito_token};
             
             const nuova_risposta = getSuccessMsg(SuccessMsgEnum.CreditoVisualizzato).getMsg();
-            res.status(nuova_risposta.codice).json({Descrizione:nuova_risposta.testo, risultato});
+            res.status(nuova_risposta.codice).json({stato:nuova_risposta.testo, risultato});
         });
     } catch{
         (error: any) => {
