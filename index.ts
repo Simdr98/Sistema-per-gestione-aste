@@ -48,7 +48,7 @@ app.get('/controlloWallet', middleware.JWT, middleware.controlloWallet, function
 });
 
 //Rotta per la visualizzazione dell'elenco delle aste ed i relativi rilanci
-app.get('/visualizzaStoricoAsteRilanci', middleware.visualizzaStoricoAsteRilanci, function (req: any, res: any) {    
+app.get('/visualizzaStoricoAsteRilanci', middleware.JWT, middleware.visualizzaStoricoAsteRilanci, function (req: any, res: any) {    
     controller.storicoRilanci(req, res);
 });
 

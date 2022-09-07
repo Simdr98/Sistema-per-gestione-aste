@@ -11,7 +11,7 @@ import {SuccessMsgEnum, getSuccessMsg} from "../ResponseMsg/successMsg";
 function controllerErrors(err_msg_enum:ErrorMsgEnum, testoerrore:Error, res:any){
     console.log(testoerrore);
     const nuovomessaggio = getErrorMsg(err_msg_enum).getMsg();
-    res.status(nuovomessaggio.testo).json({Descrizione:nuovomessaggio.testo})
+    res.status(nuovomessaggio.codice).send(nuovomessaggio.testo);
 }
 
 
@@ -36,14 +36,9 @@ export async function creazioneAsta(req: any, res: any): Promise<void> {
                                     min_rialzo: req.body.min_rialzo, 
                                     durata_asta: req.body.durata_asta, 
                                     stato: "non ancora aperta"}).then((asta: any) => {
-            //dati aggiuntivi
-            //const data = { "id_asta": asta.idAsta }
             //creazione risposta
             const nuova_risposta = getSuccessMsg(SuccessMsgEnum.AstaCreata).getMsg();
-            res.status(nuova_risposta.codice).send(nuova_risposta.testo);
-            //CONTROLLARE RES STATUS
-            //res.status(nuova_risposta.testo).json({Descrizione:nuova_risposta.testo});
-    
+            res.status(nuova_risposta.codice).json({descrizione: nuova_risposta.testo, asta:asta});
         });
     } catch{(error: any) => {
             controllerErrors(ErrorMsgEnum.NoCreate, error, res);
@@ -65,7 +60,7 @@ export async function visualizzaAsteFiltroTipo(req: any, res: any): Promise<void
             raw: true
         }).then((risultato: any) => {
             const nuova_risposta = getSuccessMsg(SuccessMsgEnum.AstaVisualizzata).getMsg();
-            res.status(nuova_risposta.testo).json({descrizione:nuova_risposta.testo, risultato:risultato});
+            res.status(nuova_risposta.codice).json({descrizione:nuova_risposta.testo, risultato:risultato});
         }).catch((error) => {
                 controllerErrors(ErrorMsgEnum.NoVisualizeAsta, error, res);
             });
@@ -75,8 +70,8 @@ export async function visualizzaAsteFiltroTipo(req: any, res: any): Promise<void
             where: {tipo_asta: req.body.tipo_asta},
             raw: true
         }).then((risultato: any) => {
-            const nuova_risposta = getSuccessMsg(SuccessMsgEnum.AstaVisualizzata).getMsg();
-            res.status(nuova_risposta.testo).json({descrizione:nuova_risposta.testo, risultato:risultato});
+                const nuova_risposta = getSuccessMsg(SuccessMsgEnum.AstaVisualizzata).getMsg();
+                res.status(nuova_risposta.codice).json({descrizione:nuova_risposta.testo, risultato:risultato});
         }).catch((error) => {
                 controllerErrors(ErrorMsgEnum.NoVisualizeAsta, error, res);
             });
@@ -87,7 +82,7 @@ export async function visualizzaAsteFiltroTipo(req: any, res: any): Promise<void
             raw: true
         }).then((risultato: any) => {
             const nuova_risposta = getSuccessMsg(SuccessMsgEnum.AstaVisualizzata).getMsg();
-            res.status(nuova_risposta.testo).json({descrizione:nuova_risposta.testo, risultato:risultato});
+            res.status(nuova_risposta.codice).json({descrizione:nuova_risposta.testo, risultato:risultato});
         }).catch((error) => {
                 controllerErrors(ErrorMsgEnum.NoVisualizeAsta, error, res);
             });
@@ -108,7 +103,7 @@ export async function visualizzaAsteFiltroTipo(req: any, res: any): Promise<void
             raw: true
         }).then((risultato: any) => {
             const nuova_risposta = getSuccessMsg(SuccessMsgEnum.AstaVisualizzata).getMsg();
-            res.status(nuova_risposta.testo).json({descrizione:nuova_risposta.testo, risultato:risultato});
+            res.status(nuova_risposta.codice).json({descrizione:nuova_risposta.testo, risultato:risultato});
         }).catch((error) => {
                 controllerErrors(ErrorMsgEnum.NoVisualizeAsta, error, res);
             });
@@ -119,7 +114,7 @@ export async function visualizzaAsteFiltroTipo(req: any, res: any): Promise<void
             raw: true
         }).then((risultato: any) => {
             const nuova_risposta = getSuccessMsg(SuccessMsgEnum.AstaVisualizzata).getMsg();
-            res.status(nuova_risposta.testo).json({descrizione:nuova_risposta.testo, risultato:risultato});
+            res.status(nuova_risposta.codice).json({descrizione:nuova_risposta.testo, risultato:risultato});
         }).catch((error) => {
                 controllerErrors(ErrorMsgEnum.NoVisualizeAsta, error, res);
             });
@@ -130,7 +125,7 @@ export async function visualizzaAsteFiltroTipo(req: any, res: any): Promise<void
             raw: true
         }).then((risultato: any) => {
             const nuova_risposta = getSuccessMsg(SuccessMsgEnum.AstaVisualizzata).getMsg();
-            res.status(nuova_risposta.testo).json({descrizione:nuova_risposta.testo, risultato:risultato});
+            res.status(nuova_risposta.codice).json({descrizione:nuova_risposta.testo, risultato:risultato});
         }).catch((error) => {
                 controllerErrors(ErrorMsgEnum.NoVisualizeAsta, error, res);
             });
@@ -148,14 +143,8 @@ export async function visualizzaAsteFiltroTipo(req: any, res: any): Promise<void
 export async function creaOfferta(req: any, res: any): Promise<void> {   //controllo num offerte se asta chiusa
     try {
         await offertaClass.Offerta.create(req.body).then((offerta: any) => {
-            //scrittura sul file di log delle info
-            //dati aggiuntivi
-            const data = { "id_offerta": offerta.idOfferta }
-            //creazione risposta
-    
             const nuova_risposta = getSuccessMsg(SuccessMsgEnum.OffertaCreata).getMsg();
-            res.status(nuova_risposta.testo).json({Descrizione:nuova_risposta.testo});
-    
+            res.status(nuova_risposta.codice).json({Descrizione: nuova_risposta.testo, offerta: offerta});
         });
     } catch{(error: any) => {
         controllerErrors(ErrorMsgEnum.NoCredit, error, res);
@@ -175,12 +164,13 @@ export async function creaOfferta(req: any, res: any): Promise<void> {   //contr
  */
 
 export async function visualizzaCredito(req: any, res: any): Promise<void>{
+    console.log('ciao');
     try{
-        utenteClass.Utente.findByPk(req.body.id).then((utente: any) => {
+        utenteClass.Utente.findByPk(req.idUtente).then((utente: any) => {
             var risultato = {credito: utente.credito_token};
             
             const nuova_risposta = getSuccessMsg(SuccessMsgEnum.CreditoVisualizzato).getMsg();
-            res.status(nuova_risposta.testo).json({Descrizione:nuova_risposta.testo});
+            res.status(nuova_risposta.codice).json({Descrizione:nuova_risposta.testo, risultato});
         });
     } catch{
         (error: any) => {
@@ -192,18 +182,11 @@ export async function visualizzaCredito(req: any, res: any): Promise<void>{
 //funzione che permette di visualizza lo storico delle aste alle quali si sta partecipando con l'elenco dei rilanci (rotta: visualizzaStoricoAsteRilanci)
 //rilanci visualizzati prima in ordine di idAsta e poi in ordine di offerta
 
-export function storicoRilanci(req: any, res:any):void{
-    offertaClass.Offerta.findAll({
-            where:{idUtente : req.body.idUtente},
-            include:[
-            {
-                model:offertaClass.Offerta,
-                attributes:{ exclude: ['quota', 'idUtente'] },
-                order:[[offertaClass.Offerta,'idAsta','ASC'], [offertaClass.Offerta, 'idOfferta', 'ASC']]
-            }]
-        }).then((storico:any)=>{
+export async function storicoRilanci(req: any, res:any): Promise<void>{
+    console.log('sono nel controller');
+    await offertaClass.Offerta.findAll({where: {idUtente : req.idUtente}}).then((storico:any)=>{
             const nuova_risposta = getSuccessMsg(SuccessMsgEnum.StoricoVisualizzato).getMsg();
-            res.status(nuova_risposta.testo).json({Descrizione: nuova_risposta.testo});
+            res.status(nuova_risposta.codice).json({Descrizione: nuova_risposta.testo, storico:storico.every(storico.rilanci)});
         }).catch((error: any) => {
             controllerErrors(ErrorMsgEnum.NoStorico, error, res);
         });

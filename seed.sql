@@ -72,7 +72,7 @@ ALTER TABLE  utente
 
 INSERT INTO utente (idUtente, credito_token, ruolo) 
   VALUES 
-  ('adriano_mancini', 3000, 'bid_partecipant'), 
+  ('adriano_mancini', 3000, 'bid_participant'), 
   ('luca_ms', 500, 'bid_participant'),
   ('bene_dr', 2500, 'bid_participant'),
   ('hermes_', 100, 'bid_participant'),

@@ -80,11 +80,13 @@ export function checkPayload(req: any, res: any, next: any){
 
 // Funzioni rotte
 export async function controlloEsistenzaUtente(req: any, res: any, next: any){
+    console.log('controllo esistenza utente');
     const check = await utenteClass.Utente.findByPk(req.idUtente)
     if(check !== null){
+        console.log('Ok')
         next();
     }
-    else next(ErrorMsgEnum.NoExistUtente);
+    else {console.log('controllo fallito'); next(ErrorMsgEnum.NoExistUtente);}
 }
 
 
@@ -97,8 +99,9 @@ export async function controlloBidCreator(req: any, res: any, next: any){
     })
 }
 
-export function controlloBidParticipant(req: any, res: any, next: any){
-    utenteClass.Utente.findByPk(req.idUtente).then((utente: any) => {
+export async function controlloBidParticipant(req: any, res: any, next: any){
+    await utenteClass.Utente.findByPk(req.idUtente).then((utente: any) => {
+        console.log(utente.ruolo);
         if(utente.ruolo === 'bid_participant'){
             next();
         }
@@ -106,8 +109,8 @@ export function controlloBidParticipant(req: any, res: any, next: any){
     })
 }
 
-export function controlloAdmin(req: any, res: any, next: any){
-    utenteClass.Utente.findByPk(req.idUtente).then((utente: any) => {
+export async function controlloAdmin(req: any, res: any, next: any){
+    await utenteClass.Utente.findByPk(req.idUtente).then((utente: any) => {
         if(utente.ruolo === 'admin'){
             next();
         }
@@ -165,6 +168,7 @@ export async function controlloStatoAsta(req: any, res: any, next: any){
 //SISTEMARE I REQ.IDUTENTE EVENUALMENTE
 
 export async function creditoSufficiente(req: any, res: any, next: any){
+    req.body.idUtente = req.idUtente;
     await utenteClass.Utente.findByPk(req.body.idUtente).then((credito: any) => {
         if(credito.credito_token >= req.body.quota){
             next();
@@ -191,7 +195,6 @@ export async function controlloNumOfferte(req: any, res: any, next: any){
 export async function controlloCampiOfferta(req: any, res: any, next: any){
     if(typeof(req.body.idOfferta) === 'number' && req.body.idOfferta !== null
     && typeof(req.body.quota) === 'number' && req.body.quota !== null
-    && typeof(req.body.idUtente) === 'string' && req.body.idUtente !== null
     && typeof(req.body.idAsta) === 'number' && req.body.idAsta !== null){
         await astaClass.Asta.findByPk(req.body.idAsta).then((asta: any) => {
             if(req.body.quota >= asta.min_prezzo_puntata){

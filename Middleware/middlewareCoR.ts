@@ -24,12 +24,15 @@ export const visualizzaAsteFiltroStato = [
 ];
 
 export const creaOfferta = [
-    middleware.controlloEsistenzaAsta,
+    middleware.controlloEsistenzaUtente,
     middleware.controlloBidParticipant,
+    middleware.controlloEsistenzaAsta,
     middleware.creditoSufficiente,
     middleware.controlloNumOfferte,
     middleware.controlloCampiOfferta
 ];
+
+// sei arrivato qui
 
 export const controlloWallet = [
     middleware.controlloEsistenzaUtente,
