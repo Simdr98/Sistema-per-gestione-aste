@@ -40,7 +40,7 @@ export async function creazioneAsta(req: any, res: any): Promise<void> {
             //const data = { "id_asta": asta.idAsta }
             //creazione risposta
             const nuova_risposta = getSuccessMsg(SuccessMsgEnum.AstaCreata).getMsg();
-            res.status(200).send(nuova_risposta.testo);
+            res.status(nuova_risposta.codice).send(nuova_risposta.testo);
             //CONTROLLARE RES STATUS
             //res.status(nuova_risposta.testo).json({Descrizione:nuova_risposta.testo});
     

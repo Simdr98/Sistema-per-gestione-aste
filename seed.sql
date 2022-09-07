@@ -80,3 +80,46 @@ INSERT INTO utente (idUtente, credito_token, ruolo)
   ('simi_dr98', 1000, 'bid_creator'),
   ('monica_ms', 1000, 'bid_creator'),
   ('admin', 0, 'admin');
+
+INSERT INTO asta (idAsta, 
+                  idUtente_creator, 
+                  titolo_asta, 
+                  tipo_asta, 
+                  min_partecipanti, 
+                  max_partecipanti, 
+                  quota_iscrizione, 
+                  min_prezzo_puntata, 
+                  min_rialzo, 
+                  durata_asta, 
+                  stato, 
+                  idUtente_vincitore, 
+                  tot_prezzo_aggiudicato) 
+  VALUES 
+  (2, 'simi_dr98', 'computer', 'English Auction', 1, 5, 7, 10, 1, 4420, 'terminata', 'bene_dr', 50),
+  (3, 'monica_ms', 'lampada', 'English Auction', 3, 1, 5, 5, 1, 300, 'terminata', 'luca_ms', 30),
+  (4, 'simi_dr98', 'iPhone', 'First Price Sealed Bid Auction', 3, 10, 11, 10, 1, 5000, 'in esecuzione', null, 0),
+  (5, 'monica_ms', 'poltrona', 'First Price Sealed Bid Auction', 1, 10, 15, 20, 1, 7000, 'in esecuzione', null, 0),
+  (6, 'simi_dr98', 'scaffale', 'Second Price Sealed Bid Auction', 2, 13, 10, 15, 1, 4000, 'non ancora aperta', null, 0),
+  (7, 'monica_ms', 'sedia', 'Second Price Sealed Bid Auction', 3, 10, 7, 5, 1, 1000, 'non ancora aperta', null, 0);
+
+INSERT INTO offerta (idOfferta, quota, idUtente, idAsta)
+  VALUES
+    (22, 50, 'bene_dr', 2),
+    (21, 30, 'danidani', 2),
+    (32, 30, 'luca_ms', 3),
+    (31, 20, 'hermes_', 3),
+    (41, 15, 'luca_ms', 4),
+    (42, 20, 'danidani', 4),
+    (51, 30, 'hermes_', 5),
+    (52, 35, 'luca_ms', 5);
+
+INSERT INTO partecipazione (idPartecipazione, idAsta, idUtente, costo_partecipazione, vincita, contatore_rilanci)
+  VALUES 
+    (2, 2, 'bene_dr', 7, true, 2),
+    (3, 3, 'luca_ms', 5, true, 2),
+    (21, 2, 'danidani', 7, false, 3),
+    (31, 3, 'hermes_', 5, false, 1),
+    (41, 4, 'luca_ms', 5, false, 2),
+    (42, 4, 'danidani', 5, false, 2),
+    (51, 5, 'hermes_', 5, false, 1),
+    (52, 5, 'luca_ms', 5, false, 1);
