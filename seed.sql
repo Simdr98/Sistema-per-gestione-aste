@@ -44,7 +44,7 @@ CREATE TABLE partecipazione  (
    costo_partecipazione int(11) NOT NULL,
    vincita boolean NOT NULL,
    contatore_rilanci int(11) NOT NULL,
-   timestamp_iscrizione timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+   timestamp_iscrizione timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 DROP TABLE IF EXISTS utente;

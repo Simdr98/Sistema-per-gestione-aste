@@ -32,8 +32,6 @@ export const creaOfferta = [
     middleware.controlloCampiOfferta
 ];
 
-// sei arrivato qui
-
 export const controlloWallet = [
     middleware.controlloEsistenzaUtente,
     middleware.controlloBidParticipant
@@ -49,14 +47,13 @@ export const scalaCredito = [
     middleware.controlloEsistenzaAsta,
     middleware.controlloAdmin,
     middleware.controlloUtenteVincitore,
-    middleware.controlloScalaCifra
+    middleware.controlloScalaCredito
 ];
 
 export const ricaricaWalletUtente = [
     middleware.controlloEsistenzaUtente,
     middleware.controlloAdmin,
-    middleware.controlloCampiWallet,
-    middleware.controlloRicaricaCifra
+    middleware.controlloCampiRicarica
 ];
 
 export const visualizzaStoricoAste = [

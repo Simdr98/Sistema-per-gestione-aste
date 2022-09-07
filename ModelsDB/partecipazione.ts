@@ -46,8 +46,8 @@ const connection: Sequelize = Singleton.getIstance().getConnection();
     },
 
     timestamp_iscrizione:{
-        type: DataTypes.TIME,
-        primaryKey: false,
+        type: DataTypes.DATE,
+        primaryKey: false, 
         allowNull: false,
         defaultValue:Sequelize.literal('CURRENT_TIMESTAMP(3)')
     }

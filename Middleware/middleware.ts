@@ -68,7 +68,7 @@ export function verifyAndAuthenticate(req: any, res: any, next: any){
 };
 
 
-
+//da vedere
 export function checkPayload(req: any, res: any, next: any){
     if((req.ruolo === 'admin' || req.ruolo === 'bid_creator' || req.ruolo === 'bid_participant')
     && (typeof req.idUtente === 'string') && (req.idUtente.length <= 50)
@@ -80,13 +80,11 @@ export function checkPayload(req: any, res: any, next: any){
 
 // Funzioni rotte
 export async function controlloEsistenzaUtente(req: any, res: any, next: any){
-    console.log('controllo esistenza utente');
     const check = await utenteClass.Utente.findByPk(req.idUtente)
     if(check !== null){
-        console.log('Ok')
         next();
     }
-    else {console.log('controllo fallito'); next(ErrorMsgEnum.NoExistUtente);}
+    else next(ErrorMsgEnum.NoExistUtente);
 }
 
 
@@ -165,8 +163,6 @@ export async function controlloStatoAsta(req: any, res: any, next: any){
     else next(ErrorMsgEnum.NoVisualizeAsta + `:il tipo di stato dell'asta inserito non esiste`)
 }
 
-//SISTEMARE I REQ.IDUTENTE EVENUALMENTE
-
 export async function creditoSufficiente(req: any, res: any, next: any){
     req.body.idUtente = req.idUtente;
     await utenteClass.Utente.findByPk(req.body.idUtente).then((credito: any) => {
@@ -209,14 +205,14 @@ export async function controlloCampiOfferta(req: any, res: any, next: any){
 export async function controlloUtenteVincitore(req: any, res: any, next: any) {
 
     await astaClass.Asta.findByPk(req.body.idAsta).then((asta:any) => {
-            if (asta.idUtente_vincitore === req.body.idUtente) {
+            if (asta.idUtente_vincitore === req.body.idUtente_vincitore) {
                 next();
             }
             else next(ErrorMsgEnum.NoAutorization + `: l'utente non risulta il vincitore dell'asta`)
         });
 }
 
-export async function controlloScalaCifra(req: any, res: any, next: any) {
+export async function controlloScalaCredito(req: any, res: any, next: any) {
     await astaClass.Asta.findByPk(req.body.idAsta).then((asta:any) => {
         if (asta.tot_prezzo_aggiudicato === req.body.cifra) {
             next();
@@ -225,34 +221,29 @@ export async function controlloScalaCifra(req: any, res: any, next: any) {
     });
 }
 
-export function controlloRicaricaCifra(req: any, res: any, next: any) {
-    
-    if (Number.isInteger(req.body.cifra) && req.body.cifra>0) {
-            next();
-    }
-    else next(ErrorMsgEnum.NoCorrect + `: la cifra deve essere un numero e maggiore di 0`)
-}
-
-export function controlloCampiWallet(req: any, res: any, next: any) {
+export function controlloCampiRicarica(req: any, res: any, next: any) {
     if ((Number.isInteger(req.body.quantita) && req.body.quantita>0)
         && (typeof req.body.idUtente_beneficiario === 'string' && req.body.idUtente_beneficiario !== null)){
             next();
     }
-    else next(ErrorMsgEnum.NoCorrect + `:la quantità deve essere un numero e maggiore di 0, l'idUtente deve essere una stringa non nulla`)
+    else next(ErrorMsgEnum.NoCorrect + `:l'idUtente_beneficiario deve essere una stringa non nulla, la quantità deve essere un numero e maggiore di 0`)
 }
 
 
-//controlla la data nel formato stringa e nel formato GG-MM-AAAA
+//controlla la data nel formato stringa e nel formato GG-MM-AAAA ANCORA DA RISOLVERE
 export function controlloData(req: any, res: any, next: any): void {
-    const datastring = req.body.data;
-    if (typeof req.body.data !== 'string'){
-        const datastring = req.body.data.toString();
+    if (req.body.data !== null) {
+        const datastring = req.body.data;
+        if (typeof req.body.data !== 'string'){
+            const datastring = req.body.data.toString();
+        }
+        const checkData = new RegExp(/^\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])$/);
+        if ((checkData.test(datastring))) {
+            next();
+        }
+        else next(ErrorMsgEnum.NoCorrect + `: la data deve essere inserita nel formato AAAA-MM-GG`)
     }
-    const checkData = new RegExp(/^(0[1-9]|1\d|2\d|3[01])\/(0[1-9]|1[0-2])\/(19|20)\d{2}$/);
-    if ((checkData.test(datastring))) {
-        next();
-    }
-    else next(ErrorMsgEnum.NoCorrect + `: la data deve essere inserita nel formato GG/MM/AAAA`)
+    else next();
 }
 
 export function esistenzaRotta(req: any, res: any, next: any) {

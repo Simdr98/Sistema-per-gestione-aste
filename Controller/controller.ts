@@ -164,7 +164,6 @@ export async function creaOfferta(req: any, res: any): Promise<void> {   //contr
  */
 
 export async function visualizzaCredito(req: any, res: any): Promise<void>{
-    console.log('ciao');
     try{
         utenteClass.Utente.findByPk(req.idUtente).then((utente: any) => {
             var risultato = {credito: utente.credito_token};
@@ -182,14 +181,18 @@ export async function visualizzaCredito(req: any, res: any): Promise<void>{
 //funzione che permette di visualizza lo storico delle aste alle quali si sta partecipando con l'elenco dei rilanci (rotta: visualizzaStoricoAsteRilanci)
 //rilanci visualizzati prima in ordine di idAsta e poi in ordine di offerta
 
-export async function storicoRilanci(req: any, res:any): Promise<void>{
-    console.log('sono nel controller');
-    await offertaClass.Offerta.findAll({where: {idUtente : req.idUtente}}).then((storico:any)=>{
-            const nuova_risposta = getSuccessMsg(SuccessMsgEnum.StoricoVisualizzato).getMsg();
-            res.status(nuova_risposta.codice).json({Descrizione: nuova_risposta.testo, storico:storico.every(storico.rilanci)});
-        }).catch((error: any) => {
-            controllerErrors(ErrorMsgEnum.NoStorico, error, res);
-        });
+export async function storicoRilanci(req: any, res: any): Promise<void>{
+    offertaClass.Offerta.findAll({
+        where: {
+            idUtente: req.idUtente},   
+            attributes: ['idOfferta', 'quota', 'idUtente', 'idAsta'],
+            order:[['idAsta', 'DESC']],
+        }).then((storico:any)=>{
+        const nuova_risposta = getSuccessMsg(SuccessMsgEnum.StoricoVisualizzato).getMsg();
+        res.status(nuova_risposta.codice).json({stato:nuova_risposta.testo, risultato:storico});
+    }).catch((error: any) => {
+        controllerErrors(ErrorMsgEnum.NoStorico, error, res);
+    });
 }
 
 //funzione che permette di scalare il credito dell'utente che si è aggiudicata un'asta (rotta: scalaCredito)
@@ -200,11 +203,18 @@ export async function storicoRilanci(req: any, res:any): Promise<void>{
  * @param res 
  */
 
-export function scalaCredito(req: any, res:any):void{
+ export function scalaCredito(req: any, res:any):void{
 
-    utenteClass.Utente.decrement(['credito_token'], {by: req.body.prezzo_finale, where: { idUtente : req.body.idUtente_vincitore }}).then((utente:any)=>{
-        const nuova_risposta = getSuccessMsg(SuccessMsgEnum.CreditoScalato).getMsg();
-        res.status(nuova_risposta.testo).json({Descrizione:nuova_risposta.testo, /*utente:idUtente,accredito:ricarica*/ });
+    utenteClass.Utente.decrement(['credito_token'], {by: req.body.cifra, where: { idUtente : req.body.idUtente_vincitore }}).then((scala:any)=>{
+        utenteClass.Utente.findOne({
+            where: {
+                idUtente: req.body.idUtente_vincitore,
+            }
+        }).then((utentescalato: any)=> {
+            const nuova_risposta = getSuccessMsg(SuccessMsgEnum.CreditoScalato).getMsg();
+            res.status(nuova_risposta.codice).json({stato:nuova_risposta.testo, risultato:utentescalato});
+        });
+        
     }).catch((error) => {
         controllerErrors(ErrorMsgEnum.NoRefill, error, res);
     });
@@ -218,9 +228,16 @@ export function scalaCredito(req: any, res:any):void{
  * @param res 
  */
  export function ricaricaCredito(req: any, res:any):void{
-    utenteClass.Utente.increment(['credito_token'], {by: req.body.quantita, where: { idUtente: req.body.idUtente_beneficiario }}).then((utente:any)=>{
-        const nuova_risposta = getSuccessMsg(SuccessMsgEnum.CreditoRicaricato).getMsg();
-    res.status(nuova_risposta.testo).json({Descrizione:nuova_risposta.testo, /*utente:idUtente,accredito:ricarica*/ });
+    utenteClass.Utente.increment(['credito_token'], {by: req.body.quantita, where: { idUtente: req.body.idUtente_beneficiario }}).then((ricarica:any)=>{
+        utenteClass.Utente.findOne({
+            where: {
+                idUtente: req.body.idUtente_beneficiario,
+            }
+        }).then((utentericaricato: any)=> {
+            const nuova_risposta = getSuccessMsg(SuccessMsgEnum.CreditoRicaricato).getMsg();
+            res.status(nuova_risposta.codice).json({stato:nuova_risposta.testo, risultato:utentericaricato});
+        });
+        
     }).catch((error) => {
         controllerErrors(ErrorMsgEnum.NoRefill, error, res);
     });
@@ -234,28 +251,27 @@ export function scalaCredito(req: any, res:any):void{
  * @param res 
  */
  export function listaStoricoAste(req: any, res: any): void{
-    if (req.body.data==null){
+    if (req.body.data===null){
         partecipazioneClass.Partecipazione.findAll({ 
+            where: {idUtente: req.idUtente},
             raw: true
         }).then((risultato: any) => {
             const nuova_risposta = getSuccessMsg(SuccessMsgEnum.AstaVisualizzataTempoNO).getMsg();
-            res.status(nuova_risposta.testo).json({Descrizione:nuova_risposta.testo});
+            res.status(nuova_risposta.codice).json({stato:nuova_risposta.testo, risultato:risultato});
         }).catch((error) => {
             controllerErrors(ErrorMsgEnum.NoVisualizeAsta, error, res);
         });
     } else { 
         partecipazioneClass.Partecipazione.findAll({
-        where: {timestamp_iscrizione : req.body.data}, 
-        include: [
-            {
-                model:partecipazioneClass.Partecipazione,
-                attributes:{ exclude: ['idPartecipazione', 'idAsta', 'idUtente', 'costo_partecipazione', 'contatore_rilanci', 'timestamp_iscrizione'] },
-                order:[[partecipazioneClass.Partecipazione,'vincita','ASC']]
-            }],
-        raw: true
-    }).then((risultato: any) => {
+        where: {
+            idUtente: req.idUtente, 
+            //aggiungere controllo data   
+            },   
+            attributes: ['idPartecipazione', 'costo_partecipazione', 'vincita', 'timestamp_iscrizione'],
+            order:['vincita'],
+        }).then((risultato: any) => {
         const nuova_risposta = getSuccessMsg(SuccessMsgEnum.AstaVisualizzataTempoSI).getMsg();
-        res.status(nuova_risposta.testo).json({Descrizione:nuova_risposta.testo});
+        res.status(nuova_risposta.codice).json({stato:nuova_risposta.testo, risultato:risultato});
     }).catch((error) => {
         controllerErrors(ErrorMsgEnum.NoVisualizeAsta, error, res);
     });
