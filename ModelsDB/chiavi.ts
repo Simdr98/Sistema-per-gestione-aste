@@ -25,9 +25,16 @@ export const Chiavi = connection.define('chiavi', {
         primaryKey: false,
         allowNull: false
     }
+},
+{
+    modelName: 'chiavi',
+    timestamps: false,
+    freezeTableName: true
 })
 
-export async function userExist(id: number):Promise<any>{
+
+//controlla
+export async function keyExist(id: number):Promise<any>{
     let risultato: any;
     try{
         risultato = await Chiavi.findByPk(id, {raw:true});

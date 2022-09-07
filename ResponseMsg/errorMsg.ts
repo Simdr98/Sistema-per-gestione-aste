@@ -1,5 +1,6 @@
 import {Msg} from "./Msg";
 
+//autenticazione per i ruoli degli utenti, autorizzazione per le azioni permesse agli utenti
 class NoAuth implements Msg {
     getMsg():{testo:string} {
         return {testo: "Nessuna autenticazione."}

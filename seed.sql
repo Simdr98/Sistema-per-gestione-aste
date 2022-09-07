@@ -15,7 +15,7 @@ CREATE TABLE asta (
    min_prezzo_puntata int(11) NOT NULL,
    min_rialzo int(11) NOT NULL,
    durata_asta int(11) NOT NULL,
-   stato varchar(10) NOT NULL,
+   stato varchar(30) DEFAULT NULL,
    idUtente_vincitore varchar(50) DEFAULT NULL,
    tot_prezzo_aggiudicato int(11) DEFAULT 0,
    idChiave int(11) DEFAULT NULL
@@ -73,10 +73,10 @@ ALTER TABLE  utente
 INSERT INTO utente (idUtente, credito_token, ruolo) 
   VALUES 
   ('adriano_mancini', 3000, 'bid_partecipant'), 
-  ('luca_ms', 500, 'bid_partecipant'),
-  ('bene_dr', 2500, 'bid_partecipant'),
-  ('hermes_', 100, 'bid_partecipant'),
-  ('danidani', 2000, 'bid_partecipant'),
+  ('luca_ms', 500, 'bid_participant'),
+  ('bene_dr', 2500, 'bid_participant'),
+  ('hermes_', 100, 'bid_participant'),
+  ('danidani', 2000, 'bid_participant'),
   ('simi_dr98', 1000, 'bid_creator'),
   ('monica_ms', 1000, 'bid_creator'),
   ('admin', 0, 'admin');

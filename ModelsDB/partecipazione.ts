@@ -51,4 +51,9 @@ const connection: Sequelize = Singleton.getIstance().getConnection();
         allowNull: false,
         defaultValue:Sequelize.literal('CURRENT_TIMESTAMP(3)')
     }
+},
+{
+    modelName: 'partecipazione',
+    timestamps: false,
+    freezeTableName: true
 })

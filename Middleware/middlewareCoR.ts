@@ -5,7 +5,7 @@ export const JWT = [
     middleware.checkHeader,
     middleware.checkToken,
     middleware.verifyAndAuthenticate,
-    middleware.checkPayload
+    //middleware.checkPayload
 ];
 
 export const creaAsta = [

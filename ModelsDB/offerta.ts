@@ -31,6 +31,9 @@ export const Offerta = connection.define('offerta', {
         primaryKey: false,
         allowNull: false
     }
+},
+{
+    modelName: 'offerta',
+    timestamps: false,
+    freezeTableName: true
 })
-
-//code

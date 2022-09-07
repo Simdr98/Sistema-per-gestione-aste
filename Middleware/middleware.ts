@@ -48,21 +48,31 @@ export function checkToken(req: any, res: any, next: any){
   
 export function verifyAndAuthenticate(req: any, res: any, next: any){
     try{
-        let decoded = jwt.verify(req.token, process.env.KEY!);
-        if(decoded !== null){
-            req.utente = decoded;
-            next();
-        } 
+        let decifrato = jwt.verify(req.token, process.env.KEY!);
+        if(decifrato !== null){
+            if((decifrato.ruolo === "admin" || 
+            decifrato.ruolo === "bid_participant" || 
+            decifrato.ruolo === "bid_creator") &&
+            typeof decifrato.idUtente === "string"){
+            req.idUtente = decifrato.idUtente
+            req.ruolo = decifrato.ruolo
+            next()
+            } 
+            else { console.log('inserimento ruolo non corretto') }
+            }
+        else{next( ErrorMsgEnum.NoTokenValid )}
     }
     catch(error){
         next(ErrorMsgEnum.NoTokenValid)
     }
-}
+};
+
+
 
 export function checkPayload(req: any, res: any, next: any){
-    if((req.utente.ruolo === 'Admin' || req.utente.ruolo === 'bid_creator' || req.utente.ruolo === 'bid_participant')
-    && (typeof req.utente.idUtente === 'string') && (req.utente.idUtente.length <= 50)
-    && (req.utente.idUtente != null)){
+    if((req.ruolo === 'admin' || req.ruolo === 'bid_creator' || req.ruolo === 'bid_participant')
+    && (typeof req.idUtente === 'string') && (req.idUtente.length <= 50)
+    && (req.idUtente != null)){
         next();
     }
     else ErrorMsgEnum.NoAutorization;
@@ -70,34 +80,35 @@ export function checkPayload(req: any, res: any, next: any){
 
 // Funzioni rotte
 export async function controlloEsistenzaUtente(req: any, res: any, next: any){
-    const check = await utenteClass.Utente.findByPk(req.body.idUtente)
+    const check = await utenteClass.Utente.findByPk(req.idUtente)
     if(check !== null){
         next();
     }
     else next(ErrorMsgEnum.NoExistUtente);
 }
 
+
 export async function controlloBidCreator(req: any, res: any, next: any){
-    await utenteClass.Utente.findByPk(req.body.idUtente).then((ruolo: any) => {
-        if(ruolo.ruolo === 'bid_creator'){
+    await utenteClass.Utente.findByPk(req.idUtente).then((utente: any) => {
+        if(utente.ruolo === 'bid_creator'){
             next();
         }
         else next(ErrorMsgEnum.NoAutorization + `: l'utente non ha i permessi di creatore`);
     })
 }
 
-export async function controlloBidParticipant(req: any, res: any, next: any){
-    await utenteClass.Utente.findByPk(req.body.idUtente).then((ruolo: any) => {
-        if(ruolo.ruolo === 'bid_Participant'){
+export function controlloBidParticipant(req: any, res: any, next: any){
+    utenteClass.Utente.findByPk(req.idUtente).then((utente: any) => {
+        if(utente.ruolo === 'bid_participant'){
             next();
         }
         else next(ErrorMsgEnum.NoAutorization);
     })
 }
 
-export async function controlloAdmin(req: any, res: any, next: any){
-    await utenteClass.Utente.findByPk(req.body.idUtente).then((ruolo: any) => {
-        if(ruolo.ruolo === 'Admin'){
+export function controlloAdmin(req: any, res: any, next: any){
+    utenteClass.Utente.findByPk(req.idUtente).then((utente: any) => {
+        if(utente.ruolo === 'admin'){
             next();
         }
         else next(ErrorMsgEnum.NoAutorization);
@@ -105,7 +116,7 @@ export async function controlloAdmin(req: any, res: any, next: any){
 }
 
 export async function controlloEsistenzaAsta(req: any, res: any, next: any){
-    const check = await utenteClass.Utente.findByPk(req.body.idAsta)
+    const check = await astaClass.Asta.findByPk(req.body.idAsta)
     if(check !== null){
         next();
     }
@@ -113,6 +124,9 @@ export async function controlloEsistenzaAsta(req: any, res: any, next: any){
 }
 
 export async function controlloCampiAsta(req: any, res: any, next: any){
+
+    req.body.idUtente_creator = req.idUtente;
+
     if(typeof(req.body.idAsta) === 'number' && req.body.idAsta !== null
     && typeof(req.body.idUtente_creator) === 'string' && req.body.idUtente_creator !== null
     && typeof(req.body.titolo_asta) === 'string' && req.body.titolo_asta !== null
@@ -131,22 +145,24 @@ export async function controlloCampiAsta(req: any, res: any, next: any){
 }
 
 export async function controlloTipoAsta(req: any, res: any, next: any){
-    if(req.body.stato === 'English Auction' 
-    || req.body.stato === 'First Price Sealed Bid Auction' 
-    || req.body.stato === 'Second Price Sealed Bid Auction'){
+    if(req.body.tipo_asta === 'English Auction' 
+    || req.body.tipo_asta === 'First Price Sealed Bid Auction' 
+    || req.body.tipo_asta === 'Second Price Sealed Bid Auction'){
         next();
     }
     else next(ErrorMsgEnum.NoVisualizeAsta + ': il tipo di asta inserito non esiste')
 }
 
 export async function controlloStatoAsta(req: any, res: any, next: any){
-    if(req.body.tipo_asta === 'non ancora aperta' 
-    || req.body.tipo_asta === 'in esecuzione' 
-    || req.body.tipo_asta === 'terminata'){
+    if(req.body.stato === 'non ancora aperta' 
+    || req.body.stato === 'in esecuzione' 
+    || req.body.stato === 'terminata'){
         next();
     }
     else next(ErrorMsgEnum.NoVisualizeAsta + `:il tipo di stato dell'asta inserito non esiste`)
 }
+
+//SISTEMARE I REQ.IDUTENTE EVENUALMENTE
 
 export async function creditoSufficiente(req: any, res: any, next: any){
     await utenteClass.Utente.findByPk(req.body.idUtente).then((credito: any) => {
@@ -237,7 +253,7 @@ export function controlloData(req: any, res: any, next: any): void {
 }
 
 export function esistenzaRotta(req: any, res: any, next: any) {
-    next(ErrorMsgEnum.NoCorrect + `: la data deve essere inserita nel formato GG/MM/AAAA`)
+    next(ErrorMsgEnum.NoRoute)
 }
 
 /*export function logErrors(err: any, req: any, res: any, next: any) {

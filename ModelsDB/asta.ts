@@ -70,7 +70,7 @@ export const Asta = connection.define('asta', {
     },
 
     stato:{
-        type: DataTypes.STRING,
+        type: DataTypes.STRING(30),
         primaryKey: false,
         allowNull: false
     },
@@ -95,8 +95,11 @@ export const Asta = connection.define('asta', {
 
 },
 {
-    modelName: 'asta'
-})
+    modelName: 'asta',
+    timestamps: false,
+    freezeTableName: true
+} 
+);
 
 /*
 export async function astaExist(id: number):Promise<any>{

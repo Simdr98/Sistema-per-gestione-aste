@@ -25,13 +25,24 @@ function controllerErrors(err_msg_enum:ErrorMsgEnum, testoerrore:Error, res:any)
 
 export async function creazioneAsta(req: any, res: any): Promise<void> {
     try {
-        await astaClass.Asta.create(req.body).then((asta: any) => {
-            //scrittura sul file di log delle info
+        await astaClass.Asta.create({idAsta: req.body.idAsta, 
+                                    idUtente_creator: req.idUtente, 
+                                    titolo_asta: req.body.titolo_asta, 
+                                    tipo_asta: req.body.tipo_asta, 
+                                    min_partecipanti: req.body.min_partecipanti, 
+                                    max_partecipanti: req.body.max_partecipanti, 
+                                    quota_iscrizione: req.body.quota_iscrizione, 
+                                    min_prezzo_puntata: req.body.min_prezzo_puntata, 
+                                    min_rialzo: req.body.min_rialzo, 
+                                    durata_asta: req.body.durata_asta, 
+                                    stato: "non ancora aperta"}).then((asta: any) => {
             //dati aggiuntivi
-            const data = { "id_asta": asta.idAsta }
+            //const data = { "id_asta": asta.idAsta }
             //creazione risposta
             const nuova_risposta = getSuccessMsg(SuccessMsgEnum.AstaCreata).getMsg();
-            res.status(nuova_risposta.testo).json({Descrizione:nuova_risposta.testo});
+            res.status(200).send(nuova_risposta.testo);
+            //CONTROLLARE RES STATUS
+            //res.status(nuova_risposta.testo).json({Descrizione:nuova_risposta.testo});
     
         });
     } catch{(error: any) => {

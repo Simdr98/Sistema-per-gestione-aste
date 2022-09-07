@@ -16,14 +16,13 @@ export class Singleton {
 
     public static getIstance(): Singleton{
         if (!Singleton.instance){
-            Singleton.instance = new Singleton;
+            Singleton.instance = new Singleton();
         }
         
         return Singleton.instance;
 
     }
-
-    public getConnection(){
+    public getConnection(): Sequelize{
         return this.connection;
     }
 

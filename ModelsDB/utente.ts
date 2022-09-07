@@ -1,6 +1,7 @@
 import { Singleton } from "./SingletonDB";
 import { DataTypes, Sequelize } from "sequelize";
 import { Asta } from "./asta";
+import { timeStamp } from "console";
 
 const connection: Sequelize = Singleton.getIstance().getConnection();
 
@@ -10,23 +11,30 @@ const connection: Sequelize = Singleton.getIstance().getConnection();
 
 export const Utente = connection.define('utente', {
     idUtente:{
-        type: DataTypes.STRING,
+        type: DataTypes.STRING(50),
         primaryKey: true,
         allowNull: false
     },
 
     credito_token:{
-        type: DataTypes.INTEGER,
+        type: DataTypes.INTEGER(),
         primaryKey: false,
         allowNull: false
     },
 
     ruolo:{
-        type: DataTypes.STRING,
+        type: DataTypes.STRING(50),
         primaryKey: false,
         allowNull: false
     }
-});
+},
+{
+    modelName: 'utente',
+    timestamps: false,
+    freezeTableName: true
+} );
+
+
 
 export async function userExist(id: string):Promise<any>{
     let risultato: any;
