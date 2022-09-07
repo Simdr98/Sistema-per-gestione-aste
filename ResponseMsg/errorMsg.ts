@@ -2,104 +2,104 @@ import {Msg} from "./Msg";
 
 //autenticazione per i ruoli degli utenti, autorizzazione per le azioni permesse agli utenti
 class NoAuth implements Msg {
-    getMsg():{testo:string} {
-        return {testo: "Nessuna autenticazione."}
+    getMsg():{codice:number, testo:string} {
+        return {codice: 400, testo: "Nessuna autenticazione."}
     }
 }
 
 class NoCreate implements Msg {
-    getMsg():{testo:string} {
-        return {testo: "La creazione non è andata a buon fine."}
+    getMsg():{codice:number, testo:string} {
+        return {codice: 400, testo: "La creazione non è andata a buon fine."}
     }
 }
 
 class NoVisualizeAsta implements Msg {
-    getMsg():{testo:string} {
-        return {testo: "La visualizzazione dell'asta non è andata a buon fine."}
+    getMsg():{codice:number, testo:string} {
+        return {codice: 400, testo: "La visualizzazione dell'asta non è andata a buon fine."}
     }
 }
 
 class NoVisualizeCredito implements Msg {
-    getMsg():{testo:string} {
-        return {testo: "La visualizzazione del credito residuo non è andata a buon fine."}
+    getMsg():{codice:number, testo:string} {
+        return {codice: 400, testo: "La visualizzazione del credito residuo non è andata a buon fine."}
     }
 }
 
 class NoCredit implements Msg {
-    getMsg():{testo:string} {
-        return {testo: "Credito insufficiente."}
+    getMsg():{codice:number, testo:string} {
+        return {codice: 400, testo: "Credito insufficiente."}
     }
 }
 
 class NoRefill implements Msg {
-    getMsg():{testo:string} {
-        return {testo: "La ricarica del credito dell'utente non è andata a buon fine."}
+    getMsg():{codice:number, testo:string} {
+        return {codice: 400, testo: "La ricarica del credito dell'utente non è andata a buon fine."}
     }
 }
 
 class NoStorico implements Msg {
-    getMsg():{testo:string} {
-        return {testo: "La visualizzazione dello storico delle aste non è andata a buon fine."}
+    getMsg():{codice:number, testo:string} {
+        return {codice: 400, testo: "La visualizzazione dello storico delle aste non è andata a buon fine."}
     }
 }
 
 class NoHeader implements Msg {
-    getMsg():{testo:string} {
-        return {testo: "La richiesta non contiene l'header"}
+    getMsg():{codice:number, testo:string} {
+        return {codice: 400, testo: "La richiesta non contiene l'header"}
     }
 }
 
 class NoToken implements Msg {
-    getMsg():{testo:string} {
-        return {testo: "Token inesistente"}
+    getMsg():{codice:number, testo:string} {
+        return {codice: 400, testo: "Token inesistente"}
     }
 }
 
 class NoTokenValid implements Msg {
-    getMsg():{testo:string} {
-        return {testo: "Token non valido"}
+    getMsg():{codice:number, testo:string} {
+        return {codice: 400, testo: "Token non valido"}
     }
 }
 
 class NoAutorization implements Msg {
-    getMsg():{testo:string} {
-        return {testo: "Id utente non valido"}
+    getMsg():{codice:number, testo:string} {
+        return {codice: 400, testo: "Id utente non valido"}
     }
 }
 
 class NoExistUtente implements Msg {
-    getMsg():{testo:string} {
-        return {testo: "Utente inesistente"}
+    getMsg():{codice:number, testo:string} {
+        return {codice: 404 ,testo: "Utente inesistente"}
     }
 }
 
 class NoExistAsta implements Msg {
-    getMsg():{testo:string} {
-        return {testo: "Asta inesistente"}
+    getMsg():{codice:number, testo:string} {
+        return {codice: 404, testo: "Asta inesistente"}
     }
 }
 
 class NoMinBid implements Msg {
-    getMsg():{testo:string} {
-        return {testo: "La quota inserita non raggiunge la puntata minima"}
+    getMsg():{codice:number, testo:string} {
+        return {codice: 400, testo: "La quota inserita non raggiunge la puntata minima"}
     }
 }
 
 class NoBid implements Msg {
-    getMsg():{testo:string} {
-        return {testo: "Offerta non consentita"}
+    getMsg():{codice:number, testo:string} {
+        return {codice: 400, testo: "Offerta non consentita"}
     }
 }
 
 class NoCorrect implements Msg {
-    getMsg():{testo:string} {
-        return {testo: "Dati non corretti"}
+    getMsg():{codice:number, testo:string} {
+        return {codice: 400, testo: "Dati non corretti"}
     }
 }
 
 class NoRoute implements Msg {
-    getMsg():{testo:string} {
-        return {testo: "La rotta è inesistente"}
+    getMsg():{codice:number, testo:string} {
+        return {codice: 400, testo: "La rotta è inesistente"}
     }
 }
 

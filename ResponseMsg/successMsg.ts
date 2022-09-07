@@ -2,56 +2,56 @@ import { Asta } from "../ModelsDB/asta";
 import {Msg} from "./Msg";
 
 class AstaCreata implements Msg {
-    getMsg():{testo:string} {
-        return {testo:"La creazione dell'asta è avvenuta correttamente"}
+    getMsg():{codice:number, testo:string} {
+        return {codice:201, testo:"La creazione dell'asta è avvenuta correttamente"}
     }
 }
 
 class AstaVisualizzata implements Msg {
-    getMsg():{testo:string} {
-        return {testo:"La visualizzazione dell'asta è avvenuta correttamente"}
+    getMsg():{codice:number, testo:string} {
+        return {codice: 200, testo:"La visualizzazione dell'asta è avvenuta correttamente"}
     }
 }
 
 class CreditoVisualizzato implements Msg {
-    getMsg():{testo:string} {
-        return {testo:"La visualizzazione del credito è avvenuta correttamente"}
+    getMsg():{codice:number, testo:string} {
+        return {codice: 200, testo:"La visualizzazione del credito è avvenuta correttamente"}
     }
 }
 
 class OffertaCreata implements Msg {
-    getMsg():{testo:string} {
-        return {testo:"La creazione dell'offerta è avvenuta correttamente"}
+    getMsg():{codice:number, testo:string} {
+        return {codice: 201, testo:"La creazione dell'offerta è avvenuta correttamente"}
     }
 }
 
 class AstaVisualizzataTempoNO implements Msg {
-    getMsg():{testo:string} {
-        return {testo:"L'asta è stata visualizzata correttamente, senza specifica temporale."}
+    getMsg():{codice:number, testo:string} {
+        return {codice: 200, testo:"L'asta è stata visualizzata correttamente, senza specifica temporale."}
     }
 }
 
 class AstaVisualizzataTempoSI implements Msg {
-    getMsg():{testo:string} {
-        return {testo:"L'asta è stata visualizzata correttamente, con la specifica temporale."}
+    getMsg():{codice:number, testo:string} {
+        return {codice: 200, testo:"L'asta è stata visualizzata correttamente, con la specifica temporale."}
     }
 }
 
 class CreditoRicaricato implements Msg {
-    getMsg():{testo:string} {
-        return {testo:"Il credito token dell'utente è stato ricaricato correttamente."}
+    getMsg():{codice:number, testo:string} {
+        return {codice: 201, testo:"Il credito token dell'utente è stato ricaricato correttamente."}
     }
 }
 
 class CreditoScalato implements Msg {
-    getMsg():{testo:string} {
-        return {testo:"Il credito token dell'utente è stato scalato correttamente con l'ammontare del prezzo aggiudicato finale."}
+    getMsg():{codice:number, testo:string} {
+        return {codice: 201, testo:"Il credito token dell'utente è stato scalato correttamente con l'ammontare del prezzo aggiudicato finale."}
     }
 }
 
 class StoricoVisualizzato implements Msg {
-    getMsg():{testo:string} {
-        return {testo:"Lo storico delle aste a cui si è partecipato o si sta partecipando con gli eventuali rilanci è stato visualizzato correttamente."}
+    getMsg():{codice:number, testo:string} {
+        return {codice: 200, testo:"Lo storico delle aste a cui si è partecipato o si sta partecipando con gli eventuali rilanci è stato visualizzato correttamente."}
     }
 }
 

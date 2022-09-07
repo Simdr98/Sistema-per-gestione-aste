@@ -3,5 +3,8 @@
  * (sia di errore che di successo) che il server restituisce al client
  */
 export interface Msg {
-    getMsg():{testo:string};
+    getMsg():{
+        codice:number,
+        testo:string
+    };
 }
