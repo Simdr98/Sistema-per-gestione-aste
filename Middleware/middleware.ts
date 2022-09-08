@@ -4,6 +4,7 @@ import * as utenteClass from "../ModelsDB/utente";
 import * as astaClass from "../ModelsDB/asta";
 import * as offertaClass from "../ModelsDB/offerta";
 import {ErrorMsgEnum, getErrorMsg} from "../ResponseMsg/errorMsg";
+import { controllerErrors } from "../Controller/controller";
 
 //const { isNewExpression } = require('typescript'); non sono sicuro serva
 var app = express();
@@ -24,7 +25,8 @@ export function checkHeader(req: any, res: any, next: any){
       if (authHeader) {
           next();
       }else{
-          next(ErrorMsgEnum.NoHeader);
+            const risposta = getErrorMsg(ErrorMsgEnum.NoHeader).getMsg();
+            next(risposta.testo);
       }
 };
   
@@ -40,8 +42,8 @@ export function checkToken(req: any, res: any, next: any){
             res.sendStatus(403);
         }
     }
-    catch(error){
-        next(ErrorMsgEnum.NoToken);
+    catch(error: any){
+        next(controllerErrors(ErrorMsgEnum.NoToken, error, res));
     }
     
 }
@@ -58,25 +60,20 @@ export function verifyAndAuthenticate(req: any, res: any, next: any){
             req.ruolo = decifrato.ruolo
             next()
             } 
-            else { console.log('inserimento ruolo non corretto') }
+            else{
+                const risposta = getErrorMsg(ErrorMsgEnum.NoCorrectRole).getMsg();
+                next(risposta.testo);
             }
-        else{next( ErrorMsgEnum.NoTokenValid )}
+            }
+        else {
+            const risposta = getErrorMsg(ErrorMsgEnum.NoTokenValid).getMsg();
+            next(risposta.testo);
+        }
     }
-    catch(error){
-        next(ErrorMsgEnum.NoTokenValid)
+    catch(error: any){
+        controllerErrors(ErrorMsgEnum.NoTokenValid, error, res);
     }
 };
-
-
-//da vedere
-export function checkPayload(req: any, res: any, next: any){
-    if((req.ruolo === 'admin' || req.ruolo === 'bid_creator' || req.ruolo === 'bid_participant')
-    && (typeof req.idUtente === 'string') && (req.idUtente.length <= 50)
-    && (req.idUtente != null)){
-        next();
-    }
-    else ErrorMsgEnum.NoAutorization;
-}
 
 // Funzioni rotte
 export async function controlloEsistenzaUtente(req: any, res: any, next: any){
@@ -84,7 +81,10 @@ export async function controlloEsistenzaUtente(req: any, res: any, next: any){
     if(check !== null){
         next();
     }
-    else next(ErrorMsgEnum.NoExistUtente);
+    else{
+        const risposta = getErrorMsg(ErrorMsgEnum.NoExistUtente).getMsg();
+        next(risposta.testo);
+    }
 }
 
 
@@ -93,7 +93,10 @@ export async function controlloBidCreator(req: any, res: any, next: any){
         if(utente.ruolo === 'bid_creator'){
             next();
         }
-        else next(ErrorMsgEnum.NoAutorization + `: l'utente non ha i permessi di creatore`);
+        else{
+            const risposta = getErrorMsg(ErrorMsgEnum.NoAutorization).getMsg();
+            next(risposta.testo + ': l\'utente non ha i permessi di creatore');
+        }
     })
 }
 
@@ -103,7 +106,10 @@ export async function controlloBidParticipant(req: any, res: any, next: any){
         if(utente.ruolo === 'bid_participant'){
             next();
         }
-        else next(ErrorMsgEnum.NoAutorization);
+        else{
+            const risposta = getErrorMsg(ErrorMsgEnum.NoAutorization).getMsg();
+            next(risposta.testo + ': l\'utente non ha i permessi di partecipante');
+        }
     })
 }
 
@@ -112,7 +118,10 @@ export async function controlloAdmin(req: any, res: any, next: any){
         if(utente.ruolo === 'admin'){
             next();
         }
-        else next(ErrorMsgEnum.NoAutorization);
+        else{
+            const risposta = getErrorMsg(ErrorMsgEnum.NoAutorization).getMsg();
+            next(risposta.testo + ': l\'utente non ha i permessi di amministratore');
+        }
     })
 }
 
@@ -121,7 +130,10 @@ export async function controlloEsistenzaAsta(req: any, res: any, next: any){
     if(check !== null){
         next();
     }
-    else next(ErrorMsgEnum.NoExistAsta);
+    else{
+        const risposta = getErrorMsg(ErrorMsgEnum.NoExistAsta).getMsg();
+        next(risposta.testo);
+    }
 }
 
 export async function controlloCampiAsta(req: any, res: any, next: any){
@@ -142,7 +154,10 @@ export async function controlloCampiAsta(req: any, res: any, next: any){
     && typeof(req.body.durata_asta) === 'number' && req.body.durata_asta !== null){
         next();
     }
-    else next(ErrorMsgEnum.NoCreate + ': il formato dei dati inseriti non è corretto');
+    else{
+        const risposta = getErrorMsg(ErrorMsgEnum.NoCreate).getMsg();
+        next(risposta.testo + ': il formato dei dati inseriti non è corretto');
+    }
 }
 
 export async function controlloTipoAsta(req: any, res: any, next: any){
@@ -151,7 +166,10 @@ export async function controlloTipoAsta(req: any, res: any, next: any){
     || req.body.tipo_asta === 'Second Price Sealed Bid Auction'){
         next();
     }
-    else next(ErrorMsgEnum.NoVisualizeAsta + ': il tipo di asta inserito non esiste')
+    else{
+        const risposta = getErrorMsg(ErrorMsgEnum.NoVisualizeAsta).getMsg();
+        next(risposta.testo + ': il tipo di asta inserito non esiste');
+    }
 }
 
 export async function controlloStatoAsta(req: any, res: any, next: any){
@@ -160,7 +178,10 @@ export async function controlloStatoAsta(req: any, res: any, next: any){
     || req.body.stato === 'terminata'){
         next();
     }
-    else next(ErrorMsgEnum.NoVisualizeAsta + `:il tipo di stato dell'asta inserito non esiste`)
+    else{
+        const risposta = getErrorMsg(ErrorMsgEnum.NoVisualizeAsta).getMsg();
+        next(risposta.testo + `: il tipo di stato dell'asta inserito non esiste`);
+    }
 }
 
 export async function creditoSufficiente(req: any, res: any, next: any){
@@ -169,7 +190,10 @@ export async function creditoSufficiente(req: any, res: any, next: any){
         if(credito.credito_token >= req.body.quota){
             next();
         }
-        else next(ErrorMsgEnum.NoCredit);
+        else{
+            const risposta = getErrorMsg(ErrorMsgEnum.NoCredit).getMsg();
+            next(risposta.testo);
+        }
     });
 }
 
@@ -181,7 +205,10 @@ export async function controlloNumOfferte(req: any, res: any, next: any){
                 where: {idUtente:req.body.idUtente}
             }).then((num: any) => {
                    if(num !== null) next();
-                   else next(ErrorMsgEnum.NoBid);
+                   else{
+                        const risposta = getErrorMsg(ErrorMsgEnum.NoBid).getMsg();
+                        next(risposta.testo);
+                   }
                 });
         }
         else next();
@@ -196,10 +223,16 @@ export async function controlloCampiOfferta(req: any, res: any, next: any){
             if(req.body.quota >= asta.min_prezzo_puntata){
                 next();
             }
-            else next(ErrorMsgEnum.NoMinBid);
+            else{
+                const risposta = getErrorMsg(ErrorMsgEnum.NoMinBid).getMsg();
+                next(risposta.testo);
+            }
         });
     }
-    else next(ErrorMsgEnum.NoCreate + ': il formato dei dati inseriti non è corretto');
+    else{
+        const risposta = getErrorMsg(ErrorMsgEnum.NoCreate).getMsg();
+        next(risposta.testo + ': il formato dei dati inseriti non è corretto');
+    }
 }
 
 export async function controlloUtenteVincitore(req: any, res: any, next: any) {
@@ -208,7 +241,10 @@ export async function controlloUtenteVincitore(req: any, res: any, next: any) {
             if (asta.idUtente_vincitore === req.body.idUtente_vincitore) {
                 next();
             }
-            else next(ErrorMsgEnum.NoAutorization + `: l'utente non risulta il vincitore dell'asta`)
+            else{
+                const risposta = getErrorMsg(ErrorMsgEnum.NoAutorization).getMsg();
+                next(risposta.testo + `: l'utente non risulta il vincitore dell'asta`);
+            }
         });
 }
 
@@ -217,7 +253,10 @@ export async function controlloScalaCredito(req: any, res: any, next: any) {
         if (asta.tot_prezzo_aggiudicato === req.body.cifra) {
             next();
         }
-        else next(ErrorMsgEnum.NoCorrect + `: la cifra non corrisponde al totale prezzo aggiudicato dell'asta`)
+        else{
+            const risposta = getErrorMsg(ErrorMsgEnum.NoCorrect).getMsg();
+            next(risposta.testo + `: la cifra non corrisponde al totale prezzo aggiudicato dell'asta`);
+        }
     });
 }
 
@@ -226,7 +265,10 @@ export function controlloCampiRicarica(req: any, res: any, next: any) {
         && (typeof req.body.idUtente_beneficiario === 'string' && req.body.idUtente_beneficiario !== null)){
             next();
     }
-    else next(ErrorMsgEnum.NoCorrect + `:l'idUtente_beneficiario deve essere una stringa non nulla, la quantità deve essere un numero e maggiore di 0`)
+    else{
+        const risposta = getErrorMsg(ErrorMsgEnum.NoCorrect).getMsg();
+        next(risposta.testo + `:l'idUtente_beneficiario deve essere una stringa non nulla, la quantità deve essere un numero e maggiore di 0`);
+    }
 }
 
 
@@ -241,16 +283,15 @@ export function controlloData(req: any, res: any, next: any): void {
         if ((checkData.test(datastring))) {
             next();
         }
-        else next(ErrorMsgEnum.NoCorrect + `: la data deve essere inserita nel formato AAAA-MM-GG`)
+        else{
+            const risposta = getErrorMsg(ErrorMsgEnum.NoCorrect).getMsg();
+            next(risposta.testo + ': la data deve essere inserita nel formato AAAA-MM-GG');
+        }
     }
     else next();
 }
 
 export function esistenzaRotta(req: any, res: any, next: any) {
-    next(ErrorMsgEnum.NoRoute)
+    const risposta = getErrorMsg(ErrorMsgEnum.NoRoute).getMsg();
+    next(risposta.testo);
 }
-
-/*export function logErrors(err: any, req: any, res: any, next: any) {
-      console.error(err.stack);
-      next(err);
-}*/

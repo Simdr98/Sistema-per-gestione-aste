@@ -1,4 +1,3 @@
-import { error } from "console";
 import * as astaClass from "../ModelsDB/asta"
 import * as offertaClass from "../ModelsDB/offerta"
 import * as partecipazioneClass from "../ModelsDB/partecipazione"
@@ -8,7 +7,7 @@ import {ErrorMsgEnum, getErrorMsg} from "../ResponseMsg/errorMsg";
 import {SuccessMsgEnum, getSuccessMsg} from "../ResponseMsg/successMsg";
 
 
-function controllerErrors(err_msg_enum:ErrorMsgEnum, testoerrore:Error, res:any){
+export function controllerErrors(err_msg_enum:ErrorMsgEnum, testoerrore:Error, res:any){
     console.log(testoerrore);
     const nuovomessaggio = getErrorMsg(err_msg_enum).getMsg();
     res.status(nuovomessaggio.codice).send(nuovomessaggio.testo);
@@ -171,10 +170,9 @@ export async function visualizzaCredito(req: any, res: any): Promise<void>{
             const nuova_risposta = getSuccessMsg(SuccessMsgEnum.CreditoVisualizzato).getMsg();
             res.status(nuova_risposta.codice).json({stato:nuova_risposta.testo, risultato});
         });
-    } catch{
-        (error: any) => {
+    } catch{(error: any) => {
             controllerErrors(ErrorMsgEnum.NoVisualizeCredito, error, res);
-            }
+        }
     };
 }
 
@@ -270,8 +268,8 @@ export async function storicoRilanci(req: any, res: any): Promise<void>{
             attributes: ['idPartecipazione', 'costo_partecipazione', 'vincita', 'timestamp_iscrizione'],
             order:['vincita'],
         }).then((risultato: any) => {
-        const nuova_risposta = getSuccessMsg(SuccessMsgEnum.AstaVisualizzataTempoSI).getMsg();
-        res.status(nuova_risposta.codice).json({stato:nuova_risposta.testo, risultato:risultato});
+            const nuova_risposta = getSuccessMsg(SuccessMsgEnum.AstaVisualizzataTempoSI).getMsg();
+            res.status(nuova_risposta.codice).json({stato:nuova_risposta.testo, risultato:risultato});
     }).catch((error) => {
         controllerErrors(ErrorMsgEnum.NoVisualizeAsta, error, res);
     });

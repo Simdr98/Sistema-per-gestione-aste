@@ -3,43 +3,43 @@ import {Msg} from "./Msg";
 //autenticazione per i ruoli degli utenti, autorizzazione per le azioni permesse agli utenti
 class NoAuth implements Msg {
     getMsg():{codice:number, testo:string} {
-        return {codice: 400, testo: "Nessuna autenticazione."}
+        return {codice: 400, testo: "Nessuna autenticazione"}
     }
 }
 
 class NoCreate implements Msg {
     getMsg():{codice:number, testo:string} {
-        return {codice: 400, testo: "La creazione non è andata a buon fine."}
+        return {codice: 400, testo: "La creazione non è andata a buon fine"}
     }
 }
 
 class NoVisualizeAsta implements Msg {
     getMsg():{codice:number, testo:string} {
-        return {codice: 400, testo: "La visualizzazione dell'asta non è andata a buon fine."}
+        return {codice: 400, testo: "La visualizzazione dell'asta non è andata a buon fine"}
     }
 }
 
 class NoVisualizeCredito implements Msg {
     getMsg():{codice:number, testo:string} {
-        return {codice: 400, testo: "La visualizzazione del credito residuo non è andata a buon fine."}
+        return {codice: 400, testo: "La visualizzazione del credito residuo non è andata a buon fine"}
     }
 }
 
 class NoCredit implements Msg {
     getMsg():{codice:number, testo:string} {
-        return {codice: 400, testo: "Credito insufficiente."}
+        return {codice: 400, testo: "Credito insufficiente"}
     }
 }
 
 class NoRefill implements Msg {
     getMsg():{codice:number, testo:string} {
-        return {codice: 400, testo: "La ricarica del credito dell'utente non è andata a buon fine."}
+        return {codice: 400, testo: "La ricarica del credito dell'utente non è andata a buon fine"}
     }
 }
 
 class NoStorico implements Msg {
     getMsg():{codice:number, testo:string} {
-        return {codice: 400, testo: "La visualizzazione dello storico delle aste non è andata a buon fine."}
+        return {codice: 400, testo: "La visualizzazione dello storico delle aste non è andata a buon fine"}
     }
 }
 
@@ -58,6 +58,12 @@ class NoToken implements Msg {
 class NoTokenValid implements Msg {
     getMsg():{codice:number, testo:string} {
         return {codice: 400, testo: "Token non valido"}
+    }
+}
+
+class NoCorrectRole implements Msg {
+    getMsg():{codice:number, testo:string} {
+        return {codice: 400, testo: "Il ruolo inserito nel token non è corretto"}
     }
 }
 
@@ -114,6 +120,7 @@ export enum ErrorMsgEnum {
     NoHeader,
     NoToken,
     NoTokenValid,
+    NoCorrectRole,
     NoAutorization,
     NoExistUtente,
     NoExistAsta,
@@ -155,6 +162,9 @@ export function getErrorMsg(type: ErrorMsgEnum): Msg{
             break;
         case ErrorMsgEnum.NoTokenValid:
             msgval = new NoTokenValid();
+            break;
+        case ErrorMsgEnum.NoCorrectRole:
+            msgval = new NoCorrectRole();
             break;
         case ErrorMsgEnum.NoAutorization:
             msgval = new NoAutorization();

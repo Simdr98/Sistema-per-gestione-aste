@@ -27,37 +27,37 @@ class OffertaCreata implements Msg {
 
 class AstaVisualizzataTempoNO implements Msg {
     getMsg():{codice:number, testo:string} {
-        return {codice: 200, testo:"L'asta è stata visualizzata correttamente, senza specifica temporale."}
+        return {codice: 200, testo:"L'asta è stata visualizzata correttamente, senza specifica temporale"}
     }
 }
 
 class AstaVisualizzataTempoSI implements Msg {
     getMsg():{codice:number, testo:string} {
-        return {codice: 200, testo:"L'asta è stata visualizzata correttamente, con la specifica temporale."}
+        return {codice: 200, testo:"L'asta è stata visualizzata correttamente, con la specifica temporale"}
     }
 }
 
 class CreditoRicaricato implements Msg {
     getMsg():{codice:number, testo:string} {
-        return {codice: 201, testo:"Il credito token dell'utente è stato ricaricato correttamente."}
+        return {codice: 201, testo:"Il credito token dell'utente è stato ricaricato correttamente"}
     }
 }
 
 class CreditoScalato implements Msg {
     getMsg():{codice:number, testo:string} {
-        return {codice: 201, testo:"Il credito token dell'utente è stato scalato correttamente con l'ammontare del prezzo aggiudicato finale."}
+        return {codice: 201, testo:"Il credito token dell'utente è stato scalato correttamente con l'ammontare del prezzo aggiudicato finale"}
     }
 }
 
 class StoricoVisualizzato implements Msg {
     getMsg():{codice:number, testo:string} {
-        return {codice: 200, testo:"Lo storico delle aste a cui si è partecipato o si sta partecipando con gli eventuali rilanci è stato visualizzato correttamente."}
+        return {codice: 200, testo:"Lo storico delle aste a cui si è partecipato o si sta partecipando con gli eventuali rilanci è stato visualizzato correttamente"}
     }
 }
 
 /*class UtenteVincitore implements Msg {
     getMsg():{testo:string} {
-        return {testo:"L'utente vincitore dell'asta è stato registrato correttamente."}
+        return {testo:"L'utente vincitore dell'asta è stato registrato correttamente"}
     }
 }*/
 
