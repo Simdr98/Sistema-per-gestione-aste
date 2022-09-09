@@ -25,10 +25,14 @@ export const visualizzaAsteFiltroStato = [
 export const creaOfferta = [
     middleware.controlloEsistenzaUtente,
     middleware.controlloBidParticipant,
-    middleware.controlloEsistenzaAsta,
+    middleware.controlloEsistenzaAsta, //controllare anche lo stato dell'asta (da implementare)
+    middleware.controlloStatoAstaOfferta,
+    middleware.controlloCodifica
+    /*
     middleware.creditoSufficiente,
     middleware.controlloNumOfferte,
     middleware.controlloCampiOfferta
+    */
 ];
 
 export const controlloWallet = [

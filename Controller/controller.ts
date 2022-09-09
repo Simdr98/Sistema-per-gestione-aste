@@ -1,7 +1,11 @@
-import * as astaClass from "../ModelsDB/asta"
-import * as offertaClass from "../ModelsDB/offerta"
-import * as partecipazioneClass from "../ModelsDB/partecipazione"
-import * as utenteClass from "../ModelsDB/utente"
+const crypto = require('crypto');
+import * as middleware from '../Middleware/middleware';
+
+import * as astaClass from "../ModelsDB/asta";
+import * as offertaClass from "../ModelsDB/offerta";
+import * as partecipazioneClass from "../ModelsDB/partecipazione";
+import * as utenteClass from "../ModelsDB/utente";
+import * as chiaviClass from "../ModelsDB/chiavi";
 
 import {ErrorMsgEnum, getErrorMsg} from "../ResponseMsg/errorMsg";
 import {SuccessMsgEnum, getSuccessMsg} from "../ResponseMsg/successMsg";
@@ -139,16 +143,48 @@ export async function visualizzaAsteFiltroTipo(req: any, res: any): Promise<void
  * @param res 
  */
 
-export async function creaOfferta(req: any, res: any): Promise<void> {   //controllo num offerte se asta chiusa
-    try {
-        await offertaClass.Offerta.create(req.body).then((offerta: any) => {
+export async function creaOfferta(req: any, res: any): Promise<void> {
+    await astaClass.Asta.findByPk(req.query.idAsta).then((asta: any) => {
+    if(asta.tipo_asta === 'First Price Sealed Bid Auction' 
+        || asta.tipo_asta === 'Second Price Sealed Bid Auction'){
+        chiaviClass.Chiavi.findByPk(asta.idChiave).then((chiave: any) => {
+       /*
+        const obj = JSON.parse(crypto.privateDecrypt(chiave.chiavePrivata, req.body.msg));
+        req.body.idOfferta = obj.idOfferta;
+        req.body.quota = obj.quota;
+        console.log('body impostato');
+        */
+        });
+        try {
+            middleware.creditoSufficiente;
+            middleware.controlloNumOfferte;
+            middleware.controlloCampiOfferta;
+            offertaClass.Offerta.create(req.body).then((offerta: any) => {
             const nuova_risposta = getSuccessMsg(SuccessMsgEnum.OffertaCreata).getMsg();
             res.status(nuova_risposta.codice).json({stato: nuova_risposta.testo, risultato: offerta});
         });
-    } catch{(error: any) => {
-        controllerErrors(ErrorMsgEnum.NoCredit, error, res);
-        }
-    };
+        } catch{(error: any) => {
+            controllerErrors(ErrorMsgEnum.NoCredit, error, res);
+            }
+        };
+
+    }
+    else{
+        console.log('asta aperta');
+        try {
+                middleware.creditoSufficiente;
+                middleware.controlloNumOfferte;
+                middleware.controlloCampiOfferta;
+                offertaClass.Offerta.create(req.body).then((offerta: any) => {
+                const nuova_risposta = getSuccessMsg(SuccessMsgEnum.OffertaCreata).getMsg();
+                res.status(nuova_risposta.codice).json({stato: nuova_risposta.testo, risultato: offerta});
+            });
+        } catch{(error: any) => {
+            controllerErrors(ErrorMsgEnum.NoCredit, error, res);
+            }
+        };
+    }
+    });
 }
 
 //funzione che permette di controllare se credito sufficiente per effettuare un rilancio (rotta: controlloWallet)

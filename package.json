@@ -17,8 +17,10 @@
   },
   "homepage": "https://github.com/Simdr98/Sistema-per-gestione-aste#readme",
   "dependencies": {
+    "crypto": "^1.0.1",
     "dotenv": "^16.0.1",
     "express": "^4.18.1",
+    "is-base64": "^1.1.0",
     "jsonwebtoken": "8.5.1",
     "mysql2": "^2.3.3",
     "requirejs": "^2.3.6",

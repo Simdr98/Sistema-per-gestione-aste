@@ -1,10 +1,14 @@
 var express = require('express');
 const jwt = require('jsonwebtoken');
+var isBase64 = require('is-base64');
+
 import * as utenteClass from "../ModelsDB/utente";
 import * as astaClass from "../ModelsDB/asta";
 import * as offertaClass from "../ModelsDB/offerta";
+
 import {ErrorMsgEnum, getErrorMsg} from "../ResponseMsg/errorMsg";
 import { controllerErrors } from "../Controller/controller";
+
 
 //const { isNewExpression } = require('typescript'); non sono sicuro serva
 var app = express();
@@ -126,13 +130,25 @@ export async function controlloAdmin(req: any, res: any, next: any){
 }
 
 export async function controlloEsistenzaAsta(req: any, res: any, next: any){
-    const check = await astaClass.Asta.findByPk(req.body.idAsta)
-    if(check !== null){
-        next();
+    if(req.body.idAsta === undefined){
+        const check = await astaClass.Asta.findByPk(req.query.idAsta)
+        if(check !== null){
+            next();
+        }
+        else{
+            const risposta = getErrorMsg(ErrorMsgEnum.NoExistAsta).getMsg();
+            next(risposta.testo);
+        } 
     }
     else{
-        const risposta = getErrorMsg(ErrorMsgEnum.NoExistAsta).getMsg();
-        next(risposta.testo);
+        const check = await astaClass.Asta.findByPk(req.body.idAsta)
+        if(check !== null){
+            next();
+        }
+        else{
+            const risposta = getErrorMsg(ErrorMsgEnum.NoExistAsta).getMsg();
+            next(risposta.testo);
+        }
     }
 }
 
@@ -172,6 +188,16 @@ export async function controlloTipoAsta(req: any, res: any, next: any){
     }
 }
 
+export async function controlloStatoAstaOfferta(req: any, res: any, next: any){
+    astaClass.Asta.findByPk(req.query.idAsta).then((asta: any) => {
+        if(asta.stato === 'in esecuzione') next();
+        else{
+            const risposta = getErrorMsg(ErrorMsgEnum.NoCorrectState).getMsg();
+            next(risposta.testo);
+        }
+    });
+}
+
 export async function controlloStatoAsta(req: any, res: any, next: any){
     if(req.body.stato === 'non ancora aperta' 
     || req.body.stato === 'in esecuzione' 
@@ -181,6 +207,14 @@ export async function controlloStatoAsta(req: any, res: any, next: any){
     else{
         const risposta = getErrorMsg(ErrorMsgEnum.NoVisualizeAsta).getMsg();
         next(risposta.testo + `: il tipo di stato dell'asta inserito non esiste`);
+    }
+}
+
+export async function controlloCodifica(req: any, res: any, next: any){
+    if(isBase64(req.body)) await next();
+    else{
+        const risposta = getErrorMsg(ErrorMsgEnum.NoCrypt).getMsg();
+        next(risposta.testo);
     }
 }
 

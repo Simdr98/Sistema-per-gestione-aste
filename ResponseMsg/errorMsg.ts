@@ -109,6 +109,18 @@ class NoRoute implements Msg {
     }
 }
 
+class NoCrypt implements Msg {
+    getMsg():{codice:number, testo:string} {
+        return {codice: 400, testo: "il messaggio non risulta codificato"}
+    }
+}
+
+class NoCorrectState implements Msg {
+    getMsg():{codice:number, testo:string} {
+        return {codice: 400, testo: "non è possibile effettuare l'offerta: l'asta non è in esecuzione"}
+    }
+}
+
 export enum ErrorMsgEnum {
     NoAuth,
     NoCreate,
@@ -127,7 +139,9 @@ export enum ErrorMsgEnum {
     NoMinBid,
     NoBid,
     NoCorrect,
-    NoRoute
+    NoRoute,
+    NoCrypt,
+    NoCorrectState
 }
 
 export function getErrorMsg(type: ErrorMsgEnum): Msg{
@@ -186,6 +200,12 @@ export function getErrorMsg(type: ErrorMsgEnum): Msg{
                 break;
         case ErrorMsgEnum.NoRoute:
             msgval = new NoRoute();
+                break;
+        case ErrorMsgEnum.NoCrypt:
+            msgval = new NoCrypt();
+                break;
+        case ErrorMsgEnum.NoCorrectState:
+            msgval = new NoCorrectState();
                 break;
     }
     return msgval;

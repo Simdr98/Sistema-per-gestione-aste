@@ -15,13 +15,13 @@ export const Chiavi = connection.define('chiavi', {
     },
 
     chiavePrivata:{
-        type: DataTypes.INTEGER,
+        type: DataTypes.STRING,
         primaryKey: false,
         allowNull: false
     },
 
     chiavePubblica:{
-        type: DataTypes.INTEGER,
+        type: DataTypes.STRING,
         primaryKey: false,
         allowNull: false
     }
