@@ -211,7 +211,7 @@ export async function controlloStatoAsta(req: any, res: any, next: any){
 }
 
 export async function controlloCodifica(req: any, res: any, next: any){
-    if(isBase64(req.body)) await next();
+    if(isBase64(req.body.msg)) await next();
     else{
         const risposta = getErrorMsg(ErrorMsgEnum.NoCrypt).getMsg();
         next(risposta.testo);

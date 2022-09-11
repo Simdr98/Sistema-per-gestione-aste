@@ -143,34 +143,58 @@ export async function visualizzaAsteFiltroTipo(req: any, res: any): Promise<void
  * @param res 
  */
 
-export async function creaOfferta(req: any, res: any): Promise<void> {
+ export async function creaOfferta(req: any, res: any): Promise<void> {
     await astaClass.Asta.findByPk(req.query.idAsta).then((asta: any) => {
     if(asta.tipo_asta === 'First Price Sealed Bid Auction' 
-        || asta.tipo_asta === 'Second Price Sealed Bid Auction'){
+       || asta.tipo_asta === 'Second Price Sealed Bid Auction'){
         chiaviClass.Chiavi.findByPk(asta.idChiave).then((chiave: any) => {
-       /*
-        const obj = JSON.parse(crypto.privateDecrypt(chiave.chiavePrivata, req.body.msg));
+        
+        //memorizzazione del messaggio criptato in base64 dal campo msg del body della richiesta
+        let messaggio_criptato = req.body.msg;
+
+        let chiavePrivataOK= '-----BEGIN ENCRYPTED PRIVATE KEY-----\n'+chiave.chiavePrivata+'\n-----END ENCRYPTED PRIVATE KEY-----';
+
+        //creazione oggetto chiave per la funzione di crypto-decrypting
+        const chiave_privata = crypto.createPrivateKey({
+            key: chiavePrivataOK,
+            format: 'pem',
+            type: 'pkcs8',
+            passphrase: 'passphrase'});
+
+        //conversione messaggio da formato base64 a formato arrayBuffer
+        const messaggio_criptatoBuffer = Buffer.from(messaggio_criptato, 'base64');
+
+        // funzione di decryption
+        const messaggio_decriptato = crypto.privateDecrypt({
+            key: chiave_privata, 
+            oaepHash:'sha256',
+            passphrase: 'passphrase'
+            }, messaggio_criptatoBuffer);
+
+        //messaggio decriptato è in formato json e contiene due campi, idOfferta e quota. 
+        //Si effettua il parse per creare l'oggetto json e morizzare i dati in due campi del body della richiesta
+        const obj = JSON.parse(messaggio_decriptato);
         req.body.idOfferta = obj.idOfferta;
         req.body.quota = obj.quota;
-        console.log('body impostato');
-        */
-        });
+
         try {
             middleware.creditoSufficiente;
             middleware.controlloNumOfferte;
             middleware.controlloCampiOfferta;
-            offertaClass.Offerta.create(req.body).then((offerta: any) => {
+            offertaClass.Offerta.create({idOfferta: req.body.idOfferta,
+                                        quota: req.body.quota,
+                                        idUtente: req.idUtente,
+                                        idAsta: req.query.idAsta}).then((offerta: any) => {
             const nuova_risposta = getSuccessMsg(SuccessMsgEnum.OffertaCreata).getMsg();
             res.status(nuova_risposta.codice).json({stato: nuova_risposta.testo, risultato: offerta});
-        });
+            });
         } catch{(error: any) => {
             controllerErrors(ErrorMsgEnum.NoCredit, error, res);
             }
         };
-
+        });
     }
     else{
-        console.log('asta aperta');
         try {
                 middleware.creditoSufficiente;
                 middleware.controlloNumOfferte;

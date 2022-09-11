@@ -31,15 +31,3 @@ export const Chiavi = connection.define('chiavi', {
     timestamps: false,
     freezeTableName: true
 })
-
-
-//controlla
-export async function keyExist(id: number):Promise<any>{
-    let risultato: any;
-    try{
-        risultato = await Chiavi.findByPk(id, {raw:true});
-    }
-    catch{
-        console.log("Chiave non valida");
-    }
-};
