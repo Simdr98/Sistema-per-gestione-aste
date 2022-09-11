@@ -9,13 +9,25 @@ class NoAuth implements Msg {
 
 class NoCreate implements Msg {
     getMsg():{codice:number, testo:string} {
-        return {codice: 400, testo: "La creazione non è andata a buon fine"}
+        return {codice: 400, testo: "La creazione non è andata a buon fine: il formato dei dati inseriti non è corretto"}
     }
 }
 
 class NoVisualizeAsta implements Msg {
     getMsg():{codice:number, testo:string} {
-        return {codice: 400, testo: "La visualizzazione dell'asta non è andata a buon fine"}
+        return {codice: 400, testo: "La visualizzazione dell'asta non è andata a buon fine: nessuna asta esistente"}
+    }
+}
+
+class NoVisualizeAstaType implements Msg {
+    getMsg():{codice:number, testo:string} {
+        return {codice: 400, testo: "La visualizzazione dell'asta non è andata a buon fine: il tipo di asta inserito non esiste"}
+    }
+}
+
+class NoVisualizeAstaState implements Msg {
+    getMsg():{codice:number, testo:string} {
+        return {codice: 400, testo: "La visualizzazione dell'asta non è andata a buon fine: lo stato dell'asta inserito non esiste"}
     }
 }
 
@@ -67,9 +79,27 @@ class NoCorrectRole implements Msg {
     }
 }
 
-class NoAutorization implements Msg {
+class NoAutorizationCreator implements Msg {
     getMsg():{codice:number, testo:string} {
-        return {codice: 400, testo: "Id utente non valido"}
+        return {codice: 400, testo: "Id utente non valido: l'utente non ha i permessi di creatore"}
+    }
+}
+
+class NoAutorizationParticipant implements Msg {
+    getMsg():{codice:number, testo:string} {
+        return {codice: 400, testo: "Id utente non valido: l'utente non ha i permessi di partecipante"}
+    }
+}
+
+class NoAutorizationAdmin implements Msg {
+    getMsg():{codice:number, testo:string} {
+        return {codice: 400, testo: "Id utente non valido: l'utente non ha i permessi di amministratore"}
+    }
+}
+
+class NoWinner implements Msg {
+    getMsg():{codice:number, testo:string} {
+        return {codice: 400, testo: "Id utente non valido: l'utente non risulta il vincitore dell'asta"}
     }
 }
 
@@ -97,9 +127,21 @@ class NoBid implements Msg {
     }
 }
 
-class NoCorrect implements Msg {
+class NoCorrectCredit implements Msg {
     getMsg():{codice:number, testo:string} {
-        return {codice: 400, testo: "Dati non corretti"}
+        return {codice: 400, testo: "Dati non corretti: la cifra non corrisponde al totale prezzo aggiudicato dell'asta"}
+    }
+}
+
+class NoCorrectRefill implements Msg {
+    getMsg():{codice:number, testo:string} {
+        return {codice: 400, testo: "Dati non corretti: l'idUtente_beneficiario deve essere una stringa non nulla, la quantità deve essere un numero e maggiore di 0"}
+    }
+}
+
+class NoCorrectDate implements Msg {
+    getMsg():{codice:number, testo:string} {
+        return {codice: 400, testo: "Dati non corretti: la data deve essere inserita nel formato AAAA-MM-GG"}
     }
 }
 
@@ -125,6 +167,8 @@ export enum ErrorMsgEnum {
     NoAuth,
     NoCreate,
     NoVisualizeAsta,
+    NoVisualizeAstaType,
+    NoVisualizeAstaState,
     NoVisualizeCredito,
     NoCredit,
     NoRefill,
@@ -133,12 +177,17 @@ export enum ErrorMsgEnum {
     NoToken,
     NoTokenValid,
     NoCorrectRole,
-    NoAutorization,
+    NoAutorizationCreator,
+    NoAutorizationParticipant,
+    NoAutorizationAdmin,
+    NoWinner,
     NoExistUtente,
     NoExistAsta,
     NoMinBid,
     NoBid,
-    NoCorrect,
+    NoCorrectCredit,
+    NoCorrectRefill,
+    NoCorrectDate,
     NoRoute,
     NoCrypt,
     NoCorrectState
@@ -155,6 +204,12 @@ export function getErrorMsg(type: ErrorMsgEnum): Msg{
             break;
         case ErrorMsgEnum.NoVisualizeAsta:
             msgval = new NoVisualizeAsta();
+            break;
+        case ErrorMsgEnum.NoVisualizeAstaType:
+            msgval = new NoVisualizeAstaType();
+            break;
+        case ErrorMsgEnum.NoVisualizeAstaState:
+            msgval = new NoVisualizeAstaState();
             break;
         case ErrorMsgEnum.NoCredit:
             msgval = new NoCredit();
@@ -180,33 +235,51 @@ export function getErrorMsg(type: ErrorMsgEnum): Msg{
         case ErrorMsgEnum.NoCorrectRole:
             msgval = new NoCorrectRole();
             break;
-        case ErrorMsgEnum.NoAutorization:
-            msgval = new NoAutorization();
+        case ErrorMsgEnum.NoAutorizationCreator:
+            msgval = new NoAutorizationCreator();
+            break;
+        case ErrorMsgEnum.NoAutorizationParticipant:
+            msgval = new NoAutorizationParticipant();
+            break;
+        case ErrorMsgEnum.NoAutorizationAdmin:
+            msgval = new NoAutorizationAdmin();
+            break;
+        case ErrorMsgEnum.NoAutorizationAdmin:
+            msgval = new NoAutorizationAdmin();
+            break;
+        case ErrorMsgEnum.NoWinner:
+            msgval = new NoWinner();
             break;
         case ErrorMsgEnum.NoExistUtente:
             msgval = new NoExistUtente();
-                break;
+            break;
         case ErrorMsgEnum.NoExistAsta:
             msgval = new NoExistAsta();
-                break;
+            break;
         case ErrorMsgEnum.NoMinBid:
             msgval = new NoMinBid();
-                break;
+            break;
         case ErrorMsgEnum.NoBid:
             msgval = new NoBid();
-                break;
-        case ErrorMsgEnum.NoCorrect:
-            msgval = new NoCorrect();
-                break;
+            break;
+        case ErrorMsgEnum.NoCorrectCredit:
+            msgval = new NoCorrectCredit();
+            break;
+        case ErrorMsgEnum.NoCorrectRefill:
+            msgval = new NoCorrectRefill();
+            break;
+        case ErrorMsgEnum.NoCorrectDate:
+            msgval = new NoCorrectDate();
+            break;
         case ErrorMsgEnum.NoRoute:
             msgval = new NoRoute();
-                break;
+            break;
         case ErrorMsgEnum.NoCrypt:
             msgval = new NoCrypt();
-                break;
+            break;
         case ErrorMsgEnum.NoCorrectState:
             msgval = new NoCorrectState();
-                break;
+            break;
     }
     return msgval;
 }

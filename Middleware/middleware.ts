@@ -98,8 +98,8 @@ export async function controlloBidCreator(req: any, res: any, next: any){
             next();
         }
         else{
-            const risposta = getErrorMsg(ErrorMsgEnum.NoAutorization).getMsg();
-            next(risposta.testo + ': l\'utente non ha i permessi di creatore');
+            const risposta = getErrorMsg(ErrorMsgEnum.NoAutorizationCreator).getMsg();
+            next(risposta.testo);
         }
     })
 }
@@ -111,8 +111,8 @@ export async function controlloBidParticipant(req: any, res: any, next: any){
             next();
         }
         else{
-            const risposta = getErrorMsg(ErrorMsgEnum.NoAutorization).getMsg();
-            next(risposta.testo + ': l\'utente non ha i permessi di partecipante');
+            const risposta = getErrorMsg(ErrorMsgEnum.NoAutorizationParticipant).getMsg();
+            next(risposta.testo);
         }
     })
 }
@@ -123,8 +123,8 @@ export async function controlloAdmin(req: any, res: any, next: any){
             next();
         }
         else{
-            const risposta = getErrorMsg(ErrorMsgEnum.NoAutorization).getMsg();
-            next(risposta.testo + ': l\'utente non ha i permessi di amministratore');
+            const risposta = getErrorMsg(ErrorMsgEnum.NoAutorizationAdmin).getMsg();
+            next(risposta.testo);
         }
     })
 }
@@ -157,7 +157,6 @@ export async function controlloCampiAsta(req: any, res: any, next: any){
     req.body.idUtente_creator = req.idUtente;
 
     if(typeof(req.body.idAsta) === 'number' && req.body.idAsta !== null
-    && typeof(req.body.idUtente_creator) === 'string' && req.body.idUtente_creator !== null
     && typeof(req.body.titolo_asta) === 'string' && req.body.titolo_asta !== null
     && (req.body.tipo_asta === 'English Auction' 
     || req.body.tipo_asta === 'First Price Sealed Bid Auction' 
@@ -168,11 +167,12 @@ export async function controlloCampiAsta(req: any, res: any, next: any){
     && typeof(req.body.min_prezzo_puntata) === 'number' && req.body.min_prezzo_puntata !== null
     && typeof(req.body.min_rialzo) === 'number' && req.body.min_rialzo !== null
     && typeof(req.body.durata_asta) === 'number' && req.body.durata_asta !== null){
+        console.log('middleware campi asta superato');
         next();
     }
     else{
         const risposta = getErrorMsg(ErrorMsgEnum.NoCreate).getMsg();
-        next(risposta.testo + ': il formato dei dati inseriti non è corretto');
+        next(risposta.testo);
     }
 }
 
@@ -183,8 +183,8 @@ export async function controlloTipoAsta(req: any, res: any, next: any){
         next();
     }
     else{
-        const risposta = getErrorMsg(ErrorMsgEnum.NoVisualizeAsta).getMsg();
-        next(risposta.testo + ': il tipo di asta inserito non esiste');
+        const risposta = getErrorMsg(ErrorMsgEnum.NoVisualizeAstaType).getMsg();
+        next(risposta.testo);
     }
 }
 
@@ -205,8 +205,8 @@ export async function controlloStatoAsta(req: any, res: any, next: any){
         next();
     }
     else{
-        const risposta = getErrorMsg(ErrorMsgEnum.NoVisualizeAsta).getMsg();
-        next(risposta.testo + `: il tipo di stato dell'asta inserito non esiste`);
+        const risposta = getErrorMsg(ErrorMsgEnum.NoVisualizeAstaState).getMsg();
+        next(risposta.testo);
     }
 }
 
@@ -265,7 +265,7 @@ export async function controlloCampiOfferta(req: any, res: any, next: any){
     }
     else{
         const risposta = getErrorMsg(ErrorMsgEnum.NoCreate).getMsg();
-        next(risposta.testo + ': il formato dei dati inseriti non è corretto');
+        next(risposta.testo);
     }
 }
 
@@ -276,8 +276,8 @@ export async function controlloUtenteVincitore(req: any, res: any, next: any) {
                 next();
             }
             else{
-                const risposta = getErrorMsg(ErrorMsgEnum.NoAutorization).getMsg();
-                next(risposta.testo + `: l'utente non risulta il vincitore dell'asta`);
+                const risposta = getErrorMsg(ErrorMsgEnum.NoWinner).getMsg();
+                next(risposta.testo);
             }
         });
 }
@@ -288,8 +288,8 @@ export async function controlloScalaCredito(req: any, res: any, next: any) {
             next();
         }
         else{
-            const risposta = getErrorMsg(ErrorMsgEnum.NoCorrect).getMsg();
-            next(risposta.testo + `: la cifra non corrisponde al totale prezzo aggiudicato dell'asta`);
+            const risposta = getErrorMsg(ErrorMsgEnum.NoCorrectCredit).getMsg();
+            next(risposta.testo);
         }
     });
 }
@@ -300,8 +300,8 @@ export function controlloCampiRicarica(req: any, res: any, next: any) {
             next();
     }
     else{
-        const risposta = getErrorMsg(ErrorMsgEnum.NoCorrect).getMsg();
-        next(risposta.testo + `:l'idUtente_beneficiario deve essere una stringa non nulla, la quantità deve essere un numero e maggiore di 0`);
+        const risposta = getErrorMsg(ErrorMsgEnum.NoCorrectRefill).getMsg();
+        next(risposta.testo);
     }
 }
 
@@ -318,8 +318,8 @@ export function controlloData(req: any, res: any, next: any): void {
             next();
         }
         else{
-            const risposta = getErrorMsg(ErrorMsgEnum.NoCorrect).getMsg();
-            next(risposta.testo + ': la data deve essere inserita nel formato AAAA-MM-GG');
+            const risposta = getErrorMsg(ErrorMsgEnum.NoCorrectDate).getMsg();
+            next(risposta.testo);
         }
     }
     else next();
