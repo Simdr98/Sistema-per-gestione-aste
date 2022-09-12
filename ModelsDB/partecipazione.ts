@@ -10,7 +10,7 @@ const connection: Sequelize = Singleton.getIstance().getConnection();
 
  export const Partecipazione = connection.define('partecipazione', {
     idPartecipazione:{
-        type: DataTypes.BIGINT,
+        type: DataTypes.INTEGER,
         primaryKey: true,
         allowNull: false
     },
@@ -45,11 +45,17 @@ const connection: Sequelize = Singleton.getIstance().getConnection();
         allowNull: false
     },
 
-    timestamp_iscrizione:{
+    data_iscrizione:{
         type: DataTypes.DATE,
         primaryKey: false, 
         allowNull: false,
         defaultValue:Sequelize.literal('CURRENT_TIMESTAMP(3)')
+    },
+
+    socket_id: {
+        type: DataTypes.INTEGER,
+        primaryKey: false,
+        defaultValue: null
     }
 },
 {

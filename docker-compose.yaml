@@ -20,3 +20,14 @@ services:
           - .env
         depends_on:
           - db
+    
+    node2:
+        build: .
+        restart: always
+        ports:
+          - 3000:3000
+        env_file:
+          - .env
+        depends_on:
+          - db
+          - node

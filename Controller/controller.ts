@@ -7,8 +7,12 @@ import * as partecipazioneClass from "../ModelsDB/partecipazione";
 import * as utenteClass from "../ModelsDB/utente";
 import * as chiaviClass from "../ModelsDB/chiavi";
 
+import {Sequelize} from "sequelize";
+const {Op} = require("sequelize");
+
 import {ErrorMsgEnum, getErrorMsg} from "../ResponseMsg/errorMsg";
 import {SuccessMsgEnum, getSuccessMsg} from "../ResponseMsg/successMsg";
+import { isNull } from 'util';
 
 
 export function controllerErrors(err_msg_enum:ErrorMsgEnum, testoerrore:Error, res:any){
@@ -39,7 +43,10 @@ export async function creazioneAsta(req: any, res: any): Promise<void> {
                                     min_rialzo: req.body.min_rialzo, 
                                     durata_asta: req.body.durata_asta, 
                                     stato: "non ancora aperta"}).then((asta: any) => {
-            //creazione risposta
+            //UPDATE
+            if(asta.tipo_asta === 'English Auction'){
+                asta.room = 'room' + asta.idAsta;
+            }
             const nuova_risposta = getSuccessMsg(SuccessMsgEnum.AstaCreata).getMsg();
             res.status(nuova_risposta.codice).json({stato: nuova_risposta.testo, risultato:asta});
         });
@@ -139,6 +146,8 @@ export async function visualizzaAsteFiltroTipo(req: any, res: any): Promise<void
 /**
  * controllo esistenza asta, controllo bid_partecipant, controllo num offerte se asta chiusa, controllo
  * inserimento stringhe vuote o non valide
+ * 
+ * MIDDLEWARE DA AGGIUNGERE: controllo iscrizione utente all'asta
  * @param req 
  * @param res 
  */
@@ -173,9 +182,15 @@ export async function visualizzaAsteFiltroTipo(req: any, res: any): Promise<void
 
         //messaggio decriptato è in formato json e contiene due campi, idOfferta e quota. 
         //Si effettua il parse per creare l'oggetto json e morizzare i dati in due campi del body della richiesta
-        const obj = JSON.parse(messaggio_decriptato);
-        req.body.idOfferta = obj.idOfferta;
-        req.body.quota = obj.quota;
+        try {
+            const obj = JSON.parse(messaggio_decriptato);
+            req.body.idOfferta = obj.idOfferta;
+            req.body.quota = obj.quota;
+        } catch{(error: any) => {
+            console.log('messaggio non in formato json');
+            }
+        };
+       
 
         try {
             middleware.creditoSufficiente;
@@ -237,20 +252,49 @@ export async function visualizzaCredito(req: any, res: any): Promise<void>{
 }
 
 //funzione che permette di visualizza lo storico delle aste alle quali si sta partecipando con l'elenco dei rilanci (rotta: visualizzaStoricoAsteRilanci)
-//rilanci visualizzati prima in ordine di idAsta e poi in ordine di offerta
+//rilanci visualizzati prima in ordine di idAsta 
+//MODIFICARE PER NASCONDERE I RISLANCI DELLE ASTE A BUSTA CHIUSA
 
-export async function storicoRilanci(req: any, res: any): Promise<void>{
-    offertaClass.Offerta.findAll({
-        where: {
-            idUtente: req.idUtente},   
-            attributes: ['idOfferta', 'quota', 'idUtente', 'idAsta'],
-            order:[['idAsta', 'DESC']],
-        }).then((storico:any)=>{
-        const nuova_risposta = getSuccessMsg(SuccessMsgEnum.StoricoVisualizzato).getMsg();
-        res.status(nuova_risposta.codice).json({stato:nuova_risposta.testo, risultato:storico});
-    }).catch((error: any) => {
-        controllerErrors(ErrorMsgEnum.NoStorico, error, res);
-    });
+export async function storicoRilanci(req: any, res: any): Promise<void> {
+    //visualizzazione di tutti i campi della tabella Offerta relativi alle aste di tipo "English Auction" a busta aperta
+    if(req.query.tipo_asta==='English Auction') {  
+        console.log('sei nell if');      
+        astaClass.Asta.findAll({
+            include: {
+                model: offertaClass.Offerta,
+                required: true,
+                attributes: ['idOfferta', 'quota', 'idUtente', 'idAsta'],
+            },
+            where: {tipo_asta: req.query.tipo_asta},
+            attributes: ['idAsta', 'idUtente_creator', 'titolo_asta', 'tipo_asta'],
+            order:[['idAsta', 'DESC']]
+          }).then((storicoAste1Rilanci:any)=>{
+                console.log(storicoAste1Rilanci); 
+                const nuova_risposta = getSuccessMsg(SuccessMsgEnum.StoricoVisualizzato).getMsg();
+                res.status(nuova_risposta.codice).json({stato:nuova_risposta.testo, risultato:storicoAste1Rilanci});
+                }).catch((error: any) => {
+                controllerErrors(ErrorMsgEnum.NoStorico, error, res);
+            });
+    }
+        else {
+            //visualizzazione di tutti i campi tranne il valore della quota delle offerte e rilanci delle aste a busta chiusa
+            console.log('sei nell else');  
+            astaClass.Asta.findAll({
+                include: {
+                    model: offertaClass.Offerta,
+                    required: true,
+                    attributes: ['idOfferta', 'idUtente', 'idAsta'],
+                },
+                where: {tipo_asta: req.query.tipo_asta},
+                attributes: ['idAsta', 'idUtente_creator', 'titolo_asta', 'tipo_asta'],
+                order:[['idAsta', 'DESC']]
+              }).then((storicoAsteRilanci:any)=>{
+                    const nuova_risposta = getSuccessMsg(SuccessMsgEnum.StoricoVisualizzato).getMsg();
+                    res.status(nuova_risposta.codice).json({stato:nuova_risposta.testo, risultato:storicoAsteRilanci});
+                }).catch((error: any) => {
+                    controllerErrors(ErrorMsgEnum.NoStorico, error, res);
+                });
+        }
 }
 
 //funzione che permette di scalare il credito dell'utente che si è aggiudicata un'asta (rotta: scalaCredito)
@@ -260,7 +304,6 @@ export async function storicoRilanci(req: any, res: any): Promise<void>{
  * @param req 
  * @param res 
  */
-
  export function scalaCredito(req: any, res:any):void{
 
     utenteClass.Utente.decrement(['credito_token'], {by: req.body.cifra, where: { idUtente : req.body.idUtente_vincitore }}).then((scala:any)=>{
@@ -302,6 +345,13 @@ export async function storicoRilanci(req: any, res: any): Promise<void>{
 }
 
 
+//FUNZIONE PER CONVERSIONE FORMATO STRINGA A FORMATO DATA
+const toDate = (data: any) => {
+    const [day, month, year] = data.split("/")
+    return new Date(year, month - 1, day)
+}
+
+
 //funzione che permette di visualizzare lo storico delle aste, aggiudicate o non, indicando il range temporale (rotta: visualizzaStoricoAste)
 /**
  * controllo esistenza utente, inserimento formato data
@@ -309,29 +359,66 @@ export async function storicoRilanci(req: any, res: any): Promise<void>{
  * @param res 
  */
  export function listaStoricoAste(req: any, res: any): void{
-    if (req.body.data===null){
+    console.log('sei nel controller');
         partecipazioneClass.Partecipazione.findAll({ 
-            where: {idUtente: req.idUtente},
+            where: {
+                idUtente: req.idUtente,
+                vincita: req.query.vincita},
             raw: true
-        }).then((risultato: any) => {
+        }).then((storicoAste: any) => {
+            if (!req.body.da && !req.body.a){
             const nuova_risposta = getSuccessMsg(SuccessMsgEnum.AstaVisualizzataTempoNO).getMsg();
-            res.status(nuova_risposta.codice).json({stato:nuova_risposta.testo, risultato:risultato});
-        }).catch((error) => {
-            controllerErrors(ErrorMsgEnum.NoVisualizeAsta, error, res);
-        });
-    } else { 
-        partecipazioneClass.Partecipazione.findAll({
-        where: {
-            idUtente: req.idUtente, 
-            //aggiungere controllo data   
-            },   
-            attributes: ['idPartecipazione', 'costo_partecipazione', 'vincita', 'timestamp_iscrizione'],
-            order:['vincita'],
-        }).then((risultato: any) => {
-            const nuova_risposta = getSuccessMsg(SuccessMsgEnum.AstaVisualizzataTempoSI).getMsg();
-            res.status(nuova_risposta.codice).json({stato:nuova_risposta.testo, risultato:risultato});
-    }).catch((error) => {
-        controllerErrors(ErrorMsgEnum.NoVisualizeAsta, error, res);
-    });
-    }
-}
+            res.status(nuova_risposta.codice).json({stato:nuova_risposta.testo, risultato:storicoAste});
+            }
+        }).catch((error: any) => {
+                controllerErrors(ErrorMsgEnum.NoVisualizeAsta, error, res);
+                });
+        
+        if (req.body.da && !req.body.a) {
+            console.log('sei nel primo if');
+            console.log(req.body.da);
+            const inputDa = toDate(req.body.da);
+            console.log(inputDa);
+            partecipazioneClass.Partecipazione.findAll({ 
+                where: {
+                    idUtente: req.idUtente,
+                    vincita: req.query.vincita,
+                    data_iscrizione: {
+                                        [Op.gte]: inputDa
+                                    }}
+            }).then((storicoAsteDa: any) => {
+                    if(storicoAsteDa.isNull) {
+                        const nuova_risposta = getSuccessMsg(SuccessMsgEnum.AstaVisualizzataRisNO).getMsg();
+                        res.status(nuova_risposta.codice).json({stato:nuova_risposta.testo, risultato:storicoAsteDa});
+                    }
+                    else {
+                        const nuova_risposta = getSuccessMsg(SuccessMsgEnum.AstaVisualizzataTempoSI).getMsg();
+                        res.status(nuova_risposta.codice).json({stato:nuova_risposta.testo, risultato:storicoAsteDa});
+                    }
+                })
+                }
+            else if (req.body.da && req.body.a) {
+                console.log('sei nel secondo if')
+                const inputDa = toDate(req.body.da);
+                const inputA = toDate(req.body.a);
+                console.log(' ', inputDa, ' ', inputA);
+                partecipazioneClass.Partecipazione.findAll({ 
+                    where: {
+                        idUtente: req.idUtente,
+                        vincita: req.query.vincita,
+                        data_iscrizione: {
+                                [Op.between]: [inputDa, inputA]
+                                }
+                }
+            }).then((storicoAsteDaA: any) => {
+                    if(storicoAsteDaA.isNull) {
+                        const nuova_risposta = getSuccessMsg(SuccessMsgEnum.AstaVisualizzataRisNO).getMsg();
+                        res.status(nuova_risposta.codice).json({stato:nuova_risposta.testo, risultato:storicoAsteDaA});
+                    }
+                    else {
+                        const nuova_risposta = getSuccessMsg(SuccessMsgEnum.AstaVisualizzataTempoSI).getMsg();
+                        res.status(nuova_risposta.codice).json({stato:nuova_risposta.testo, risultato:storicoAsteDaA});
+                    }
+                })
+            }
+    } 

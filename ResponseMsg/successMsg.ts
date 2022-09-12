@@ -13,6 +13,12 @@ class AstaVisualizzata implements Msg {
     }
 }
 
+class IscrizioneSI implements Msg {
+    getMsg():{codice:number, testo:string} {
+        return {codice: 200, testo:"L'iscrizione è avvenuta con successo."}
+    }
+}
+
 class CreditoVisualizzato implements Msg {
     getMsg():{codice:number, testo:string} {
         return {codice: 200, testo:"La visualizzazione del credito è avvenuta correttamente"}
@@ -27,13 +33,19 @@ class OffertaCreata implements Msg {
 
 class AstaVisualizzataTempoNO implements Msg {
     getMsg():{codice:number, testo:string} {
-        return {codice: 200, testo:"L'asta è stata visualizzata correttamente, senza specifica temporale"}
+        return {codice: 200, testo:"Il risultato della ricerca è stato visualizzato correttamente, senza specifica temporale"}
     }
 }
 
 class AstaVisualizzataTempoSI implements Msg {
     getMsg():{codice:number, testo:string} {
-        return {codice: 200, testo:"L'asta è stata visualizzata correttamente, con la specifica temporale"}
+        return {codice: 200, testo:"Il risultato della ricerca è stato visualizzato correttamente, con la specifica temporale"}
+    }
+}
+
+class AstaVisualizzataRisNO implements Msg {
+    getMsg():{codice:number, testo:string} {
+        return {codice: 200, testo:"Il risultato della ricerca è visualizzato correttamento ma nullo per questo utente."}
     }
 }
 
@@ -65,10 +77,12 @@ class StoricoVisualizzato implements Msg {
 export enum SuccessMsgEnum {
     AstaCreata,
     AstaVisualizzata,
+    IscrizioneSI,
     OffertaCreata,
     CreditoVisualizzato,
     AstaVisualizzataTempoNO,
     AstaVisualizzataTempoSI,
+    AstaVisualizzataRisNO,
     CreditoRicaricato,
     CreditoScalato,
     //UtenteVincitore,
@@ -84,6 +98,9 @@ export function getSuccessMsg(type: SuccessMsgEnum): Msg{
         case SuccessMsgEnum.AstaVisualizzata:
             msgval = new AstaVisualizzata();
             break;
+        case SuccessMsgEnum.IscrizioneSI:
+            msgval = new IscrizioneSI();
+            break;
         case SuccessMsgEnum.OffertaCreata:
             msgval = new OffertaCreata();
             break;
@@ -95,6 +112,9 @@ export function getSuccessMsg(type: SuccessMsgEnum): Msg{
             break;
         case SuccessMsgEnum.AstaVisualizzataTempoSI:
             msgval = new AstaVisualizzataTempoSI();
+            break;
+        case SuccessMsgEnum.AstaVisualizzataRisNO:
+            msgval = new AstaVisualizzataRisNO();
             break;
         case SuccessMsgEnum.CreditoRicaricato:
             msgval = new CreditoRicaricato();

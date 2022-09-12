@@ -211,12 +211,22 @@ export async function controlloStatoAsta(req: any, res: any, next: any){
 }
 
 export async function controlloCodifica(req: any, res: any, next: any){
-    if(isBase64(req.body.msg)) await next();
+    const base64regex = /^([0-9a-zA-Z+/]{4})*(([0-9a-zA-Z+/]{2}==)|([0-9a-zA-Z+/]{3}=))?$/;
+    
+    if(base64regex.test(req.body.msg)) await next();
     else{
         const risposta = getErrorMsg(ErrorMsgEnum.NoCrypt).getMsg();
         next(risposta.testo);
     }
+    /*
+    if(isBase64(req.body.msg)) await next();
+    else{
+        const risposta = getErrorMsg(ErrorMsgEnum.NoCrypt).getMsg();
+        next(risposta.testo);
+    }*/
 }
+    
+
 
 export async function creditoSufficiente(req: any, res: any, next: any){
     req.body.idUtente = req.idUtente;
@@ -306,23 +316,45 @@ export function controlloCampiRicarica(req: any, res: any, next: any) {
 }
 
 
-//controlla la data nel formato stringa e nel formato GG-MM-AAAA ANCORA DA RISOLVERE
+//controlla la data nel formato stringa e nel formato GG-MM-AAAA ANCORA DA RISOLVERE, INPUT SOLO DATA
 export function controlloData(req: any, res: any, next: any): void {
-    if (req.body.data !== null) {
-        const datastring = req.body.data;
-        if (typeof req.body.data !== 'string'){
-            const datastring = req.body.data.toString();
+    if (req.body.da || req.body.a) {
+        //controllo campo body richiesta data "da"
+        if (req.body.da) {
+            const datastringDa = req.body.da;
+            if (typeof req.body.da !== 'string'){
+                console.log('data non è una stringa -> conversione')
+                const datastringDa = req.body.da.toString();
+                console.log(datastringDa, 'data ora è stringa')
+            }
+            const checkData = new RegExp(/(0?[1-9]|[12][0-9]|3[01])[\/](0?[1-9]|1[012])[\/](19|20)\d\d/);
+            if ((checkData.test(datastringDa))) {
+                console.log('data DA ok')
+            }
+            else{
+                const risposta = getErrorMsg(ErrorMsgEnum.NoCorrectDate).getMsg();
+                next(risposta.testo);
+            }
+        }   
+        //controllo campo del body richiesta: data "a"
+        if (req.body.a) {
+            const datastringA = req.body.a;
+            if (typeof req.body.a !== 'string'){
+                console.log('data non è una stringa -> conversione')
+                const datastringA = req.body.a.toString();
+                console.log(datastringA, 'data ora è stringa')
+            }
+            const checkData = new RegExp(/(0?[1-9]|[12][0-9]|3[01])[\/](0?[1-9]|1[012])[\/](19|20)\d\d/);
+            if ((checkData.test(datastringA))) {
+                console.log('data A ok')
+            } else{
+                const risposta = getErrorMsg(ErrorMsgEnum.NoCorrectDate).getMsg();
+                next(risposta.testo);
+            }
         }
-        const checkData = new RegExp(/^\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])$/);
-        if ((checkData.test(datastring))) {
-            next();
-        }
-        else{
-            const risposta = getErrorMsg(ErrorMsgEnum.NoCorrectDate).getMsg();
-            next(risposta.testo);
-        }
-    }
-    else next();
+        next();
+
+    } else next();
 }
 
 export function esistenzaRotta(req: any, res: any, next: any) {

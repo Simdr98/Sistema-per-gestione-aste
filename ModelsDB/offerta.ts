@@ -1,5 +1,6 @@
 import { Singleton } from "./SingletonDB";
 import { DataTypes, Sequelize } from "sequelize";
+import { Asta } from "./asta";
 
 const connection: Sequelize = Singleton.getIstance().getConnection();
 
@@ -36,4 +37,10 @@ export const Offerta = connection.define('offerta', {
     modelName: 'offerta',
     timestamps: false,
     freezeTableName: true
-})
+});
+/*
+Offerta.belongsTo( Asta, 
+    {
+        foreignKey: 'idAsta'
+      })
+      */

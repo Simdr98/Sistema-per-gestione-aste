@@ -141,7 +141,7 @@ class NoCorrectRefill implements Msg {
 
 class NoCorrectDate implements Msg {
     getMsg():{codice:number, testo:string} {
-        return {codice: 400, testo: "Dati non corretti: la data deve essere inserita nel formato AAAA-MM-GG"}
+        return {codice: 400, testo: "Dati non corretti: la data deve essere inserita nel formato GG/MM/AAAA"}
     }
 }
 
@@ -157,9 +157,21 @@ class NoCrypt implements Msg {
     }
 }
 
-class NoCorrectState implements Msg {
+class NoCorrectStateBid implements Msg {
     getMsg():{codice:number, testo:string} {
         return {codice: 400, testo: "non è possibile effettuare l'offerta: l'asta non è in esecuzione"}
+    }
+}
+
+class NoCorrectStateParticipate implements Msg {
+    getMsg():{codice:number, testo:string} {
+        return {codice: 400, testo: "non è possibile effettuare l'iscrizione: l'asta risulta terminata"}
+    }
+}
+
+class NoParticipate implements Msg {
+    getMsg():{codice:number, testo:string} {
+        return {codice: 400, testo: "non è possibile effettuare l'iscrizione: l'asta ha già raggiunto il numero massimo di partecipanti consentito"}
     }
 }
 
@@ -190,7 +202,9 @@ export enum ErrorMsgEnum {
     NoCorrectDate,
     NoRoute,
     NoCrypt,
-    NoCorrectState
+    NoCorrectStateBid,
+    NoCorrectStateParticipate,
+    NoParticipate,
 }
 
 export function getErrorMsg(type: ErrorMsgEnum): Msg{
@@ -277,8 +291,14 @@ export function getErrorMsg(type: ErrorMsgEnum): Msg{
         case ErrorMsgEnum.NoCrypt:
             msgval = new NoCrypt();
             break;
-        case ErrorMsgEnum.NoCorrectState:
-            msgval = new NoCorrectState();
+        case ErrorMsgEnum.NoCorrectStateBid:
+            msgval = new NoCorrectStateBid();
+            break;
+        case ErrorMsgEnum.NoCorrectStateParticipate:
+            msgval = new NoCorrectStateParticipate();
+            break;
+        case ErrorMsgEnum.NoParticipate:
+            msgval = new NoParticipate();
             break;
     }
     return msgval;

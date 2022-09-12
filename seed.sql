@@ -9,6 +9,7 @@ CREATE TABLE asta (
    idUtente_creator varchar(50) NOT NULL,
    titolo_asta varchar(50) NOT NULL,
    tipo_asta varchar(50) NOT NULL,
+   num_partecipanti int(11) DEFAULT 0,
    min_partecipanti int(11) NOT NULL,
    max_partecipanti int(11) NOT NULL,
    quota_iscrizione int(11) NOT NULL,
@@ -18,7 +19,8 @@ CREATE TABLE asta (
    stato varchar(30) DEFAULT NULL,
    idUtente_vincitore varchar(50) DEFAULT NULL,
    tot_prezzo_aggiudicato int(11) DEFAULT 0,
-   idChiave int(11) DEFAULT NULL
+   idChiave int(11) DEFAULT NULL,
+   room varchar(50) DEFAULT NULL;
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 DROP TABLE IF EXISTS chiavi;
@@ -38,13 +40,14 @@ CREATE TABLE offerta (
 
 DROP TABLE IF EXISTS partecipazione;
 CREATE TABLE partecipazione  (
-   idPartecipazione bigint(20) UNSIGNED NOT NULL,
+   idPartecipazione int(11) NOT NULL,
    idAsta int(11) NOT NULL,
    idUtente varchar(50) NOT NULL,
    costo_partecipazione int(11) NOT NULL,
    vincita boolean NOT NULL,
    contatore_rilanci int(11) NOT NULL,
-   timestamp_iscrizione timestamp NOT NULL DEFAULT current_timestamp()
+   data_iscrizione timestamp NOT NULL DEFAULT current_timestamp(),
+   socket_id varchar(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 DROP TABLE IF EXISTS utente;

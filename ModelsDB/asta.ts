@@ -1,6 +1,7 @@
 import { Singleton } from "./SingletonDB";
 import { DataTypes, ForeignKeyConstraintError, Sequelize } from "sequelize";
 import { isCryptoKey } from "util/types";
+import { Offerta } from "./offerta";
 
 const connection: Sequelize = Singleton.getIstance().getConnection();
 
@@ -31,6 +32,12 @@ export const Asta = connection.define('asta', {
         type: DataTypes.STRING,
         primaryKey: false,
         allowNull: false
+    },
+
+    num_partecipanti:{
+        type: DataTypes.INTEGER,
+        primaryKey: false,
+        defaultValue: 0
     },
 
     min_partecipanti:{
@@ -93,22 +100,20 @@ export const Asta = connection.define('asta', {
         defaultValue: null
     },
 
+    room: {
+        type: DataTypes.STRING,
+        primaryKey: false,
+        defaultValue: null
+    }
+
 },
 {
     modelName: 'asta',
     timestamps: false,
     freezeTableName: true
-} 
-);
+});
 
-/*
-export async function astaExist(id: number):Promise<any>{
-    let risultato: any;
-    try{
-        risultato = await Asta.findByPk(id, {raw:true});
-    }
-    catch{
-        console.log("L'asta non esiste");
-    }
-};
-*/
+Asta.hasMany(Offerta, {
+    foreignKey: 'idAsta',
+    sourceKey: 'idAsta',
+  });
