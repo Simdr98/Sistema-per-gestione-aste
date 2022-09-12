@@ -72,3 +72,42 @@ app.post('*', middleware.rottaSbagliata);
 
 app.listen(PORT, HOST);
 console.log(`Il server è in running sulla porta ${PORT}`)
+
+// Socket.io
+const app2 = express();
+const http = require('http');
+const server = http.createServer(app2);
+const { Server } = require("socket.io");
+const io = new Server(server);
+
+const path = require('path');
+
+const PORT2 = 3000;
+
+app2.get('/index', (req: any, res: any) => {
+    res.sendFile(path.join(__dirname, 'index.html'));
+    console.log('invio eseguito');
+});
+
+/*
+io.on('connection', (socket: any) => {
+    console.log('a user connected');
+    socket.on('disconnect', () => {
+      console.log('user disconnected');
+    });
+  });
+
+io.on('connection', (socket: any) => {
+    socket.on('chat message', (msg: string) => {
+      console.log('message: ' + msg);
+    });
+});
+*/
+
+io.on('connection', (socket: any) => {
+    socket.on('chat message', (msg: string) => {
+      io.emit('chat message', msg);
+    });
+});
+
+server.listen(PORT2, HOST);

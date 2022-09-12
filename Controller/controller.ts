@@ -7,12 +7,10 @@ import * as partecipazioneClass from "../ModelsDB/partecipazione";
 import * as utenteClass from "../ModelsDB/utente";
 import * as chiaviClass from "../ModelsDB/chiavi";
 
-import {Sequelize} from "sequelize";
 const {Op} = require("sequelize");
 
 import {ErrorMsgEnum, getErrorMsg} from "../ResponseMsg/errorMsg";
 import {SuccessMsgEnum, getSuccessMsg} from "../ResponseMsg/successMsg";
-import { isNull } from 'util';
 
 
 export function controllerErrors(err_msg_enum:ErrorMsgEnum, testoerrore:Error, res:any){
@@ -422,3 +420,48 @@ const toDate = (data: any) => {
                 })
             }
     } 
+
+/**
+ * Rotta => /partecipaAsta
+ * Middleware => esistenza utente, ruolo bid_participant, esistenza asta, credito sufficiente(quota iscrizione), asta non ancora aperta o in esecuzione, num minimo o max partecipanti
+ * @param req 
+ * @param res 
+ */
+ let messages: object
+
+export function partecipaAsta(req: any, res: any): void{
+    astaClass.Asta.findByPk(req.body.idAsta).then((asta: any) => {
+        const num = asta.num_partecipanti + 1;
+ 
+        astaClass.Asta.update(
+            {num_partecipanti: num}, 
+            {where:{
+                idAsta: asta.idAsta
+            }
+        })
+ 
+        if(asta.num_partecipanti === asta.min_partecipanti){
+            astaClass.Asta.update(
+                {stato: 'in esecuzione'}, 
+                {where:{
+                    idAsta: asta.idAsta
+                }
+            })
+        }
+         
+        console.log(asta.stato);
+ 
+        const current_date = new Date();
+
+        partecipazioneClass.Partecipazione.create({idPartecipazione: req.body.idPartecipazione, 
+                                                   idAsta: req.body.idAsta, 
+                                                   idUtente: req.idUtente, 
+                                                   costo_partecipazione: asta.quota_iscrizione, 
+                                                   vincita: false, 
+                                                   contatore_rilanci: 0, 
+                                                   data_iscrizione: current_date}).then((iscrizione: any) => {
+            const nuova_risposta = getSuccessMsg(SuccessMsgEnum.IscrizioneSI).getMsg();
+            res.status(nuova_risposta.codice).json({stato:nuova_risposta.testo, risultato:iscrizione});
+        });
+    });
+ }

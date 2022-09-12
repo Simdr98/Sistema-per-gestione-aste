@@ -13,6 +13,14 @@ export const creaAsta = [
     middleware.controlloCampiAsta
 ];
 
+export const partecipaAsta = [
+    middleware.controlloEsistenzaUtente,
+    middleware.controlloBidParticipant,
+    middleware.controlloEsistenzaAsta,
+    middleware.controlloStatoAstaPartecipazione,
+    middleware.controlloPartecipanti
+];
+
 export const visualizzaAsteFiltroTipo = [
     
     middleware.controlloTipoAsta

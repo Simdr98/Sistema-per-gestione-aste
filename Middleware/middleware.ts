@@ -192,10 +192,30 @@ export async function controlloStatoAstaOfferta(req: any, res: any, next: any){
     astaClass.Asta.findByPk(req.query.idAsta).then((asta: any) => {
         if(asta.stato === 'in esecuzione') next();
         else{
-            const risposta = getErrorMsg(ErrorMsgEnum.NoCorrectState).getMsg();
+            const risposta = getErrorMsg(ErrorMsgEnum.NoCorrectStateBid).getMsg();
             next(risposta.testo);
         }
     });
+}
+
+export async function controlloStatoAstaPartecipazione(req: any, res: any, next: any){
+    await astaClass.Asta.findByPk(req.body.idAsta).then((asta: any) => {
+        if(asta.stato === 'in esecuzione' || asta.stato === 'non ancora aperta') next();
+        else{
+            const risposta = getErrorMsg(ErrorMsgEnum.NoCorrectStateParticipate).getMsg();
+            next(risposta.testo);
+        }
+    });
+}
+
+export async function controlloPartecipanti (req: any, res: any, next: any){
+    astaClass.Asta.findByPk(req.body.idAsta).then((asta: any) => {
+        if(asta.num_partecipanti < asta.max_partecipanti) {console.log('middleware superati'); next();}
+        else{
+            const risposta = getErrorMsg(ErrorMsgEnum.NoParticipate).getMsg();
+            next(risposta.testo);
+        }
+    })
 }
 
 export async function controlloStatoAsta(req: any, res: any, next: any){
@@ -229,10 +249,21 @@ export async function controlloCodifica(req: any, res: any, next: any){
 
 
 export async function creditoSufficiente(req: any, res: any, next: any){
-    req.body.idUtente = req.idUtente;
-    await utenteClass.Utente.findByPk(req.body.idUtente).then((credito: any) => {
-        if(credito.credito_token >= req.body.quota){
+    await utenteClass.Utente.findByPk(req.idUtente).then((credito: any) => {
+        if(req.body.quota !== null && credito.credito_token >= req.body.quota){
             next();
+        }
+        else{
+            const risposta = getErrorMsg(ErrorMsgEnum.NoCredit).getMsg();
+            next(risposta.testo);
+        }
+        
+        if(req.body.quota === null){
+            astaClass.Asta.findByPk(req.body.idAsta).then((asta: any) => {
+                if(credito.credito_token >= asta.quota_iscrizione){
+                    next();
+                }
+            })
         }
         else{
             const risposta = getErrorMsg(ErrorMsgEnum.NoCredit).getMsg();
