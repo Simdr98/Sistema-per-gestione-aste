@@ -1,5 +1,6 @@
 import * as controller from "./Controller/controller"
 import * as middleware from "./Middleware/middlewareCoR"
+import * as ws from "./Socket.io/socket_config"
 
 var express = require('express');
 
@@ -9,6 +10,12 @@ const HOST = '0.0.0.0';
 const app = express();
 
 app.use(express.json());
+
+/*
+const io_client = require('socket.io-client');
+
+const socket = io_client('http://localhost:3000');
+*/
 
 var myLogger = function (req: any, res: any, next: any) {
     console.log('LOGGED');
@@ -67,6 +74,12 @@ app.get('/visualizzaStoricoAste', middleware.JWT, middleware.visualizzaStoricoAs
     controller.listaStoricoAste(req, res);
 });
 
+//Rotta per iscriversi ad una determinata asta
+app.post('/partecipaAsta', middleware.JWT, middleware.partecipaAsta, function (req: any, res: any) {    
+    controller.partecipaAsta(req, res);
+})
+
+
 app.get('*', middleware.rottaSbagliata);
 app.post('*', middleware.rottaSbagliata);
 
@@ -74,40 +87,55 @@ app.listen(PORT, HOST);
 console.log(`Il server è in running sulla porta ${PORT}`)
 
 // Socket.io
-const app2 = express();
-const http = require('http');
-const server = http.createServer(app2);
-const { Server } = require("socket.io");
-const io = new Server(server);
-
-const path = require('path');
-
 const PORT2 = 3000;
 
-app2.get('/index', (req: any, res: any) => {
-    res.sendFile(path.join(__dirname, 'index.html'));
-    console.log('invio eseguito');
+export const app2 = express();
+
+app2.get('/', function (req: any, res: any) {
+    res.send('L\'applicazione è stata avviata correttamente')
 });
 
+const users: any = [];
+const aste: any = [123, 456];
+
+const offerta: any = {
+    idUtente: [],
+    quota: []
+}
+
+ws.io.on('connection', (socket: any) => {
+    socket.emit('message', 'Inserisci idUtente: ');
+
+    socket.on('join server', (username: any) => {
+        const user = {
+            username,
+            id: socket.id
+        }
+        users.push(user);
+        socket.emit('new user', users);
+        socket.emit('domanda', 'Inserire idAsta alla quale si vuole partecipare: ');
+    })
+
+    socket.on('join room', (roomName: any) => {
+        if(roomName === '123' || roomName === '456'){
+            socket.join(roomName);
+            socket.emit('room joined', `Ti sei unito alla stanza: ${roomName}`);
+        } 
+        else{
+            socket.emit('not room joined', "l'asta non esiste");
+            socket.emit('domanda', 'Inserire idAsta alla quale si vuole partecipare: ');
+        }
+        
+    })
 /*
-io.on('connection', (socket: any) => {
-    console.log('a user connected');
-    socket.on('disconnect', () => {
-      console.log('user disconnected');
-    });
-  });
 
-io.on('connection', (socket: any) => {
-    socket.on('chat message', (msg: string) => {
-      console.log('message: ' + msg);
-    });
-});
+    `
+
+    socket.on('send message', (content: any, to: any, sender: any, chatName: any, isChannel: any) => {
+        
+    })
 */
+})
+    
 
-io.on('connection', (socket: any) => {
-    socket.on('chat message', (msg: string) => {
-      io.emit('chat message', msg);
-    });
-});
-
-server.listen(PORT2, HOST);
+ws.server.listen(PORT2, HOST);

@@ -12,7 +12,6 @@ const {Op} = require("sequelize");
 import {ErrorMsgEnum, getErrorMsg} from "../ResponseMsg/errorMsg";
 import {SuccessMsgEnum, getSuccessMsg} from "../ResponseMsg/successMsg";
 
-
 export function controllerErrors(err_msg_enum:ErrorMsgEnum, testoerrore:Error, res:any){
     console.log(testoerrore);
     const nuovomessaggio = getErrorMsg(err_msg_enum).getMsg();
@@ -460,8 +459,9 @@ export function partecipaAsta(req: any, res: any): void{
                                                    vincita: false, 
                                                    contatore_rilanci: 0, 
                                                    data_iscrizione: current_date}).then((iscrizione: any) => {
+            
             const nuova_risposta = getSuccessMsg(SuccessMsgEnum.IscrizioneSI).getMsg();
             res.status(nuova_risposta.codice).json({stato:nuova_risposta.testo, risultato:iscrizione});
         });
     });
- }
+}

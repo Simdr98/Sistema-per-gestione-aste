@@ -8,3 +8,4 @@ RUN npm install
 RUN npm install -g typescript
 RUN tsc index.ts
 CMD ["node", "index.js"]
+RUN tsc client.ts

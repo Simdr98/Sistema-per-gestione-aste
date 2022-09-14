@@ -210,7 +210,7 @@ export async function controlloStatoAstaPartecipazione(req: any, res: any, next:
 
 export async function controlloPartecipanti (req: any, res: any, next: any){
     astaClass.Asta.findByPk(req.body.idAsta).then((asta: any) => {
-        if(asta.num_partecipanti < asta.max_partecipanti) {console.log('middleware superati'); next();}
+        if(asta.num_partecipanti < asta.max_partecipanti) next();
         else{
             const risposta = getErrorMsg(ErrorMsgEnum.NoParticipate).getMsg();
             next(risposta.testo);

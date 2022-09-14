@@ -30,4 +30,3 @@ services:
           - .env
         depends_on:
           - db
-          - node

@@ -38,9 +38,3 @@ export const Offerta = connection.define('offerta', {
     timestamps: false,
     freezeTableName: true
 });
-/*
-Offerta.belongsTo( Asta, 
-    {
-        foreignKey: 'idAsta'
-      })
-      */

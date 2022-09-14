@@ -20,7 +20,7 @@ CREATE TABLE asta (
    idUtente_vincitore varchar(50) DEFAULT NULL,
    tot_prezzo_aggiudicato int(11) DEFAULT 0,
    idChiave int(11) DEFAULT NULL,
-   room varchar(50) DEFAULT NULL;
+   room varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 DROP TABLE IF EXISTS chiavi;

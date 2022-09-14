@@ -77,13 +77,13 @@ export const Asta = connection.define('asta', {
     },
 
     stato:{
-        type: DataTypes.STRING(30),
+        type: DataTypes.STRING,
         primaryKey: false,
         allowNull: false
     },
 
     idUtente_vincitore:{
-        type: DataTypes.INTEGER,
+        type: DataTypes.STRING,
         primaryKey: false,
         defaultValue: null
     },

@@ -53,7 +53,7 @@ const connection: Sequelize = Singleton.getIstance().getConnection();
     },
 
     socket_id: {
-        type: DataTypes.INTEGER,
+        type: DataTypes.STRING,
         primaryKey: false,
         defaultValue: null
     }
