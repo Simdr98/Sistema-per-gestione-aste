@@ -1,4 +1,3 @@
-import { Asta } from "../ModelsDB/asta";
 import {Msg} from "./Msg";
 
 class AstaCreata implements Msg {
@@ -67,13 +66,6 @@ class StoricoVisualizzato implements Msg {
     }
 }
 
-/*class UtenteVincitore implements Msg {
-    getMsg():{testo:string} {
-        return {testo:"L'utente vincitore dell'asta è stato registrato correttamente"}
-    }
-}*/
-
-
 export enum SuccessMsgEnum {
     AstaCreata,
     AstaVisualizzata,
@@ -85,8 +77,7 @@ export enum SuccessMsgEnum {
     AstaVisualizzataRisNO,
     CreditoRicaricato,
     CreditoScalato,
-    //UtenteVincitore,
-    StoricoVisualizzato,
+    StoricoVisualizzato
 }
 
 export function getSuccessMsg(type: SuccessMsgEnum): Msg{
@@ -122,9 +113,6 @@ export function getSuccessMsg(type: SuccessMsgEnum): Msg{
         case SuccessMsgEnum.CreditoScalato:
             msgval = new CreditoScalato();
             break;
-        /*case SuccessMsgEnum.UtenteVincitore:
-            msgval = new UtenteVincitore();
-            break;*/
         case SuccessMsgEnum.StoricoVisualizzato:
             msgval = new StoricoVisualizzato();
             break;

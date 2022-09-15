@@ -115,6 +115,12 @@ class NoExistAsta implements Msg {
     }
 }
 
+class NoJoinAsta implements Msg {
+    getMsg():{codice:number, testo:string} {
+        return {codice: 404, testo: "Non risulti iscritto all'asta indicata"}
+    }
+}
+
 class NoMinBid implements Msg {
     getMsg():{codice:number, testo:string} {
         return {codice: 400, testo: "La quota inserita non raggiunge la puntata minima"}
@@ -154,6 +160,12 @@ class NoRoute implements Msg {
 class NoCrypt implements Msg {
     getMsg():{codice:number, testo:string} {
         return {codice: 400, testo: "il messaggio non risulta codificato"}
+    }
+}
+
+class NoJSON implements Msg {
+    getMsg():{codice:number, testo:string} {
+        return {codice: 400, testo: "Il messaggio non è in formato JSON"}
     }
 }
 
@@ -197,11 +209,13 @@ export enum ErrorMsgEnum {
     NoExistAsta,
     NoMinBid,
     NoBid,
+    NoJoinAsta,
     NoCorrectCredit,
     NoCorrectRefill,
     NoCorrectDate,
     NoRoute,
     NoCrypt,
+    NoJSON,
     NoCorrectStateBid,
     NoCorrectStateParticipate,
     NoParticipate,
@@ -276,6 +290,9 @@ export function getErrorMsg(type: ErrorMsgEnum): Msg{
         case ErrorMsgEnum.NoBid:
             msgval = new NoBid();
             break;
+        case ErrorMsgEnum.NoJoinAsta:
+            msgval = new NoJoinAsta();
+            break;
         case ErrorMsgEnum.NoCorrectCredit:
             msgval = new NoCorrectCredit();
             break;
@@ -290,6 +307,9 @@ export function getErrorMsg(type: ErrorMsgEnum): Msg{
             break;
         case ErrorMsgEnum.NoCrypt:
             msgval = new NoCrypt();
+            break;
+        case ErrorMsgEnum.NoJSON:
+            msgval = new NoJSON();
             break;
         case ErrorMsgEnum.NoCorrectStateBid:
             msgval = new NoCorrectStateBid();

@@ -59,11 +59,6 @@ app.get('/visualizzaStoricoAsteRilanci', middleware.JWT, middleware.visualizzaSt
     controller.storicoRilanci(req, res);
 });
 
-//Rotta per scalare il credito di un utente quando si aggiudica l'asta -da controllare
-app.post('/scalaCredito', middleware.JWT, middleware.scalaCredito, function (req: any, res: any) {    
-    controller.scalaCredito(req, res);
-});
-
 //Rotta per ricaricare il credito del portafolio dell'utente
 app.post('/ricaricaWalletUtente', middleware.JWT, middleware.ricaricaWalletUtente, function (req: any, res: any) {    
     controller.ricaricaCredito(req, res);

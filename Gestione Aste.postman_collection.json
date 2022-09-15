@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "bf87ff9a-57e0-49ad-842b-3fe960b88a2b",
+		"_postman_id": "c82c606e-0ba0-4b7f-a991-ee994553a129",
 		"name": "Gestione Aste",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "23020474"
@@ -46,6 +46,15 @@
 							"originalRequest": {
 								"method": "GET",
 								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"tipo_asta\": \"English Auction\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
 								"url": {
 									"raw": "localhost:8080/visualizzaAsteFiltroTipo",
 									"host": [
@@ -71,15 +80,15 @@
 								},
 								{
 									"key": "Content-Length",
-									"value": "713"
+									"value": "1815"
 								},
 								{
 									"key": "ETag",
-									"value": "W/\"2c9-bEk/T0VrORmk84my3lAvwAG32VY\""
+									"value": "W/\"717-iAEkIh/w9NwoCDajoDbz8RhmA44\""
 								},
 								{
 									"key": "Date",
-									"value": "Wed, 07 Sep 2022 15:20:46 GMT"
+									"value": "Thu, 15 Sep 2022 22:04:52 GMT"
 								},
 								{
 									"key": "Connection",
@@ -91,7 +100,7 @@
 								}
 							],
 							"cookie": [],
-							"body": "{\n    \"descrizione\": \"La visualizzazione dell'asta è avvenuta correttamente\",\n    \"risultato\": [\n        {\n            \"idAsta\": 2,\n            \"idUtente_creator\": \"simi_dr98\",\n            \"titolo_asta\": \"computer\",\n            \"tipo_asta\": \"English Auction\",\n            \"min_partecipanti\": 1,\n            \"max_partecipanti\": 5,\n            \"quota_iscrizione\": 7,\n            \"min_prezzo_puntata\": 10,\n            \"min_rialzo\": 1,\n            \"durata_asta\": 4420,\n            \"stato\": \"terminata\",\n            \"idUtente_vincitore\": \"bene_dr\",\n            \"tot_prezzo_aggiudicato\": 50,\n            \"idChiave\": null\n        },\n        {\n            \"idAsta\": 3,\n            \"idUtente_creator\": \"monica_ms\",\n            \"titolo_asta\": \"lampada\",\n            \"tipo_asta\": \"English Auction\",\n            \"min_partecipanti\": 3,\n            \"max_partecipanti\": 1,\n            \"quota_iscrizione\": 5,\n            \"min_prezzo_puntata\": 5,\n            \"min_rialzo\": 1,\n            \"durata_asta\": 300,\n            \"stato\": \"terminata\",\n            \"idUtente_vincitore\": \"luca_ms\",\n            \"tot_prezzo_aggiudicato\": 30,\n            \"idChiave\": null\n        }\n    ]\n}"
+							"body": "{\n    \"stato\": \"La visualizzazione dell'asta è avvenuta correttamente\",\n    \"risultato\": [\n        {\n            \"idAsta\": 2,\n            \"idUtente_creator\": \"simi_dr98\",\n            \"titolo_asta\": \"computer\",\n            \"tipo_asta\": \"English Auction\",\n            \"num_partecipanti\": 0,\n            \"min_partecipanti\": 1,\n            \"max_partecipanti\": 5,\n            \"quota_iscrizione\": 7,\n            \"min_prezzo_puntata\": 10,\n            \"min_rialzo\": 1,\n            \"durata_asta\": 4420,\n            \"stato\": \"terminata\",\n            \"idUtente_vincitore\": \"bene_dr\",\n            \"tot_prezzo_aggiudicato\": 50,\n            \"idChiave\": null,\n            \"room\": null\n        },\n        {\n            \"idAsta\": 3,\n            \"idUtente_creator\": \"monica_ms\",\n            \"titolo_asta\": \"lampada\",\n            \"tipo_asta\": \"English Auction\",\n            \"num_partecipanti\": 0,\n            \"min_partecipanti\": 3,\n            \"max_partecipanti\": 1,\n            \"quota_iscrizione\": 5,\n            \"min_prezzo_puntata\": 5,\n            \"min_rialzo\": 1,\n            \"durata_asta\": 300,\n            \"stato\": \"terminata\",\n            \"idUtente_vincitore\": \"luca_ms\",\n            \"tot_prezzo_aggiudicato\": 30,\n            \"idChiave\": null,\n            \"room\": null\n        },\n        {\n            \"idAsta\": 10,\n            \"idUtente_creator\": \"monica_ms\",\n            \"titolo_asta\": \"caricatore ipad\",\n            \"tipo_asta\": \"English Auction\",\n            \"num_partecipanti\": 3,\n            \"min_partecipanti\": 2,\n            \"max_partecipanti\": 20,\n            \"quota_iscrizione\": 5,\n            \"min_prezzo_puntata\": 10,\n            \"min_rialzo\": 1,\n            \"durata_asta\": 1,\n            \"stato\": \"terminata\",\n            \"idUtente_vincitore\": \"luca_ms\",\n            \"tot_prezzo_aggiudicato\": 40,\n            \"idChiave\": null,\n            \"room\": \"10\"\n        },\n        {\n            \"idAsta\": 21,\n            \"idUtente_creator\": \"simi_dr98\",\n            \"titolo_asta\": \"lampada\",\n            \"tipo_asta\": \"English Auction\",\n            \"num_partecipanti\": 1,\n            \"min_partecipanti\": 1,\n            \"max_partecipanti\": 3,\n            \"quota_iscrizione\": 5,\n            \"min_prezzo_puntata\": 5,\n            \"min_rialzo\": 1,\n            \"durata_asta\": 300,\n            \"stato\": \"in esecuzione\",\n            \"idUtente_vincitore\": null,\n            \"tot_prezzo_aggiudicato\": 0,\n            \"idChiave\": null,\n            \"room\": null\n        },\n        {\n            \"idAsta\": 22,\n            \"idUtente_creator\": \"monica_ms\",\n            \"titolo_asta\": \"lampada\",\n            \"tipo_asta\": \"English Auction\",\n            \"num_partecipanti\": 0,\n            \"min_partecipanti\": 1,\n            \"max_partecipanti\": 3,\n            \"quota_iscrizione\": 5,\n            \"min_prezzo_puntata\": 5,\n            \"min_rialzo\": 1,\n            \"durata_asta\": 300,\n            \"stato\": \"in esecuzione\",\n            \"idUtente_vincitore\": null,\n            \"tot_prezzo_aggiudicato\": 0,\n            \"idChiave\": null,\n            \"room\": null\n        }\n    ]\n}"
 						}
 					]
 				},
@@ -132,6 +141,15 @@
 							"originalRequest": {
 								"method": "GET",
 								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"tipo_asta\": \"First Price Sealed Bid Auction\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
 								"url": {
 									"raw": "localhost:8080/visualizzaAsteFiltroTipo",
 									"host": [
@@ -157,15 +175,15 @@
 								},
 								{
 									"key": "Content-Length",
-									"value": "744"
+									"value": "1880"
 								},
 								{
 									"key": "ETag",
-									"value": "W/\"2e8-b1ERQKbSFDDIZ8sMk4mFI3EQeqo\""
+									"value": "W/\"758-nkimv8QBuwm1RNdg6jQQV8efHaM\""
 								},
 								{
 									"key": "Date",
-									"value": "Wed, 07 Sep 2022 15:23:57 GMT"
+									"value": "Thu, 15 Sep 2022 22:05:13 GMT"
 								},
 								{
 									"key": "Connection",
@@ -177,7 +195,7 @@
 								}
 							],
 							"cookie": [],
-							"body": "{\n    \"descrizione\": \"La visualizzazione dell'asta è avvenuta correttamente\",\n    \"risultato\": [\n        {\n            \"idAsta\": 4,\n            \"idUtente_creator\": \"simi_dr98\",\n            \"titolo_asta\": \"iPhone\",\n            \"tipo_asta\": \"First Price Sealed Bid Auction\",\n            \"min_partecipanti\": 3,\n            \"max_partecipanti\": 10,\n            \"quota_iscrizione\": 11,\n            \"min_prezzo_puntata\": 10,\n            \"min_rialzo\": 1,\n            \"durata_asta\": 5000,\n            \"stato\": \"in esecuzione\",\n            \"idUtente_vincitore\": null,\n            \"tot_prezzo_aggiudicato\": 0,\n            \"idChiave\": null\n        },\n        {\n            \"idAsta\": 5,\n            \"idUtente_creator\": \"monica_ms\",\n            \"titolo_asta\": \"poltrona\",\n            \"tipo_asta\": \"First Price Sealed Bid Auction\",\n            \"min_partecipanti\": 1,\n            \"max_partecipanti\": 10,\n            \"quota_iscrizione\": 15,\n            \"min_prezzo_puntata\": 20,\n            \"min_rialzo\": 1,\n            \"durata_asta\": 7000,\n            \"stato\": \"in esecuzione\",\n            \"idUtente_vincitore\": null,\n            \"tot_prezzo_aggiudicato\": 0,\n            \"idChiave\": null\n        }\n    ]\n}"
+							"body": "{\n    \"stato\": \"La visualizzazione dell'asta è avvenuta correttamente\",\n    \"risultato\": [\n        {\n            \"idAsta\": 4,\n            \"idUtente_creator\": \"simi_dr98\",\n            \"titolo_asta\": \"iPhone\",\n            \"tipo_asta\": \"First Price Sealed Bid Auction\",\n            \"num_partecipanti\": 0,\n            \"min_partecipanti\": 3,\n            \"max_partecipanti\": 10,\n            \"quota_iscrizione\": 11,\n            \"min_prezzo_puntata\": 10,\n            \"min_rialzo\": 1,\n            \"durata_asta\": 5000,\n            \"stato\": \"in esecuzione\",\n            \"idUtente_vincitore\": null,\n            \"tot_prezzo_aggiudicato\": 0,\n            \"idChiave\": 4,\n            \"room\": null\n        },\n        {\n            \"idAsta\": 5,\n            \"idUtente_creator\": \"monica_ms\",\n            \"titolo_asta\": \"poltrona\",\n            \"tipo_asta\": \"First Price Sealed Bid Auction\",\n            \"num_partecipanti\": 0,\n            \"min_partecipanti\": 1,\n            \"max_partecipanti\": 10,\n            \"quota_iscrizione\": 15,\n            \"min_prezzo_puntata\": 20,\n            \"min_rialzo\": 1,\n            \"durata_asta\": 7000,\n            \"stato\": \"in esecuzione\",\n            \"idUtente_vincitore\": null,\n            \"tot_prezzo_aggiudicato\": 0,\n            \"idChiave\": 5,\n            \"room\": null\n        },\n        {\n            \"idAsta\": 6,\n            \"idUtente_creator\": \"simi_dr98\",\n            \"titolo_asta\": \"iPhone\",\n            \"tipo_asta\": \"First Price Sealed Bid Auction\",\n            \"num_partecipanti\": 0,\n            \"min_partecipanti\": 3,\n            \"max_partecipanti\": 10,\n            \"quota_iscrizione\": 11,\n            \"min_prezzo_puntata\": 10,\n            \"min_rialzo\": 1,\n            \"durata_asta\": 5000,\n            \"stato\": \"in esecuzione\",\n            \"idUtente_vincitore\": null,\n            \"tot_prezzo_aggiudicato\": 0,\n            \"idChiave\": 2,\n            \"room\": null\n        },\n        {\n            \"idAsta\": 7,\n            \"idUtente_creator\": \"monica_ms\",\n            \"titolo_asta\": \"poltrona\",\n            \"tipo_asta\": \"First Price Sealed Bid Auction\",\n            \"num_partecipanti\": 0,\n            \"min_partecipanti\": 1,\n            \"max_partecipanti\": 10,\n            \"quota_iscrizione\": 15,\n            \"min_prezzo_puntata\": 20,\n            \"min_rialzo\": 1,\n            \"durata_asta\": 7000,\n            \"stato\": \"in esecuzione\",\n            \"idUtente_vincitore\": null,\n            \"tot_prezzo_aggiudicato\": 0,\n            \"idChiave\": 3,\n            \"room\": null\n        },\n        {\n            \"idAsta\": 30,\n            \"idUtente_creator\": \"monica_ms\",\n            \"titolo_asta\": \"laptop DELL\",\n            \"tipo_asta\": \"First Price Sealed Bid Auction\",\n            \"num_partecipanti\": 3,\n            \"min_partecipanti\": 2,\n            \"max_partecipanti\": 10,\n            \"quota_iscrizione\": 10,\n            \"min_prezzo_puntata\": 50,\n            \"min_rialzo\": 5,\n            \"durata_asta\": 3,\n            \"stato\": \"terminata\",\n            \"idUtente_vincitore\": \"danidani\",\n            \"tot_prezzo_aggiudicato\": 90,\n            \"idChiave\": 1,\n            \"room\": null\n        }\n    ]\n}"
 						}
 					]
 				},
@@ -218,6 +236,15 @@
 							"originalRequest": {
 								"method": "GET",
 								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"tipo_asta\": \"Second Price Sealed Bid Auction\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
 								"url": {
 									"raw": "localhost:8080/visualizzaAsteFiltroTipo",
 									"host": [
@@ -243,15 +270,15 @@
 								},
 								{
 									"key": "Content-Length",
-									"value": "751"
+									"value": "1169"
 								},
 								{
 									"key": "ETag",
-									"value": "W/\"2ef-qCYmlBQ8sh46nHCJt5i4a1tLgRA\""
+									"value": "W/\"491-4fAlOmBkhNRlLCZP30SlLKs2uHg\""
 								},
 								{
 									"key": "Date",
-									"value": "Wed, 07 Sep 2022 15:24:04 GMT"
+									"value": "Thu, 15 Sep 2022 22:05:25 GMT"
 								},
 								{
 									"key": "Connection",
@@ -263,7 +290,7 @@
 								}
 							],
 							"cookie": [],
-							"body": "{\n    \"descrizione\": \"La visualizzazione dell'asta è avvenuta correttamente\",\n    \"risultato\": [\n        {\n            \"idAsta\": 6,\n            \"idUtente_creator\": \"simi_dr98\",\n            \"titolo_asta\": \"scaffale\",\n            \"tipo_asta\": \"Second Price Sealed Bid Auction\",\n            \"min_partecipanti\": 2,\n            \"max_partecipanti\": 13,\n            \"quota_iscrizione\": 10,\n            \"min_prezzo_puntata\": 15,\n            \"min_rialzo\": 1,\n            \"durata_asta\": 4000,\n            \"stato\": \"non ancora aperta\",\n            \"idUtente_vincitore\": null,\n            \"tot_prezzo_aggiudicato\": 0,\n            \"idChiave\": null\n        },\n        {\n            \"idAsta\": 7,\n            \"idUtente_creator\": \"monica_ms\",\n            \"titolo_asta\": \"sedia\",\n            \"tipo_asta\": \"Second Price Sealed Bid Auction\",\n            \"min_partecipanti\": 3,\n            \"max_partecipanti\": 10,\n            \"quota_iscrizione\": 7,\n            \"min_prezzo_puntata\": 5,\n            \"min_rialzo\": 1,\n            \"durata_asta\": 1000,\n            \"stato\": \"non ancora aperta\",\n            \"idUtente_vincitore\": null,\n            \"tot_prezzo_aggiudicato\": 0,\n            \"idChiave\": null\n        }\n    ]\n}"
+							"body": "{\n    \"descrizione\": \"La visualizzazione dell'asta è avvenuta correttamente\",\n    \"risultato\": [\n        {\n            \"idAsta\": 8,\n            \"idUtente_creator\": \"simi_dr98\",\n            \"titolo_asta\": \"scaffale\",\n            \"tipo_asta\": \"Second Price Sealed Bid Auction\",\n            \"num_partecipanti\": 3,\n            \"min_partecipanti\": 2,\n            \"max_partecipanti\": 13,\n            \"quota_iscrizione\": 10,\n            \"min_prezzo_puntata\": 15,\n            \"min_rialzo\": 1,\n            \"durata_asta\": 4000,\n            \"stato\": \"in esecuzione\",\n            \"idUtente_vincitore\": null,\n            \"tot_prezzo_aggiudicato\": 0,\n            \"idChiave\": null,\n            \"room\": null\n        },\n        {\n            \"idAsta\": 9,\n            \"idUtente_creator\": \"monica_ms\",\n            \"titolo_asta\": \"sedia\",\n            \"tipo_asta\": \"Second Price Sealed Bid Auction\",\n            \"num_partecipanti\": 0,\n            \"min_partecipanti\": 3,\n            \"max_partecipanti\": 10,\n            \"quota_iscrizione\": 7,\n            \"min_prezzo_puntata\": 5,\n            \"min_rialzo\": 1,\n            \"durata_asta\": 1000,\n            \"stato\": \"non ancora aperta\",\n            \"idUtente_vincitore\": null,\n            \"tot_prezzo_aggiudicato\": 0,\n            \"idChiave\": null,\n            \"room\": null\n        },\n        {\n            \"idAsta\": 44,\n            \"idUtente_creator\": \"monica_ms\",\n            \"titolo_asta\": \"Panda\",\n            \"tipo_asta\": \"Second Price Sealed Bid Auction\",\n            \"num_partecipanti\": 4,\n            \"min_partecipanti\": 1,\n            \"max_partecipanti\": 11,\n            \"quota_iscrizione\": 10,\n            \"min_prezzo_puntata\": 50,\n            \"min_rialzo\": 5,\n            \"durata_asta\": 2,\n            \"stato\": \"in esecuzione\",\n            \"idUtente_vincitore\": null,\n            \"tot_prezzo_aggiudicato\": 0,\n            \"idChiave\": 1,\n            \"room\": null\n        }\n    ]\n}"
 						}
 					]
 				}
@@ -306,6 +333,15 @@
 							"originalRequest": {
 								"method": "GET",
 								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"stato\": \"non ancora aperta\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
 								"url": {
 									"raw": "localhost:8080/visualizzaAsteFiltroStato",
 									"host": [
@@ -331,15 +367,15 @@
 								},
 								{
 									"key": "Content-Length",
-									"value": "751"
+									"value": "443"
 								},
 								{
 									"key": "ETag",
-									"value": "W/\"2ef-qCYmlBQ8sh46nHCJt5i4a1tLgRA\""
+									"value": "W/\"1bb-rM1MD2kDBLfpCZUEDSCR0B7W0u4\""
 								},
 								{
 									"key": "Date",
-									"value": "Wed, 07 Sep 2022 15:51:33 GMT"
+									"value": "Thu, 15 Sep 2022 22:05:40 GMT"
 								},
 								{
 									"key": "Connection",
@@ -351,7 +387,7 @@
 								}
 							],
 							"cookie": [],
-							"body": "{\n    \"descrizione\": \"La visualizzazione dell'asta è avvenuta correttamente\",\n    \"risultato\": [\n        {\n            \"idAsta\": 6,\n            \"idUtente_creator\": \"simi_dr98\",\n            \"titolo_asta\": \"scaffale\",\n            \"tipo_asta\": \"Second Price Sealed Bid Auction\",\n            \"min_partecipanti\": 2,\n            \"max_partecipanti\": 13,\n            \"quota_iscrizione\": 10,\n            \"min_prezzo_puntata\": 15,\n            \"min_rialzo\": 1,\n            \"durata_asta\": 4000,\n            \"stato\": \"non ancora aperta\",\n            \"idUtente_vincitore\": null,\n            \"tot_prezzo_aggiudicato\": 0,\n            \"idChiave\": null\n        },\n        {\n            \"idAsta\": 7,\n            \"idUtente_creator\": \"monica_ms\",\n            \"titolo_asta\": \"sedia\",\n            \"tipo_asta\": \"Second Price Sealed Bid Auction\",\n            \"min_partecipanti\": 3,\n            \"max_partecipanti\": 10,\n            \"quota_iscrizione\": 7,\n            \"min_prezzo_puntata\": 5,\n            \"min_rialzo\": 1,\n            \"durata_asta\": 1000,\n            \"stato\": \"non ancora aperta\",\n            \"idUtente_vincitore\": null,\n            \"tot_prezzo_aggiudicato\": 0,\n            \"idChiave\": null\n        }\n    ]\n}"
+							"body": "{\n    \"stato\": \"La visualizzazione dell'asta è avvenuta correttamente\",\n    \"risultato\": [\n        {\n            \"idAsta\": 9,\n            \"idUtente_creator\": \"monica_ms\",\n            \"titolo_asta\": \"sedia\",\n            \"tipo_asta\": \"Second Price Sealed Bid Auction\",\n            \"num_partecipanti\": 0,\n            \"min_partecipanti\": 3,\n            \"max_partecipanti\": 10,\n            \"quota_iscrizione\": 7,\n            \"min_prezzo_puntata\": 5,\n            \"min_rialzo\": 1,\n            \"durata_asta\": 1000,\n            \"stato\": \"non ancora aperta\",\n            \"idUtente_vincitore\": null,\n            \"tot_prezzo_aggiudicato\": 0,\n            \"idChiave\": null,\n            \"room\": null\n        }\n    ]\n}"
 						}
 					]
 				},
@@ -389,6 +425,15 @@
 							"originalRequest": {
 								"method": "GET",
 								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"stato\": \"in esecuzione\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
 								"url": {
 									"raw": "localhost:8080/visualizzaAsteFiltroStato",
 									"host": [
@@ -414,15 +459,15 @@
 								},
 								{
 									"key": "Content-Length",
-									"value": "744"
+									"value": "2924"
 								},
 								{
 									"key": "ETag",
-									"value": "W/\"2e8-b1ERQKbSFDDIZ8sMk4mFI3EQeqo\""
+									"value": "W/\"b6c-UwoZfYhBfk34ubtLmafDYrhrr2Q\""
 								},
 								{
 									"key": "Date",
-									"value": "Wed, 07 Sep 2022 15:51:45 GMT"
+									"value": "Thu, 15 Sep 2022 22:05:50 GMT"
 								},
 								{
 									"key": "Connection",
@@ -434,7 +479,7 @@
 								}
 							],
 							"cookie": [],
-							"body": "{\n    \"descrizione\": \"La visualizzazione dell'asta è avvenuta correttamente\",\n    \"risultato\": [\n        {\n            \"idAsta\": 4,\n            \"idUtente_creator\": \"simi_dr98\",\n            \"titolo_asta\": \"iPhone\",\n            \"tipo_asta\": \"First Price Sealed Bid Auction\",\n            \"min_partecipanti\": 3,\n            \"max_partecipanti\": 10,\n            \"quota_iscrizione\": 11,\n            \"min_prezzo_puntata\": 10,\n            \"min_rialzo\": 1,\n            \"durata_asta\": 5000,\n            \"stato\": \"in esecuzione\",\n            \"idUtente_vincitore\": null,\n            \"tot_prezzo_aggiudicato\": 0,\n            \"idChiave\": null\n        },\n        {\n            \"idAsta\": 5,\n            \"idUtente_creator\": \"monica_ms\",\n            \"titolo_asta\": \"poltrona\",\n            \"tipo_asta\": \"First Price Sealed Bid Auction\",\n            \"min_partecipanti\": 1,\n            \"max_partecipanti\": 10,\n            \"quota_iscrizione\": 15,\n            \"min_prezzo_puntata\": 20,\n            \"min_rialzo\": 1,\n            \"durata_asta\": 7000,\n            \"stato\": \"in esecuzione\",\n            \"idUtente_vincitore\": null,\n            \"tot_prezzo_aggiudicato\": 0,\n            \"idChiave\": null\n        }\n    ]\n}"
+							"body": "{\n    \"stato\": \"La visualizzazione dell'asta è avvenuta correttamente\",\n    \"risultato\": [\n        {\n            \"idAsta\": 4,\n            \"idUtente_creator\": \"simi_dr98\",\n            \"titolo_asta\": \"iPhone\",\n            \"tipo_asta\": \"First Price Sealed Bid Auction\",\n            \"num_partecipanti\": 0,\n            \"min_partecipanti\": 3,\n            \"max_partecipanti\": 10,\n            \"quota_iscrizione\": 11,\n            \"min_prezzo_puntata\": 10,\n            \"min_rialzo\": 1,\n            \"durata_asta\": 5000,\n            \"stato\": \"in esecuzione\",\n            \"idUtente_vincitore\": null,\n            \"tot_prezzo_aggiudicato\": 0,\n            \"idChiave\": 4,\n            \"room\": null\n        },\n        {\n            \"idAsta\": 5,\n            \"idUtente_creator\": \"monica_ms\",\n            \"titolo_asta\": \"poltrona\",\n            \"tipo_asta\": \"First Price Sealed Bid Auction\",\n            \"num_partecipanti\": 0,\n            \"min_partecipanti\": 1,\n            \"max_partecipanti\": 10,\n            \"quota_iscrizione\": 15,\n            \"min_prezzo_puntata\": 20,\n            \"min_rialzo\": 1,\n            \"durata_asta\": 7000,\n            \"stato\": \"in esecuzione\",\n            \"idUtente_vincitore\": null,\n            \"tot_prezzo_aggiudicato\": 0,\n            \"idChiave\": 5,\n            \"room\": null\n        },\n        {\n            \"idAsta\": 6,\n            \"idUtente_creator\": \"simi_dr98\",\n            \"titolo_asta\": \"iPhone\",\n            \"tipo_asta\": \"First Price Sealed Bid Auction\",\n            \"num_partecipanti\": 0,\n            \"min_partecipanti\": 3,\n            \"max_partecipanti\": 10,\n            \"quota_iscrizione\": 11,\n            \"min_prezzo_puntata\": 10,\n            \"min_rialzo\": 1,\n            \"durata_asta\": 5000,\n            \"stato\": \"in esecuzione\",\n            \"idUtente_vincitore\": null,\n            \"tot_prezzo_aggiudicato\": 0,\n            \"idChiave\": 2,\n            \"room\": null\n        },\n        {\n            \"idAsta\": 7,\n            \"idUtente_creator\": \"monica_ms\",\n            \"titolo_asta\": \"poltrona\",\n            \"tipo_asta\": \"First Price Sealed Bid Auction\",\n            \"num_partecipanti\": 0,\n            \"min_partecipanti\": 1,\n            \"max_partecipanti\": 10,\n            \"quota_iscrizione\": 15,\n            \"min_prezzo_puntata\": 20,\n            \"min_rialzo\": 1,\n            \"durata_asta\": 7000,\n            \"stato\": \"in esecuzione\",\n            \"idUtente_vincitore\": null,\n            \"tot_prezzo_aggiudicato\": 0,\n            \"idChiave\": 3,\n            \"room\": null\n        },\n        {\n            \"idAsta\": 8,\n            \"idUtente_creator\": \"simi_dr98\",\n            \"titolo_asta\": \"scaffale\",\n            \"tipo_asta\": \"Second Price Sealed Bid Auction\",\n            \"num_partecipanti\": 3,\n            \"min_partecipanti\": 2,\n            \"max_partecipanti\": 13,\n            \"quota_iscrizione\": 10,\n            \"min_prezzo_puntata\": 15,\n            \"min_rialzo\": 1,\n            \"durata_asta\": 4000,\n            \"stato\": \"in esecuzione\",\n            \"idUtente_vincitore\": null,\n            \"tot_prezzo_aggiudicato\": 0,\n            \"idChiave\": null,\n            \"room\": null\n        },\n        {\n            \"idAsta\": 21,\n            \"idUtente_creator\": \"simi_dr98\",\n            \"titolo_asta\": \"lampada\",\n            \"tipo_asta\": \"English Auction\",\n            \"num_partecipanti\": 1,\n            \"min_partecipanti\": 1,\n            \"max_partecipanti\": 3,\n            \"quota_iscrizione\": 5,\n            \"min_prezzo_puntata\": 5,\n            \"min_rialzo\": 1,\n            \"durata_asta\": 300,\n            \"stato\": \"in esecuzione\",\n            \"idUtente_vincitore\": null,\n            \"tot_prezzo_aggiudicato\": 0,\n            \"idChiave\": null,\n            \"room\": null\n        },\n        {\n            \"idAsta\": 22,\n            \"idUtente_creator\": \"monica_ms\",\n            \"titolo_asta\": \"lampada\",\n            \"tipo_asta\": \"English Auction\",\n            \"num_partecipanti\": 0,\n            \"min_partecipanti\": 1,\n            \"max_partecipanti\": 3,\n            \"quota_iscrizione\": 5,\n            \"min_prezzo_puntata\": 5,\n            \"min_rialzo\": 1,\n            \"durata_asta\": 300,\n            \"stato\": \"in esecuzione\",\n            \"idUtente_vincitore\": null,\n            \"tot_prezzo_aggiudicato\": 0,\n            \"idChiave\": null,\n            \"room\": null\n        },\n        {\n            \"idAsta\": 44,\n            \"idUtente_creator\": \"monica_ms\",\n            \"titolo_asta\": \"Panda\",\n            \"tipo_asta\": \"Second Price Sealed Bid Auction\",\n            \"num_partecipanti\": 4,\n            \"min_partecipanti\": 1,\n            \"max_partecipanti\": 11,\n            \"quota_iscrizione\": 10,\n            \"min_prezzo_puntata\": 50,\n            \"min_rialzo\": 5,\n            \"durata_asta\": 2,\n            \"stato\": \"in esecuzione\",\n            \"idUtente_vincitore\": null,\n            \"tot_prezzo_aggiudicato\": 0,\n            \"idChiave\": 1,\n            \"room\": null\n        }\n    ]\n}"
 						}
 					]
 				},
@@ -472,6 +517,15 @@
 							"originalRequest": {
 								"method": "GET",
 								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"stato\": \"terminata\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
 								"url": {
 									"raw": "localhost:8080/visualizzaAsteFiltroStato",
 									"host": [
@@ -497,15 +551,15 @@
 								},
 								{
 									"key": "Content-Length",
-									"value": "713"
+									"value": "1491"
 								},
 								{
 									"key": "ETag",
-									"value": "W/\"2c9-bEk/T0VrORmk84my3lAvwAG32VY\""
+									"value": "W/\"5d3-YxMCj/gl9tM47Qdx8evLKvDwb7A\""
 								},
 								{
 									"key": "Date",
-									"value": "Wed, 07 Sep 2022 15:51:52 GMT"
+									"value": "Thu, 15 Sep 2022 22:06:01 GMT"
 								},
 								{
 									"key": "Connection",
@@ -517,59 +571,36 @@
 								}
 							],
 							"cookie": [],
-							"body": "{\n    \"descrizione\": \"La visualizzazione dell'asta è avvenuta correttamente\",\n    \"risultato\": [\n        {\n            \"idAsta\": 2,\n            \"idUtente_creator\": \"simi_dr98\",\n            \"titolo_asta\": \"computer\",\n            \"tipo_asta\": \"English Auction\",\n            \"min_partecipanti\": 1,\n            \"max_partecipanti\": 5,\n            \"quota_iscrizione\": 7,\n            \"min_prezzo_puntata\": 10,\n            \"min_rialzo\": 1,\n            \"durata_asta\": 4420,\n            \"stato\": \"terminata\",\n            \"idUtente_vincitore\": \"bene_dr\",\n            \"tot_prezzo_aggiudicato\": 50,\n            \"idChiave\": null\n        },\n        {\n            \"idAsta\": 3,\n            \"idUtente_creator\": \"monica_ms\",\n            \"titolo_asta\": \"lampada\",\n            \"tipo_asta\": \"English Auction\",\n            \"min_partecipanti\": 3,\n            \"max_partecipanti\": 1,\n            \"quota_iscrizione\": 5,\n            \"min_prezzo_puntata\": 5,\n            \"min_rialzo\": 1,\n            \"durata_asta\": 300,\n            \"stato\": \"terminata\",\n            \"idUtente_vincitore\": \"luca_ms\",\n            \"tot_prezzo_aggiudicato\": 30,\n            \"idChiave\": null\n        }\n    ]\n}"
+							"body": "{\n    \"stato\": \"La visualizzazione dell'asta è avvenuta correttamente\",\n    \"risultato\": [\n        {\n            \"idAsta\": 2,\n            \"idUtente_creator\": \"simi_dr98\",\n            \"titolo_asta\": \"computer\",\n            \"tipo_asta\": \"English Auction\",\n            \"num_partecipanti\": 0,\n            \"min_partecipanti\": 1,\n            \"max_partecipanti\": 5,\n            \"quota_iscrizione\": 7,\n            \"min_prezzo_puntata\": 10,\n            \"min_rialzo\": 1,\n            \"durata_asta\": 4420,\n            \"stato\": \"terminata\",\n            \"idUtente_vincitore\": \"bene_dr\",\n            \"tot_prezzo_aggiudicato\": 50,\n            \"idChiave\": null,\n            \"room\": null\n        },\n        {\n            \"idAsta\": 3,\n            \"idUtente_creator\": \"monica_ms\",\n            \"titolo_asta\": \"lampada\",\n            \"tipo_asta\": \"English Auction\",\n            \"num_partecipanti\": 0,\n            \"min_partecipanti\": 3,\n            \"max_partecipanti\": 1,\n            \"quota_iscrizione\": 5,\n            \"min_prezzo_puntata\": 5,\n            \"min_rialzo\": 1,\n            \"durata_asta\": 300,\n            \"stato\": \"terminata\",\n            \"idUtente_vincitore\": \"luca_ms\",\n            \"tot_prezzo_aggiudicato\": 30,\n            \"idChiave\": null,\n            \"room\": null\n        },\n        {\n            \"idAsta\": 10,\n            \"idUtente_creator\": \"monica_ms\",\n            \"titolo_asta\": \"caricatore ipad\",\n            \"tipo_asta\": \"English Auction\",\n            \"num_partecipanti\": 3,\n            \"min_partecipanti\": 2,\n            \"max_partecipanti\": 20,\n            \"quota_iscrizione\": 5,\n            \"min_prezzo_puntata\": 10,\n            \"min_rialzo\": 1,\n            \"durata_asta\": 1,\n            \"stato\": \"terminata\",\n            \"idUtente_vincitore\": \"luca_ms\",\n            \"tot_prezzo_aggiudicato\": 40,\n            \"idChiave\": null,\n            \"room\": \"10\"\n        },\n        {\n            \"idAsta\": 30,\n            \"idUtente_creator\": \"monica_ms\",\n            \"titolo_asta\": \"laptop DELL\",\n            \"tipo_asta\": \"First Price Sealed Bid Auction\",\n            \"num_partecipanti\": 3,\n            \"min_partecipanti\": 2,\n            \"max_partecipanti\": 10,\n            \"quota_iscrizione\": 10,\n            \"min_prezzo_puntata\": 50,\n            \"min_rialzo\": 5,\n            \"durata_asta\": 3,\n            \"stato\": \"terminata\",\n            \"idUtente_vincitore\": \"danidani\",\n            \"tot_prezzo_aggiudicato\": 90,\n            \"idChiave\": 1,\n            \"room\": null\n        }\n    ]\n}"
 						}
 					]
 				}
 			]
 		},
 		{
-			"name": "creaOfferta",
+			"name": "asta21-aperta(db)",
 			"item": [
 				{
-					"name": "creaOffertaLuca-14",
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZFV0ZW50ZSI6Imx1Y2FfbXMiLCJydW9sbyI6ImJpZF9wYXJ0aWNpcGFudCJ9.cy_ULFMExK-Ofq_wKy8QZdLtJL-zoE1-8RASZnChcPE",
-									"type": "string"
-								}
-							]
-						},
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"idOfferta\": 14,\r\n    \"quota\": 11,\r\n    \"idAsta\": 4\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "localhost:8080/creaOfferta",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"creaOfferta"
-							]
-						}
-					},
-					"response": [
+					"name": "partecipaAsta 21",
+					"item": [
 						{
-							"name": "creaOffertaLuca-14",
-							"originalRequest": {
+							"name": "partecipaAsta-Luca",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZFV0ZW50ZSI6Imx1Y2FfbXMiLCJydW9sbyI6ImJpZF9wYXJ0aWNpcGFudCJ9.cy_ULFMExK-Ofq_wKy8QZdLtJL-zoE1-8RASZnChcPE",
+											"type": "string"
+										}
+									]
+								},
 								"method": "POST",
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"idOfferta\": 14,\r\n    \"quota\": 11,\r\n    \"idAsta\": 4\r\n}",
+									"raw": "{\r\n    \"idPartecipazione\": \"211\",\r\n    \"idAsta\": \"21\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -577,98 +608,133 @@
 									}
 								},
 								"url": {
-									"raw": "localhost:8080/creaOfferta",
+									"raw": "localhost:8080/partecipaAsta?idAsta=21",
 									"host": [
 										"localhost"
 									],
 									"port": "8080",
 									"path": [
-										"creaOfferta"
+										"partecipaAsta"
+									],
+									"query": [
+										{
+											"key": "idAsta",
+											"value": "21"
+										}
 									]
 								}
 							},
-							"status": "Created",
-							"code": 201,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "X-Powered-By",
-									"value": "Express"
+							"response": []
+						},
+						{
+							"name": "partecipaAsta-Dani",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZFV0ZW50ZSI6ImRhbmlkYW5pIiwicnVvbG8iOiJiaWRfcGFydGljaXBhbnQifQ.3vDogzK7u190-UvAK7WJM6c3cUdH35nz3jxVc8h9CbM",
+											"type": "string"
+										}
+									]
 								},
-								{
-									"key": "Content-Type",
-									"value": "application/json; charset=utf-8"
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"idPartecipazione\": \"212\",\r\n    \"idAsta\": \"21\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
 								},
-								{
-									"key": "Content-Length",
-									"value": "139"
-								},
-								{
-									"key": "ETag",
-									"value": "W/\"8b-QbtRA1JUAlosTR+W0hD4wEC97rk\""
-								},
-								{
-									"key": "Date",
-									"value": "Wed, 07 Sep 2022 16:52:29 GMT"
-								},
-								{
-									"key": "Connection",
-									"value": "keep-alive"
-								},
-								{
-									"key": "Keep-Alive",
-									"value": "timeout=5"
+								"url": {
+									"raw": "localhost:8080/partecipaAsta?idAsta=21",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"partecipaAsta"
+									],
+									"query": [
+										{
+											"key": "idAsta",
+											"value": "21"
+										}
+									]
 								}
-							],
-							"cookie": [],
-							"body": "{\n    \"Descrizione\": \"La creazione dell'offerta è avvenuta correttamente\",\n    \"offerta\": {\n        \"idOfferta\": 14,\n        \"quota\": 11,\n        \"idAsta\": 4,\n        \"idUtente\": \"luca_ms\"\n    }\n}"
+							},
+							"response": []
+						},
+						{
+							"name": "partecipaAsta-Hermes",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJydW9sbyI6ImJpZF9wYXJ0aWNpcGFudCIsImlkVXRlbnRlIjoiaGVybWVzXyJ9.rpUdj24YyA9ogY5hgDTMdrUQuTfACH5AY3WOnuy1zFw",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"idPartecipazione\": \"213\",\r\n    \"idAsta\": \"21\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/partecipaAsta?idAsta=21",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"partecipaAsta"
+									],
+									"query": [
+										{
+											"key": "idAsta",
+											"value": "21"
+										}
+									]
+								}
+							},
+							"response": []
 						}
 					]
 				},
 				{
-					"name": "creaOffertaBene-14",
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZFV0ZW50ZSI6ImJlbmVfZHIiLCJydW9sbyI6ImJpZF9wYXJ0aWNpcGFudCJ9.hVl6CG9r51ZOZmSgKybWpzgQRKrRG8cgxXKywY0k5VI",
-									"type": "string"
-								}
-							]
-						},
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"idOfferta\": 15,\r\n    \"quota\": 11,\r\n    \"idAsta\": 4\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "localhost:8080/creaOfferta",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"creaOfferta"
-							]
-						}
-					},
-					"response": [
+					"name": "creaOfferta 21",
+					"item": [
 						{
-							"name": "creaOffertaBene-14",
-							"originalRequest": {
+							"name": "creaOffertaLuca-21",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZFV0ZW50ZSI6Imx1Y2FfbXMiLCJydW9sbyI6ImJpZF9wYXJ0aWNpcGFudCJ9.cy_ULFMExK-Ofq_wKy8QZdLtJL-zoE1-8RASZnChcPE",
+											"type": "string"
+										}
+									]
+								},
 								"method": "POST",
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"idOfferta\": 15,\r\n    \"quota\": 11,\r\n    \"idAsta\": 4\r\n}",
+									"raw": "{\r\n    \"idOfferta\": 211,\r\n    \"quota\": 6\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -676,152 +742,442 @@
 									}
 								},
 								"url": {
-									"raw": "localhost:8080/creaOfferta",
+									"raw": "localhost:8080/creaOfferta?idAsta=21",
 									"host": [
 										"localhost"
 									],
 									"port": "8080",
 									"path": [
 										"creaOfferta"
+									],
+									"query": [
+										{
+											"key": "idAsta",
+											"value": "21"
+										}
 									]
 								}
 							},
-							"status": "Created",
-							"code": 201,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "X-Powered-By",
-									"value": "Express"
+							"response": []
+						},
+						{
+							"name": "creaOffertaBene-21",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZFV0ZW50ZSI6ImJlbmVfZHIiLCJydW9sbyI6ImJpZF9wYXJ0aWNpcGFudCJ9.hVl6CG9r51ZOZmSgKybWpzgQRKrRG8cgxXKywY0k5VI",
+											"type": "string"
+										}
+									]
 								},
-								{
-									"key": "Content-Type",
-									"value": "application/json; charset=utf-8"
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"idOfferta\": 15,\r\n    \"quota\": 11\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
 								},
-								{
-									"key": "Content-Length",
-									"value": "139"
-								},
-								{
-									"key": "ETag",
-									"value": "W/\"8b-yO/71H/fAbItNK1RsHNNwEaRZxk\""
-								},
-								{
-									"key": "Date",
-									"value": "Wed, 07 Sep 2022 17:12:23 GMT"
-								},
-								{
-									"key": "Connection",
-									"value": "keep-alive"
-								},
-								{
-									"key": "Keep-Alive",
-									"value": "timeout=5"
+								"url": {
+									"raw": "localhost:8080/creaOfferta?idAsta=21",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"creaOfferta"
+									],
+									"query": [
+										{
+											"key": "idAsta",
+											"value": "21"
+										}
+									]
 								}
-							],
-							"cookie": [],
-							"body": "{\n    \"Descrizione\": \"La creazione dell'offerta è avvenuta correttamente\",\n    \"offerta\": {\n        \"idOfferta\": 15,\n        \"quota\": 11,\n        \"idAsta\": 4,\n        \"idUtente\": \"bene_dr\"\n    }\n}"
+							},
+							"response": []
 						}
 					]
 				}
-			]
+			],
+			"description": "StartFragment\n\nIscrizione degli utenti all'asta identificata dall'idAsta 8, che risulta \"in esecuzione\". Essendo un'asta a busta aperta, il messaggio di offerta può essere inviato in chiaro."
+		},
+		{
+			"name": "asta8-chiusa(db)",
+			"item": [
+				{
+					"name": "partecipaAsta 8",
+					"item": [
+						{
+							"name": "partecipaAsta-Luca",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZFV0ZW50ZSI6Imx1Y2FfbXMiLCJydW9sbyI6ImJpZF9wYXJ0aWNpcGFudCJ9.cy_ULFMExK-Ofq_wKy8QZdLtJL-zoE1-8RASZnChcPE",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"idPartecipazione\": \"811\",\r\n    \"idAsta\": \"8\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/partecipaAsta?idAsta=8",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"partecipaAsta"
+									],
+									"query": [
+										{
+											"key": "idAsta",
+											"value": "8"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "partecipaAsta-Dani",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZFV0ZW50ZSI6ImRhbmlkYW5pIiwicnVvbG8iOiJiaWRfcGFydGljaXBhbnQifQ.3vDogzK7u190-UvAK7WJM6c3cUdH35nz3jxVc8h9CbM",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"idPartecipazione\": \"812\",\r\n    \"idAsta\": \"8\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/partecipaAsta?idAsta=8",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"partecipaAsta"
+									],
+									"query": [
+										{
+											"key": "idAsta",
+											"value": "8"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "partecipaAsta-Hermes",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJydW9sbyI6ImJpZF9wYXJ0aWNpcGFudCIsImlkVXRlbnRlIjoiaGVybWVzXyJ9.rpUdj24YyA9ogY5hgDTMdrUQuTfACH5AY3WOnuy1zFw",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"idPartecipazione\": \"813\",\r\n    \"idAsta\": \"8\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/partecipaAsta?idAsta=8",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"partecipaAsta"
+									],
+									"query": [
+										{
+											"key": "idAsta",
+											"value": "8"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "creaOfferta 8",
+					"item": [
+						{
+							"name": "creaOffertaLuca-8",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZFV0ZW50ZSI6Imx1Y2FfbXMiLCJydW9sbyI6ImJpZF9wYXJ0aWNpcGFudCJ9.cy_ULFMExK-Ofq_wKy8QZdLtJL-zoE1-8RASZnChcPE",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"idOfferta\": 811,\r\n    \"quota\": 6\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/creaOfferta?idAsta=8",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"creaOfferta"
+									],
+									"query": [
+										{
+											"key": "idAsta",
+											"value": "8"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "creaOffertaLuca-14",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"idOfferta\": 14,\r\n    \"quota\": 11\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "localhost:8080/creaOfferta?idAsta=21",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"creaOfferta"
+											],
+											"query": [
+												{
+													"key": "idAsta",
+													"value": "21"
+												}
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "138"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"8a-+ca/QjGoT1rcdNfry0nQOzqtN0g\""
+										},
+										{
+											"key": "Date",
+											"value": "Wed, 14 Sep 2022 22:05:26 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"stato\": \"La creazione dell'offerta è avvenuta correttamente\",\n    \"risultato\": {\n        \"idOfferta\": 14,\n        \"quota\": 11,\n        \"idUtente\": \"luca_ms\",\n        \"idAsta\": \"21\"\n    }\n}"
+								}
+							]
+						},
+						{
+							"name": "creaOffertaBene-8",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZFV0ZW50ZSI6ImJlbmVfZHIiLCJydW9sbyI6ImJpZF9wYXJ0aWNpcGFudCJ9.hVl6CG9r51ZOZmSgKybWpzgQRKrRG8cgxXKywY0k5VI",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"idOfferta\": 85,\r\n    \"quota\": 11\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/creaOfferta?idAsta=8",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"creaOfferta"
+									],
+									"query": [
+										{
+											"key": "idAsta",
+											"value": "8"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "creaOffertaBene-14",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"idOfferta\": 15,\r\n    \"quota\": 11\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "localhost:8080/creaOfferta?idAsta=22",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"creaOfferta"
+											],
+											"query": [
+												{
+													"key": "idAsta",
+													"value": "22"
+												}
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "138"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"8a-8BjtfTJuz+UInwvv5jZH3R/86i0\""
+										},
+										{
+											"key": "Date",
+											"value": "Wed, 14 Sep 2022 22:05:44 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"stato\": \"La creazione dell'offerta è avvenuta correttamente\",\n    \"risultato\": {\n        \"idOfferta\": 15,\n        \"quota\": 11,\n        \"idUtente\": \"bene_dr\",\n        \"idAsta\": \"22\"\n    }\n}"
+								}
+							]
+						}
+					]
+				}
+			],
+			"description": "StartFragment\n\nIscrizioni degli utenti all'asta identificata dall'idAsta 8, che risulta \"non ancora aperta\" e che, al raggiungimento del numero minimo di partecipanti, passa allo stato \"in esecuzione\".\n\nTuttavia, essendo un'asta a busta chiusa, il messaggio di offerta deve essere inviato criptato con la chiave pubblica ad essa associata, perciò non è possibile inviare l'offerta.\n\nEndFragment"
 		},
 		{
 			"name": "visualizzaStoricoAste",
 			"item": [
-				{
-					"name": "visualizzaStoricoAste-luca_ms(nodata)",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZFV0ZW50ZSI6Imx1Y2FfbXMiLCJydW9sbyI6ImJpZF9wYXJ0aWNpcGFudCJ9.cy_ULFMExK-Ofq_wKy8QZdLtJL-zoE1-8RASZnChcPE",
-									"type": "string"
-								}
-							]
-						},
-						"method": "GET",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"data\": null\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "localhost:8080/visualizzaStoricoAste",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"visualizzaStoricoAste"
-							]
-						}
-					},
-					"response": [
-						{
-							"name": "visualizzaStoricoAste-luca_ms(nodata)",
-							"originalRequest": {
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "localhost:8080/visualizzaStoricoAste",
-									"host": [
-										"localhost"
-									],
-									"port": "8080",
-									"path": [
-										"visualizzaStoricoAste"
-									]
-								}
-							},
-							"status": "OK",
-							"code": 200,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "X-Powered-By",
-									"value": "Express"
-								},
-								{
-									"key": "Content-Type",
-									"value": "application/json; charset=utf-8"
-								},
-								{
-									"key": "Content-Length",
-									"value": "590"
-								},
-								{
-									"key": "ETag",
-									"value": "W/\"24e-yiEQnectnaB4tzJf+1i+t6bbfS8\""
-								},
-								{
-									"key": "Date",
-									"value": "Wed, 07 Sep 2022 15:15:05 GMT"
-								},
-								{
-									"key": "Connection",
-									"value": "keep-alive"
-								},
-								{
-									"key": "Keep-Alive",
-									"value": "timeout=5"
-								}
-							],
-							"cookie": [],
-							"body": "{\n    \"stato\": \"L'asta è stata visualizzata correttamente, senza specifica temporale.\",\n    \"risultato\": [\n        {\n            \"idPartecipazione\": 3,\n            \"idAsta\": 3,\n            \"idUtente\": \"luca_ms\",\n            \"costo_partecipazione\": 5,\n            \"vincita\": 1,\n            \"contatore_rilanci\": 2,\n            \"timestamp_iscrizione\": \"2022-09-07T15:08:40.000Z\"\n        },\n        {\n            \"idPartecipazione\": 41,\n            \"idAsta\": 4,\n            \"idUtente\": \"luca_ms\",\n            \"costo_partecipazione\": 5,\n            \"vincita\": 0,\n            \"contatore_rilanci\": 2,\n            \"timestamp_iscrizione\": \"2022-09-07T15:08:40.000Z\"\n        },\n        {\n            \"idPartecipazione\": 52,\n            \"idAsta\": 5,\n            \"idUtente\": \"luca_ms\",\n            \"costo_partecipazione\": 5,\n            \"vincita\": 0,\n            \"contatore_rilanci\": 1,\n            \"timestamp_iscrizione\": \"2022-09-07T15:08:40.000Z\"\n        }\n    ]\n}"
-						}
-					]
-				},
 				{
 					"name": "visualizzaStoricoAste-luca_ms",
 					"protocolProfileBehavior": {
@@ -842,7 +1198,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"data\": \"2022-09-07\"\r\n}",
+							"raw": "{\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -850,13 +1206,19 @@
 							}
 						},
 						"url": {
-							"raw": "localhost:8080/visualizzaStoricoAste",
+							"raw": "localhost:8080/visualizzaStoricoAste?vincita=0",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
 							"path": [
 								"visualizzaStoricoAste"
+							],
+							"query": [
+								{
+									"key": "vincita",
+									"value": "0"
+								}
 							]
 						}
 					},
@@ -866,14 +1228,29 @@
 							"originalRequest": {
 								"method": "GET",
 								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
 								"url": {
-									"raw": "localhost:8080/visualizzaStoricoAste",
+									"raw": "localhost:8080/visualizzaStoricoAste?vincita=0",
 									"host": [
 										"localhost"
 									],
 									"port": "8080",
 									"path": [
 										"visualizzaStoricoAste"
+									],
+									"query": [
+										{
+											"key": "vincita",
+											"value": "0"
+										}
 									]
 								}
 							},
@@ -891,15 +1268,15 @@
 								},
 								{
 									"key": "Content-Length",
-									"value": "440"
+									"value": "829"
 								},
 								{
 									"key": "ETag",
-									"value": "W/\"1b8-KPYsH2x/voFGW7J6QQT53kmBf/4\""
+									"value": "W/\"33d-7xWDNnNbmKFD1AgzfB/Kf2qM/fw\""
 								},
 								{
 									"key": "Date",
-									"value": "Wed, 07 Sep 2022 16:30:11 GMT"
+									"value": "Thu, 15 Sep 2022 21:53:48 GMT"
 								},
 								{
 									"key": "Connection",
@@ -911,7 +1288,630 @@
 								}
 							],
 							"cookie": [],
-							"body": "{\n    \"stato\": \"L'asta è stata visualizzata correttamente, con la specifica temporale.\",\n    \"risultato\": [\n        {\n            \"idPartecipazione\": 41,\n            \"costo_partecipazione\": 5,\n            \"vincita\": false,\n            \"timestamp_iscrizione\": \"2022-09-07T16:27:07.000Z\"\n        },\n        {\n            \"idPartecipazione\": 52,\n            \"costo_partecipazione\": 5,\n            \"vincita\": false,\n            \"timestamp_iscrizione\": \"2022-09-07T16:27:07.000Z\"\n        },\n        {\n            \"idPartecipazione\": 3,\n            \"costo_partecipazione\": 5,\n            \"vincita\": true,\n            \"timestamp_iscrizione\": \"2022-09-07T16:27:07.000Z\"\n        }\n    ]\n}"
+							"body": "{\n    \"stato\": \"Il risultato della ricerca è stato visualizzato correttamente, senza specifica temporale\",\n    \"risultato\": [\n        {\n            \"idPartecipazione\": 41,\n            \"idAsta\": 4,\n            \"idUtente\": \"luca_ms\",\n            \"costo_partecipazione\": 5,\n            \"vincita\": 0,\n            \"contatore_rilanci\": 2,\n            \"data_iscrizione\": \"2022-09-15T21:37:10.000Z\",\n            \"socket_id\": null\n        },\n        {\n            \"idPartecipazione\": 52,\n            \"idAsta\": 5,\n            \"idUtente\": \"luca_ms\",\n            \"costo_partecipazione\": 5,\n            \"vincita\": 0,\n            \"contatore_rilanci\": 1,\n            \"data_iscrizione\": \"2022-09-15T21:37:10.000Z\",\n            \"socket_id\": null\n        },\n        {\n            \"idPartecipazione\": 302,\n            \"idAsta\": 30,\n            \"idUtente\": \"luca_ms\",\n            \"costo_partecipazione\": 10,\n            \"vincita\": 0,\n            \"contatore_rilanci\": 0,\n            \"data_iscrizione\": \"2022-09-15T21:41:08.000Z\",\n            \"socket_id\": null\n        },\n        {\n            \"idPartecipazione\": 442,\n            \"idAsta\": 44,\n            \"idUtente\": \"luca_ms\",\n            \"costo_partecipazione\": 10,\n            \"vincita\": 0,\n            \"contatore_rilanci\": 0,\n            \"data_iscrizione\": \"2022-09-15T21:47:15.000Z\",\n            \"socket_id\": null\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "visualizzaStoricoAste-luca_ms(da)",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZFV0ZW50ZSI6Imx1Y2FfbXMiLCJydW9sbyI6ImJpZF9wYXJ0aWNpcGFudCJ9.cy_ULFMExK-Ofq_wKy8QZdLtJL-zoE1-8RASZnChcPE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"da\": \"12/09/2022\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/visualizzaStoricoAste?vincita=1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"visualizzaStoricoAste"
+							],
+							"query": [
+								{
+									"key": "vincita",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "visualizzaStoricoAste-luca_ms(da)",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"da\": \"12/09/2022\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/visualizzaStoricoAste?vincita=1",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"visualizzaStoricoAste"
+									],
+									"query": [
+										{
+											"key": "vincita",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "278"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"116-LnKT0Em0w8dE40QS7twJnVczgAQ\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 12 Sep 2022 17:15:02 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"stato\": \"Il risultato della ricerca è stato visualizzato correttamente, con la specifica temporale\",\n    \"risultato\": [\n        {\n            \"idPartecipazione\": 3,\n            \"idAsta\": 3,\n            \"idUtente\": \"luca_ms\",\n            \"costo_partecipazione\": 5,\n            \"vincita\": true,\n            \"contatore_rilanci\": 2,\n            \"data_iscrizione\": \"2022-09-12T15:14:59.000Z\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "visualizzaStoricoAste-luca_ms(da-a)",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZFV0ZW50ZSI6Imx1Y2FfbXMiLCJydW9sbyI6ImJpZF9wYXJ0aWNpcGFudCJ9.cy_ULFMExK-Ofq_wKy8QZdLtJL-zoE1-8RASZnChcPE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"da\": \"12/09/2022\",\r\n    \"a\": \"30/09/2022\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/visualizzaStoricoAste?vincita=1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"visualizzaStoricoAste"
+							],
+							"query": [
+								{
+									"key": "vincita",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "visualizzaStoricoAste-luca_ms(da-a)",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"da\": \"12/09/2022\",\r\n    \"a\": \"30/09/2022\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/visualizzaStoricoAste?vincita=1",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"visualizzaStoricoAste"
+									],
+									"query": [
+										{
+											"key": "vincita",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "480"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"1e0-NO9oPgJn8EC6qqYhBfKmFEKD880\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 15 Sep 2022 22:17:07 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"stato\": \"Il risultato della ricerca è stato visualizzato correttamente, con la specifica temporale\",\n    \"risultato\": [\n        {\n            \"idPartecipazione\": 3,\n            \"idAsta\": 3,\n            \"idUtente\": \"luca_ms\",\n            \"costo_partecipazione\": 5,\n            \"vincita\": true,\n            \"contatore_rilanci\": 2,\n            \"data_iscrizione\": \"2022-09-15T21:37:10.000Z\",\n            \"socket_id\": null\n        },\n        {\n            \"idPartecipazione\": 123456,\n            \"idAsta\": 10,\n            \"idUtente\": \"luca_ms\",\n            \"costo_partecipazione\": 5,\n            \"vincita\": true,\n            \"contatore_rilanci\": 0,\n            \"data_iscrizione\": \"2022-09-15T21:38:11.000Z\",\n            \"socket_id\": null\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "visualizzaStoricoAste-bene_dr",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZFV0ZW50ZSI6ImJlbmVfZHIiLCJydW9sbyI6ImJpZF9wYXJ0aWNpcGFudCJ9.hVl6CG9r51ZOZmSgKybWpzgQRKrRG8cgxXKywY0k5VI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"da\": \"12/09/2022\",\r\n    \"a\": \"30/09/2022\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/visualizzaStoricoAste?vincita=0",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"visualizzaStoricoAste"
+							],
+							"query": [
+								{
+									"key": "vincita",
+									"value": "0"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "visualizzaStoricoAste-bene_dr",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"da\": \"12/09/2022\",\r\n    \"a\": \"30/09/2022\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/visualizzaStoricoAste?vincita=0",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"visualizzaStoricoAste"
+									],
+									"query": [
+										{
+											"key": "vincita",
+											"value": "0"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "669"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"29d-sRL8OfS9OjElLYxURK0LykcyCBA\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 15 Sep 2022 22:16:53 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"stato\": \"Il risultato della ricerca è stato visualizzato correttamente, con la specifica temporale\",\n    \"risultato\": [\n        {\n            \"idPartecipazione\": 301,\n            \"idAsta\": 30,\n            \"idUtente\": \"bene_dr\",\n            \"costo_partecipazione\": 10,\n            \"vincita\": false,\n            \"contatore_rilanci\": 0,\n            \"data_iscrizione\": \"2022-09-15T21:41:00.000Z\",\n            \"socket_id\": null\n        },\n        {\n            \"idPartecipazione\": 441,\n            \"idAsta\": 44,\n            \"idUtente\": \"bene_dr\",\n            \"costo_partecipazione\": 10,\n            \"vincita\": false,\n            \"contatore_rilanci\": 0,\n            \"data_iscrizione\": \"2022-09-15T21:47:03.000Z\",\n            \"socket_id\": null\n        },\n        {\n            \"idPartecipazione\": 12345,\n            \"idAsta\": 10,\n            \"idUtente\": \"bene_dr\",\n            \"costo_partecipazione\": 5,\n            \"vincita\": false,\n            \"contatore_rilanci\": 0,\n            \"data_iscrizione\": \"2022-09-15T21:38:20.000Z\",\n            \"socket_id\": null\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "visualizzaStoricoAste-danidani",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZFV0ZW50ZSI6ImRhbmlkYW5pIiwicnVvbG8iOiJiaWRfcGFydGljaXBhbnQifQ.3vDogzK7u190-UvAK7WJM6c3cUdH35nz3jxVc8h9CbM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"da\": \"12/09/2022\",\r\n    \"a\": \"30/09/2022\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/visualizzaStoricoAste?vincita=1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"visualizzaStoricoAste"
+							],
+							"query": [
+								{
+									"key": "vincita",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "visualizzaStoricoAste-danidani",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"da\": \"12/09/2022\",\r\n    \"a\": \"30/09/2022\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/visualizzaStoricoAste?vincita=1",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"visualizzaStoricoAste"
+									],
+									"query": [
+										{
+											"key": "vincita",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "300"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"12c-mbIRC/j22qsfutDyBc9U9wNW0lc\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 15 Sep 2022 22:15:45 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"stato\": \"Il risultato della ricerca è stato visualizzato correttamente, con la specifica temporale\",\n    \"risultato\": [\n        {\n            \"idPartecipazione\": 303,\n            \"idAsta\": 30,\n            \"idUtente\": \"danidani\",\n            \"costo_partecipazione\": 10,\n            \"vincita\": true,\n            \"contatore_rilanci\": 0,\n            \"data_iscrizione\": \"2022-09-15T21:41:39.000Z\",\n            \"socket_id\": null\n        }\n    ]\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "controlloWallet",
+			"item": [
+				{
+					"name": "controlloWalletDani",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZFV0ZW50ZSI6ImRhbmlkYW5pIiwicnVvbG8iOiJiaWRfcGFydGljaXBhbnQifQ.3vDogzK7u190-UvAK7WJM6c3cUdH35nz3jxVc8h9CbM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/controlloWallet",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"controlloWallet"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "controlloWalletDani",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8080/controlloWallet",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"controlloWallet"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "103"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"67-O0BCuwsaSjoxx5nJ2E6F/WEwDOM\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 07 Sep 2022 20:39:03 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"Descrizione\": \"La visualizzazione del credito è avvenuta correttamente\",\n    \"risultato\": {\n        \"credito\": 2000\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "controlloWalletHermes",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJydW9sbyI6ImJpZF9wYXJ0aWNpcGFudCIsImlkVXRlbnRlIjoiaGVybWVzXyJ9.rpUdj24YyA9ogY5hgDTMdrUQuTfACH5AY3WOnuy1zFw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/controlloWallet",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"controlloWallet"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "controlloWalletDani",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8080/controlloWallet",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"controlloWallet"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "103"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"67-O0BCuwsaSjoxx5nJ2E6F/WEwDOM\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 07 Sep 2022 20:39:03 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"Descrizione\": \"La visualizzazione del credito è avvenuta correttamente\",\n    \"risultato\": {\n        \"credito\": 2000\n    }\n}"
 						}
 					]
 				}
@@ -1018,14 +2018,9 @@
 							"body": "{\n    \"stato\": \"Il credito token dell'utente è stato ricaricato correttamente.\",\n    \"risultato\": {\n        \"idUtente\": \"hermes_\",\n        \"credito_token\": 130,\n        \"ruolo\": \"bid_participant\"\n    }\n}"
 						}
 					]
-				}
-			]
-		},
-		{
-			"name": "scalaCredito",
-			"item": [
+				},
 				{
-					"name": "scalaCredito-bene_dr",
+					"name": "ricaricaWallet-danidani",
 					"request": {
 						"auth": {
 							"type": "bearer",
@@ -1041,7 +2036,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"idAsta\": 2,\r\n    \"idUtente_vincitore\": \"bene_dr\",\r\n    \"cifra\": 50\r\n}",
+							"raw": "{\r\n    \"idUtente_beneficiario\": \"danidani\",\r\n    \"quantita\": 30\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1049,25 +2044,25 @@
 							}
 						},
 						"url": {
-							"raw": "localhost:8080/scalaCredito",
+							"raw": "localhost:8080/ricaricaWalletUtente",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
 							"path": [
-								"scalaCredito"
+								"ricaricaWalletUtente"
 							]
 						}
 					},
 					"response": [
 						{
-							"name": "scalaCredito-bene_dr",
+							"name": "ricaricaWallet-hermes_",
 							"originalRequest": {
 								"method": "POST",
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"idAsta\": 2,\r\n    \"idUtente_vincitore\": \"bene_dr\",\r\n    \"cifra\": 50\r\n}",
+									"raw": "{\r\n    \"idUtente_beneficiario\": \"hermes_\",\r\n    \"quantita\": 30\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -1075,13 +2070,13 @@
 									}
 								},
 								"url": {
-									"raw": "localhost:8080/scalaCredito",
+									"raw": "localhost:8080/ricaricaWalletUtente",
 									"host": [
 										"localhost"
 									],
 									"port": "8080",
 									"path": [
-										"scalaCredito"
+										"ricaricaWalletUtente"
 									]
 								}
 							},
@@ -1099,15 +2094,15 @@
 								},
 								{
 									"key": "Content-Length",
-									"value": "200"
+									"value": "156"
 								},
 								{
 									"key": "ETag",
-									"value": "W/\"c8-2hrGRUa/7sOlrNN8QfKtrC3VQYU\""
+									"value": "W/\"9c-13aJ06ymTNa173Eppn5Z3ApuUJE\""
 								},
 								{
 									"key": "Date",
-									"value": "Wed, 07 Sep 2022 17:23:53 GMT"
+									"value": "Wed, 07 Sep 2022 17:09:09 GMT"
 								},
 								{
 									"key": "Connection",
@@ -1119,7 +2114,7 @@
 								}
 							],
 							"cookie": [],
-							"body": "{\n    \"stato\": \"Il credito token dell'utente è stato scalato correttamente con l'ammontare del prezzo aggiudicato finale.\",\n    \"risultato\": {\n        \"idUtente\": \"bene_dr\",\n        \"credito_token\": 2450,\n        \"ruolo\": \"bid_participant\"\n    }\n}"
+							"body": "{\n    \"stato\": \"Il credito token dell'utente è stato ricaricato correttamente.\",\n    \"risultato\": {\n        \"idUtente\": \"hermes_\",\n        \"credito_token\": 130,\n        \"ruolo\": \"bid_participant\"\n    }\n}"
 						}
 					]
 				}
@@ -1129,7 +2124,10 @@
 			"name": "visualizzaStoricoAsteRilanci",
 			"item": [
 				{
-					"name": "visualizzaStoricoAsteRilanci-luca_ms",
+					"name": "visualizzaStoricoAsteRilanci-1",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
 					"request": {
 						"auth": {
 							"type": "bearer",
@@ -1143,31 +2141,51 @@
 						},
 						"method": "GET",
 						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
-							"raw": "localhost:8080/visualizzaStoricoAsteRilanci",
+							"raw": "localhost:8080/visualizzaStoricoAsteRilanci?tipo_asta=English Auction",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
 							"path": [
 								"visualizzaStoricoAsteRilanci"
+							],
+							"query": [
+								{
+									"key": "tipo_asta",
+									"value": "English Auction"
+								}
 							]
 						}
 					},
 					"response": [
 						{
-							"name": "visualizzaStoricoAsteRilanci-luca_ms",
+							"name": "visualizzaStoricoAsteRilanci-1",
 							"originalRequest": {
 								"method": "GET",
 								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
 								"url": {
-									"raw": "localhost:8080/visualizzaStoricoAsteRilanci",
+									"raw": "localhost:8080/visualizzaStoricoAsteRilanci?tipo_asta=English Auction",
 									"host": [
 										"localhost"
 									],
 									"port": "8080",
 									"path": [
 										"visualizzaStoricoAsteRilanci"
+									],
+									"query": [
+										{
+											"key": "tipo_asta",
+											"value": "English Auction"
+										}
 									]
 								}
 							},
@@ -1185,15 +2203,15 @@
 								},
 								{
 									"key": "Content-Length",
-									"value": "336"
+									"value": "617"
 								},
 								{
 									"key": "ETag",
-									"value": "W/\"150-DVXPIE23rkzz9yf/gMIDFOZ0/Ig\""
+									"value": "W/\"269-Z1yeHmnwPKL9lndd0LQS5nVvtRo\""
 								},
 								{
 									"key": "Date",
-									"value": "Wed, 07 Sep 2022 21:08:55 GMT"
+									"value": "Mon, 12 Sep 2022 21:11:53 GMT"
 								},
 								{
 									"key": "Connection",
@@ -1205,17 +2223,1170 @@
 								}
 							],
 							"cookie": [],
-							"body": "{\n    \"stato\": \"Lo storico delle aste a cui si è partecipato o si sta partecipando con gli eventuali rilanci è stato visualizzato correttamente.\",\n    \"risultato\": [\n        {\n            \"idOfferta\": 32,\n            \"quota\": 30,\n            \"idUtente\": \"luca_ms\",\n            \"idAsta\": 3\n        },\n        {\n            \"idOfferta\": 41,\n            \"quota\": 15,\n            \"idUtente\": \"luca_ms\",\n            \"idAsta\": 4\n        },\n        {\n            \"idOfferta\": 52,\n            \"quota\": 35,\n            \"idUtente\": \"luca_ms\",\n            \"idAsta\": 5\n        }\n    ]\n}"
+							"body": "{\n    \"stato\": \"Lo storico delle aste a cui si è partecipato o si sta partecipando con gli eventuali rilanci è stato visualizzato correttamente\",\n    \"risultato\": [\n        {\n            \"idAsta\": 3,\n            \"idUtente_creator\": \"monica_ms\",\n            \"titolo_asta\": \"lampada\",\n            \"tipo_asta\": \"English Auction\",\n            \"offerta\": [\n                {\n                    \"idOfferta\": 31,\n                    \"quota\": 20,\n                    \"idUtente\": \"hermes_\",\n                    \"idAsta\": 3\n                },\n                {\n                    \"idOfferta\": 32,\n                    \"quota\": 30,\n                    \"idUtente\": \"luca_ms\",\n                    \"idAsta\": 3\n                }\n            ]\n        },\n        {\n            \"idAsta\": 2,\n            \"idUtente_creator\": \"simi_dr98\",\n            \"titolo_asta\": \"computer\",\n            \"tipo_asta\": \"English Auction\",\n            \"offerta\": [\n                {\n                    \"idOfferta\": 21,\n                    \"quota\": 30,\n                    \"idUtente\": \"danidani\",\n                    \"idAsta\": 2\n                },\n                {\n                    \"idOfferta\": 22,\n                    \"quota\": 50,\n                    \"idUtente\": \"bene_dr\",\n                    \"idAsta\": 2\n                }\n            ]\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "visualizzaStoricoAsteRilanci-2",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZFV0ZW50ZSI6Imx1Y2FfbXMiLCJydW9sbyI6ImJpZF9wYXJ0aWNpcGFudCJ9.cy_ULFMExK-Ofq_wKy8QZdLtJL-zoE1-8RASZnChcPE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "localhost:8080/visualizzaStoricoAsteRilanci?tipo_asta=First Price Sealed Bid Auction",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"visualizzaStoricoAsteRilanci"
+							],
+							"query": [
+								{
+									"key": "tipo_asta",
+									"value": "First Price Sealed Bid Auction"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "visualizzaStoricoAsteRilanci-2",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "localhost:8080/visualizzaStoricoAsteRilanci?tipo_asta=First Price Sealed Bid Auction",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"visualizzaStoricoAsteRilanci"
+									],
+									"query": [
+										{
+											"key": "tipo_asta",
+											"value": "First Price Sealed Bid Auction"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "602"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"25a-tB5JPp5+2p86MpXmr9A7032IEWI\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 12 Sep 2022 21:15:04 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"stato\": \"Lo storico delle aste a cui si è partecipato o si sta partecipando con gli eventuali rilanci è stato visualizzato correttamente\",\n    \"risultato\": [\n        {\n            \"idAsta\": 5,\n            \"idUtente_creator\": \"monica_ms\",\n            \"titolo_asta\": \"poltrona\",\n            \"tipo_asta\": \"First Price Sealed Bid Auction\",\n            \"offerta\": [\n                {\n                    \"idOfferta\": 51,\n                    \"idUtente\": \"hermes_\",\n                    \"idAsta\": 5\n                },\n                {\n                    \"idOfferta\": 52,\n                    \"idUtente\": \"luca_ms\",\n                    \"idAsta\": 5\n                }\n            ]\n        },\n        {\n            \"idAsta\": 4,\n            \"idUtente_creator\": \"simi_dr98\",\n            \"titolo_asta\": \"iPhone\",\n            \"tipo_asta\": \"First Price Sealed Bid Auction\",\n            \"offerta\": [\n                {\n                    \"idOfferta\": 41,\n                    \"idUtente\": \"luca_ms\",\n                    \"idAsta\": 4\n                },\n                {\n                    \"idOfferta\": 42,\n                    \"idUtente\": \"danidani\",\n                    \"idAsta\": 4\n                }\n            ]\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "visualizzaStoricoAsteRilanci-3",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZFV0ZW50ZSI6Imx1Y2FfbXMiLCJydW9sbyI6ImJpZF9wYXJ0aWNpcGFudCJ9.cy_ULFMExK-Ofq_wKy8QZdLtJL-zoE1-8RASZnChcPE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "localhost:8080/visualizzaStoricoAsteRilanci?tipo_asta=Second Price Sealed Bid Auction",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"visualizzaStoricoAsteRilanci"
+							],
+							"query": [
+								{
+									"key": "tipo_asta",
+									"value": "Second Price Sealed Bid Auction"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "visualizzaStoricoAsteRilanci-3",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "localhost:8080/visualizzaStoricoAsteRilanci?tipo_asta=Second Price Sealed Bid Auction",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"visualizzaStoricoAsteRilanci"
+									],
+									"query": [
+										{
+											"key": "tipo_asta",
+											"value": "Second Price Sealed Bid Auction"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "156"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"9c-wiHdh7VFgDaF1p7jQdrciKC8ESQ\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 12 Sep 2022 21:16:30 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"stato\": \"Lo storico delle aste a cui si è partecipato o si sta partecipando con gli eventuali rilanci è stato visualizzato correttamente\",\n    \"risultato\": []\n}"
 						}
 					]
 				}
 			]
 		},
 		{
-			"name": "creazioneAsta",
+			"name": "asta10-aperta",
 			"item": [
 				{
-					"name": "creaAstaMonica-1",
+					"name": "creazioneAsta",
+					"item": [
+						{
+							"name": "creaAstaMonica-1",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZFV0ZW50ZSI6Im1vbmljYV9tcyIsInJ1b2xvIjoiYmlkX2NyZWF0b3IifQ.xyctNgedRQcNMHNz3Q9aKYakg8HemusB_3j_quss_aQ",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"idAsta\" : 10,\r\n    \"titolo_asta\": \"caricatore ipad\" ,\r\n    \"tipo_asta\": \"English Auction\",\r\n    \"min_partecipanti\": 2,\r\n    \"max_partecipanti\": 20,\r\n    \"quota_iscrizione\": 5,\r\n    \"min_prezzo_puntata\": 10,\r\n    \"min_rialzo\": 1,\r\n    \"durata_asta\": 1\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/creaAsta",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"creaAsta"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "partecipaAsta",
+					"item": [
+						{
+							"name": "partecipaAsta-Bene",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZFV0ZW50ZSI6ImJlbmVfZHIiLCJydW9sbyI6ImJpZF9wYXJ0aWNpcGFudCJ9.hVl6CG9r51ZOZmSgKybWpzgQRKrRG8cgxXKywY0k5VI",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"idPartecipazione\": \"12345\",\r\n    \"idAsta\": \"10\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/partecipaAsta?idAsta=10",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"partecipaAsta"
+									],
+									"query": [
+										{
+											"key": "idAsta",
+											"value": "10"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "partecipaAsta-Bene",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"idPartecipazione\": \"12345\",\r\n    \"idAsta\": \"10\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "localhost:8080/partecipaAsta?idAsta=10",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"partecipaAsta"
+											],
+											"query": [
+												{
+													"key": "idAsta",
+													"value": "10"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "251"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"fb-V2yNriTGiLMD7R/OJBo3pdP8+oc\""
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 15 Sep 2022 11:20:47 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"stato\": \"L'iscrizione è avvenuta con successo.\",\n    \"risultato\": {\n        \"socket_id\": null,\n        \"idPartecipazione\": \"12345\",\n        \"idAsta\": \"10\",\n        \"idUtente\": \"bene_dr\",\n        \"costo_partecipazione\": 5,\n        \"vincita\": false,\n        \"contatore_rilanci\": 0,\n        \"data_iscrizione\": \"2022-09-15T11:20:47.331Z\"\n    }\n}"
+								}
+							]
+						},
+						{
+							"name": "partecipaAsta-Luca",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZFV0ZW50ZSI6Imx1Y2FfbXMiLCJydW9sbyI6ImJpZF9wYXJ0aWNpcGFudCJ9.cy_ULFMExK-Ofq_wKy8QZdLtJL-zoE1-8RASZnChcPE",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"idPartecipazione\": \"123456\",\r\n    \"idAsta\": \"10\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/partecipaAsta?idAsta=10",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"partecipaAsta"
+									],
+									"query": [
+										{
+											"key": "idAsta",
+											"value": "10"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "partecipaAsta-Luca",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"idPartecipazione\": \"123456\",\r\n    \"idAsta\": \"10\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "localhost:8080/partecipaAsta?idAsta=10",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"partecipaAsta"
+											],
+											"query": [
+												{
+													"key": "idAsta",
+													"value": "10"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "252"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"fc-dtkPqiRsOjRG9sOiFxg9me6RdQ8\""
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 15 Sep 2022 11:21:04 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"stato\": \"L'iscrizione è avvenuta con successo.\",\n    \"risultato\": {\n        \"socket_id\": null,\n        \"idPartecipazione\": \"123456\",\n        \"idAsta\": \"10\",\n        \"idUtente\": \"luca_ms\",\n        \"costo_partecipazione\": 5,\n        \"vincita\": false,\n        \"contatore_rilanci\": 0,\n        \"data_iscrizione\": \"2022-09-15T11:21:04.958Z\"\n    }\n}"
+								}
+							]
+						},
+						{
+							"name": "partecipaAsta-Dani",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZFV0ZW50ZSI6ImRhbmlkYW5pIiwicnVvbG8iOiJiaWRfcGFydGljaXBhbnQifQ.3vDogzK7u190-UvAK7WJM6c3cUdH35nz3jxVc8h9CbM",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"idPartecipazione\": \"1234567\",\r\n    \"idAsta\": \"10\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/partecipaAsta?idAsta=10",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"partecipaAsta"
+									],
+									"query": [
+										{
+											"key": "idAsta",
+											"value": "10"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "partecipaAsta-Dani",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"idPartecipazione\": \"1234567\",\r\n    \"idAsta\": \"10\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "localhost:8080/partecipaAsta?idAsta=10",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"partecipaAsta"
+											],
+											"query": [
+												{
+													"key": "idAsta",
+													"value": "10"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "254"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"fe-5T9aqnwWl4OJB4UqEvhi6xXeBNU\""
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 15 Sep 2022 11:21:23 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"stato\": \"L'iscrizione è avvenuta con successo.\",\n    \"risultato\": {\n        \"socket_id\": null,\n        \"idPartecipazione\": \"1234567\",\n        \"idAsta\": \"10\",\n        \"idUtente\": \"danidani\",\n        \"costo_partecipazione\": 5,\n        \"vincita\": false,\n        \"contatore_rilanci\": 0,\n        \"data_iscrizione\": \"2022-09-15T11:21:23.564Z\"\n    }\n}"
+								}
+							]
+						},
+						{
+							"name": "partecipaAsta-Hermes",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJydW9sbyI6ImJpZF9wYXJ0aWNpcGFudCIsImlkVXRlbnRlIjoiaGVybWVzXyJ9.rpUdj24YyA9ogY5hgDTMdrUQuTfACH5AY3WOnuy1zFw",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"idPartecipazione\": \"999\",\r\n    \"idAsta\": \"10\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/partecipaAsta?idAsta=10",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"partecipaAsta"
+									],
+									"query": [
+										{
+											"key": "idAsta",
+											"value": "10"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "partecipaAsta-Hermes",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"idPartecipazione\": \"999\",\r\n    \"idAsta\": \"10\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "localhost:8080/partecipaAsta?idAsta=10",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"partecipaAsta"
+											],
+											"query": [
+												{
+													"key": "idAsta",
+													"value": "10"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "249"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"f9-GaGuSCMYfadSRhGQojzDjDcEmkQ\""
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 15 Sep 2022 11:22:41 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"stato\": \"L'iscrizione è avvenuta con successo.\",\n    \"risultato\": {\n        \"socket_id\": null,\n        \"idPartecipazione\": \"999\",\n        \"idAsta\": \"10\",\n        \"idUtente\": \"hermes_\",\n        \"costo_partecipazione\": 5,\n        \"vincita\": false,\n        \"contatore_rilanci\": 0,\n        \"data_iscrizione\": \"2022-09-15T11:22:41.365Z\"\n    }\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "creaOfferta",
+					"item": [
+						{
+							"name": "creaOffertaLuca-10",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZFV0ZW50ZSI6Imx1Y2FfbXMiLCJydW9sbyI6ImJpZF9wYXJ0aWNpcGFudCJ9.cy_ULFMExK-Ofq_wKy8QZdLtJL-zoE1-8RASZnChcPE",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"idOfferta\": 101,\r\n    \"quota\": 11\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/creaOfferta?idAsta=10",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"creaOfferta"
+									],
+									"query": [
+										{
+											"key": "idAsta",
+											"value": "10"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "creaOffertaLuca-10",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"idOfferta\": 101,\r\n    \"quota\": 11\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "localhost:8080/creaOfferta?idAsta=10",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"creaOfferta"
+											],
+											"query": [
+												{
+													"key": "idAsta",
+													"value": "10"
+												}
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "139"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"8b-XRRnyb5q1QlYNlndbCaq1hIQdAM\""
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 15 Sep 2022 11:21:38 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"stato\": \"La creazione dell'offerta è avvenuta correttamente\",\n    \"risultato\": {\n        \"idOfferta\": 101,\n        \"quota\": 11,\n        \"idUtente\": \"luca_ms\",\n        \"idAsta\": \"10\"\n    }\n}"
+								}
+							]
+						},
+						{
+							"name": "creaOffertaLuca-10",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZFV0ZW50ZSI6Imx1Y2FfbXMiLCJydW9sbyI6ImJpZF9wYXJ0aWNpcGFudCJ9.cy_ULFMExK-Ofq_wKy8QZdLtJL-zoE1-8RASZnChcPE",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"idOfferta\": 103,\r\n    \"quota\": 40\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/creaOfferta?idAsta=10",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"creaOfferta"
+									],
+									"query": [
+										{
+											"key": "idAsta",
+											"value": "10"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "creaOffertaLuca-10",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"idOfferta\": 103,\r\n    \"quota\": 40\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "localhost:8080/creaOfferta?idAsta=10",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"creaOfferta"
+											],
+											"query": [
+												{
+													"key": "idAsta",
+													"value": "10"
+												}
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "139"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"8b-ch8WuZg0JdaEEuuCytaL3C6IyGU\""
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 15 Sep 2022 11:21:58 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"stato\": \"La creazione dell'offerta è avvenuta correttamente\",\n    \"risultato\": {\n        \"idOfferta\": 103,\n        \"quota\": 40,\n        \"idUtente\": \"luca_ms\",\n        \"idAsta\": \"10\"\n    }\n}"
+								}
+							]
+						},
+						{
+							"name": "creaOffertaBene-10",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZFV0ZW50ZSI6ImJlbmVfZHIiLCJydW9sbyI6ImJpZF9wYXJ0aWNpcGFudCJ9.hVl6CG9r51ZOZmSgKybWpzgQRKrRG8cgxXKywY0k5VI",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"idOfferta\": 107,\r\n    \"quota\": 11\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/creaOfferta?idAsta=10",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"creaOfferta"
+									],
+									"query": [
+										{
+											"key": "idAsta",
+											"value": "10"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "creaOffertaBene-10",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"idOfferta\": 107,\r\n    \"quota\": 11\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "localhost:8080/creaOfferta?idAsta=10",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"creaOfferta"
+											],
+											"query": [
+												{
+													"key": "idAsta",
+													"value": "10"
+												}
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "139"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"8b-FXEAD4CFomF6qE39lzRPIbo1Hic\""
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 15 Sep 2022 11:21:50 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"stato\": \"La creazione dell'offerta è avvenuta correttamente\",\n    \"risultato\": {\n        \"idOfferta\": 107,\n        \"quota\": 11,\n        \"idUtente\": \"bene_dr\",\n        \"idAsta\": \"10\"\n    }\n}"
+								}
+							]
+						},
+						{
+							"name": "creaOffertaDani-10",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZFV0ZW50ZSI6ImRhbmlkYW5pIiwicnVvbG8iOiJiaWRfcGFydGljaXBhbnQifQ.3vDogzK7u190-UvAK7WJM6c3cUdH35nz3jxVc8h9CbM",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"idOfferta\": 105,\r\n    \"quota\": 50\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/creaOfferta?idAsta=10",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"creaOfferta"
+									],
+									"query": [
+										{
+											"key": "idAsta",
+											"value": "10"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "creaOffertaLuca-10",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"idOfferta\": 101,\r\n    \"quota\": 11\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "localhost:8080/creaOfferta?idAsta=10",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"creaOfferta"
+											],
+											"query": [
+												{
+													"key": "idAsta",
+													"value": "10"
+												}
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "139"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"8b-XRRnyb5q1QlYNlndbCaq1hIQdAM\""
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 15 Sep 2022 11:21:38 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"stato\": \"La creazione dell'offerta è avvenuta correttamente\",\n    \"risultato\": {\n        \"idOfferta\": 101,\n        \"quota\": 11,\n        \"idUtente\": \"luca_ms\",\n        \"idAsta\": \"10\"\n    }\n}"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "asta30-chiusaFirst",
+			"item": [
+				{
+					"name": "creaAstaMonica",
 					"request": {
 						"auth": {
 							"type": "bearer",
@@ -1231,7 +3402,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"idAsta\" : 10,\r\n    \"titolo_asta\": \"caricatore ipad\" ,\r\n    \"tipo_asta\": \"English Auction\",\r\n    \"min_partecipanti\": 2,\r\n    \"max_partecipanti\": 20,\r\n    \"quota_iscrizione\": 5,\r\n    \"min_prezzo_puntata\": 10,\r\n    \"min_rialzo\": 1,\r\n    \"durata_asta\": 4320\r\n}",
+							"raw": "{\r\n    \"idAsta\" : 30,\r\n    \"titolo_asta\": \"laptop DELL\" ,\r\n    \"tipo_asta\": \"First Price Sealed Bid Auction\",\r\n    \"min_partecipanti\": 2,\r\n    \"max_partecipanti\": 10,\r\n    \"quota_iscrizione\": 10,\r\n    \"min_prezzo_puntata\": 50,\r\n    \"min_rialzo\": 5,\r\n    \"durata_asta\": 3\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1251,13 +3422,13 @@
 					},
 					"response": [
 						{
-							"name": "creaAstaSimone-1",
+							"name": "creaAstaMonica",
 							"originalRequest": {
 								"method": "POST",
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"idAsta\" : 10,\r\n    \"titolo_asta\": \"caricatore ipad\" ,\r\n    \"tipo_asta\": \"English Auction\",\r\n    \"min_partecipanti\": 2,\r\n    \"max_partecipanti\": 20,\r\n    \"quota_iscrizione\": 5,\r\n    \"min_prezzo_puntata\": 10,\r\n    \"min_rialzo\": 1,\r\n    \"durata_asta\": 4320\r\n}",
+									"raw": "{\r\n    \"idAsta\" : 30,\r\n    \"titolo_asta\": \"laptop DELL\" ,\r\n    \"tipo_asta\": \"First Price Sealed Bid Auction\",\r\n    \"min_partecipanti\": 2,\r\n    \"max_partecipanti\": 10,\r\n    \"quota_iscrizione\": 10,\r\n    \"min_prezzo_puntata\": 50,\r\n    \"min_rialzo\": 5,\r\n    \"durata_asta\": 180\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -1289,15 +3460,15 @@
 								},
 								{
 									"key": "Content-Length",
-									"value": "399"
+									"value": "442"
 								},
 								{
 									"key": "ETag",
-									"value": "W/\"18f-dV/C/kKxVwB4xeZRgPzryzvrBjg\""
+									"value": "W/\"1ba-aOKSg7v0qnQz+F5P4KcxmIEvZVk\""
 								},
 								{
 									"key": "Date",
-									"value": "Wed, 07 Sep 2022 15:54:13 GMT"
+									"value": "Thu, 15 Sep 2022 11:24:54 GMT"
 								},
 								{
 									"key": "Connection",
@@ -1309,55 +3480,80 @@
 								}
 							],
 							"cookie": [],
-							"body": "{\n    \"descrizione\": \"La creazione dell'asta è avvenuta correttamente\",\n    \"asta\": {\n        \"idUtente_vincitore\": null,\n        \"tot_prezzo_aggiudicato\": 0,\n        \"idChiave\": null,\n        \"idAsta\": 10,\n        \"idUtente_creator\": \"monica_ms\",\n        \"titolo_asta\": \"caricatore ipad\",\n        \"tipo_asta\": \"English Auction\",\n        \"min_partecipanti\": 2,\n        \"max_partecipanti\": 20,\n        \"quota_iscrizione\": 5,\n        \"min_prezzo_puntata\": 10,\n        \"min_rialzo\": 1,\n        \"durata_asta\": 4320,\n        \"stato\": \"non ancora aperta\"\n    }\n}"
+							"body": "{\n    \"stato\": \"La creazione dell'asta è avvenuta correttamente\",\n    \"risultato\": {\n        \"num_partecipanti\": 0,\n        \"idUtente_vincitore\": null,\n        \"tot_prezzo_aggiudicato\": 0,\n        \"idChiave\": null,\n        \"room\": null,\n        \"idAsta\": 30,\n        \"idUtente_creator\": \"monica_ms\",\n        \"titolo_asta\": \"laptop DELL\",\n        \"tipo_asta\": \"First Price Sealed Bid Auction\",\n        \"min_partecipanti\": 2,\n        \"max_partecipanti\": 10,\n        \"quota_iscrizione\": 10,\n        \"min_prezzo_puntata\": 50,\n        \"min_rialzo\": 5,\n        \"durata_asta\": 180,\n        \"stato\": \"non ancora aperta\"\n    }\n}"
 						}
 					]
-				}
-			]
-		},
-		{
-			"name": "controlloWallet",
-			"item": [
+				},
 				{
-					"name": "controlloWalletDani",
+					"name": "partecipaAsta-Bene",
 					"request": {
 						"auth": {
 							"type": "bearer",
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZFV0ZW50ZSI6ImRhbmlkYW5pIiwicnVvbG8iOiJiaWRfcGFydGljaXBhbnQifQ.3vDogzK7u190-UvAK7WJM6c3cUdH35nz3jxVc8h9CbM",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZFV0ZW50ZSI6ImJlbmVfZHIiLCJydW9sbyI6ImJpZF9wYXJ0aWNpcGFudCJ9.hVl6CG9r51ZOZmSgKybWpzgQRKrRG8cgxXKywY0k5VI",
 									"type": "string"
 								}
 							]
 						},
-						"method": "GET",
+						"method": "POST",
 						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"idPartecipazione\": \"301\",\r\n    \"idAsta\": \"30\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
 						"url": {
-							"raw": "localhost:8080/controlloWallet",
+							"raw": "localhost:8080/partecipaAsta?idAsta=30",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
 							"path": [
-								"controlloWallet"
+								"partecipaAsta"
+							],
+							"query": [
+								{
+									"key": "idAsta",
+									"value": "30"
+								}
 							]
 						}
 					},
 					"response": [
 						{
-							"name": "controlloWalletDani",
+							"name": "partecipaAsta-Bene",
 							"originalRequest": {
-								"method": "GET",
+								"method": "POST",
 								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"idPartecipazione\": \"301\",\r\n    \"idAsta\": \"30\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
 								"url": {
-									"raw": "localhost:8080/controlloWallet",
+									"raw": "localhost:8080/partecipaAsta?idAsta=30",
 									"host": [
 										"localhost"
 									],
 									"port": "8080",
 									"path": [
-										"controlloWallet"
+										"partecipaAsta"
+									],
+									"query": [
+										{
+											"key": "idAsta",
+											"value": "30"
+										}
 									]
 								}
 							},
@@ -1375,15 +3571,15 @@
 								},
 								{
 									"key": "Content-Length",
-									"value": "103"
+									"value": "250"
 								},
 								{
 									"key": "ETag",
-									"value": "W/\"67-O0BCuwsaSjoxx5nJ2E6F/WEwDOM\""
+									"value": "W/\"fa-cqDQB6LfrWuXN7D/nnrv2YJpDfI\""
 								},
 								{
 									"key": "Date",
-									"value": "Wed, 07 Sep 2022 20:39:03 GMT"
+									"value": "Thu, 15 Sep 2022 11:25:19 GMT"
 								},
 								{
 									"key": "Connection",
@@ -1395,9 +3591,1822 @@
 								}
 							],
 							"cookie": [],
-							"body": "{\n    \"Descrizione\": \"La visualizzazione del credito è avvenuta correttamente\",\n    \"risultato\": {\n        \"credito\": 2000\n    }\n}"
+							"body": "{\n    \"stato\": \"L'iscrizione è avvenuta con successo.\",\n    \"risultato\": {\n        \"socket_id\": null,\n        \"idPartecipazione\": \"301\",\n        \"idAsta\": \"30\",\n        \"idUtente\": \"bene_dr\",\n        \"costo_partecipazione\": 10,\n        \"vincita\": false,\n        \"contatore_rilanci\": 0,\n        \"data_iscrizione\": \"2022-09-15T11:25:19.794Z\"\n    }\n}"
 						}
 					]
+				},
+				{
+					"name": "partecipaAsta-Luca",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZFV0ZW50ZSI6Imx1Y2FfbXMiLCJydW9sbyI6ImJpZF9wYXJ0aWNpcGFudCJ9.cy_ULFMExK-Ofq_wKy8QZdLtJL-zoE1-8RASZnChcPE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"idPartecipazione\": \"302\",\r\n    \"idAsta\": \"30\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/partecipaAsta?idAsta=30",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"partecipaAsta"
+							],
+							"query": [
+								{
+									"key": "idAsta",
+									"value": "30"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "partecipaAsta-Luca",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"idPartecipazione\": \"302\",\r\n    \"idAsta\": \"30\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/partecipaAsta?idAsta=30",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"partecipaAsta"
+									],
+									"query": [
+										{
+											"key": "idAsta",
+											"value": "30"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "250"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"fa-nLyDy6yaXKREdXExvjjvsNYaR/0\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 15 Sep 2022 11:25:35 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"stato\": \"L'iscrizione è avvenuta con successo.\",\n    \"risultato\": {\n        \"socket_id\": null,\n        \"idPartecipazione\": \"302\",\n        \"idAsta\": \"30\",\n        \"idUtente\": \"luca_ms\",\n        \"costo_partecipazione\": 10,\n        \"vincita\": false,\n        \"contatore_rilanci\": 0,\n        \"data_iscrizione\": \"2022-09-15T11:25:35.555Z\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "partecipaAsta-Dani",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZFV0ZW50ZSI6ImRhbmlkYW5pIiwicnVvbG8iOiJiaWRfcGFydGljaXBhbnQifQ.3vDogzK7u190-UvAK7WJM6c3cUdH35nz3jxVc8h9CbM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"idPartecipazione\": \"303\",\r\n    \"idAsta\": \"30\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/partecipaAsta?idAsta=30",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"partecipaAsta"
+							],
+							"query": [
+								{
+									"key": "idAsta",
+									"value": "30"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "partecipaAsta-Dani",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"idPartecipazione\": \"303\",\r\n    \"idAsta\": \"30\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/partecipaAsta?idAsta=30",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"partecipaAsta"
+									],
+									"query": [
+										{
+											"key": "idAsta",
+											"value": "30"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "251"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"fb-7binx1s5FDPWtcxp9FtoXhnGHQg\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 15 Sep 2022 11:26:03 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"stato\": \"L'iscrizione è avvenuta con successo.\",\n    \"risultato\": {\n        \"socket_id\": null,\n        \"idPartecipazione\": \"303\",\n        \"idAsta\": \"30\",\n        \"idUtente\": \"danidani\",\n        \"costo_partecipazione\": 10,\n        \"vincita\": false,\n        \"contatore_rilanci\": 0,\n        \"data_iscrizione\": \"2022-09-15T11:26:03.166Z\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "partecipaAsta-Hermes",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJydW9sbyI6ImJpZF9wYXJ0aWNpcGFudCIsImlkVXRlbnRlIjoiaGVybWVzXyJ9.rpUdj24YyA9ogY5hgDTMdrUQuTfACH5AY3WOnuy1zFw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"idPartecipazione\": \"304\",\r\n    \"idAsta\": \"30\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/partecipaAsta?idAsta=30",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"partecipaAsta"
+							],
+							"query": [
+								{
+									"key": "idAsta",
+									"value": "30"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "creaOffertaBene-crypto",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZFV0ZW50ZSI6ImJlbmVfZHIiLCJydW9sbyI6ImJpZF9wYXJ0aWNpcGFudCJ9.hVl6CG9r51ZOZmSgKybWpzgQRKrRG8cgxXKywY0k5VI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "text/plain",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"msg\": \"HS7rgmjSfhW5Vz4hqKN2FYS++fxjWW+qI/jdIW/Dk4r0EM8NYIloAha9v55aI3WCNDzZ6HU7hD4/exJJJA+qL2JhR+WyCSNh75rQxWgll61DTxh6rL14snJI1pRIEci2G5UyLpXb8iOyJ40+qUv9/8/IG9XlQOS8WK0uohptKW7LGUp0jDcndrl1AoJniGCYn4Xbk+AplcaOw+nfupdcgYSbadiaPBbz8QVhhvkHKtcUH3XBtwWo381VnaMNfMv3M0eICrjD1840slRjjc+ktIrSbkdkmAGfs6UEVj1FE6UW4U7KEnGphofL6IbxJNk27zoZb+I5Q6A7OTXN4J2rjA==\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/creaOfferta?idAsta=30",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"creaOfferta"
+							],
+							"query": [
+								{
+									"key": "idAsta",
+									"value": "30"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "creaOffertaBene-crypto",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "text/plain",
+										"type": "text",
+										"disabled": true
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"msg\": \"HS7rgmjSfhW5Vz4hqKN2FYS++fxjWW+qI/jdIW/Dk4r0EM8NYIloAha9v55aI3WCNDzZ6HU7hD4/exJJJA+qL2JhR+WyCSNh75rQxWgll61DTxh6rL14snJI1pRIEci2G5UyLpXb8iOyJ40+qUv9/8/IG9XlQOS8WK0uohptKW7LGUp0jDcndrl1AoJniGCYn4Xbk+AplcaOw+nfupdcgYSbadiaPBbz8QVhhvkHKtcUH3XBtwWo381VnaMNfMv3M0eICrjD1840slRjjc+ktIrSbkdkmAGfs6UEVj1FE6UW4U7KEnGphofL6IbxJNk27zoZb+I5Q6A7OTXN4J2rjA==\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/creaOfferta?idAsta=30",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"creaOfferta"
+									],
+									"query": [
+										{
+											"key": "idAsta",
+											"value": "30"
+										}
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "140"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"8c-f37SDY5GGOmVBYtAByZiv4PKcno\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 15 Sep 2022 11:26:12 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"stato\": \"La creazione dell'offerta è avvenuta correttamente\",\n    \"risultato\": {\n        \"idOfferta\": 3011,\n        \"quota\": 55,\n        \"idUtente\": \"bene_dr\",\n        \"idAsta\": \"30\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "creaOffertaLuca-crypto",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZFV0ZW50ZSI6Imx1Y2FfbXMiLCJydW9sbyI6ImJpZF9wYXJ0aWNpcGFudCJ9.cy_ULFMExK-Ofq_wKy8QZdLtJL-zoE1-8RASZnChcPE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "text/plain",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"msg\": \"DUA3t7IN3dF0xiqPpV6Lj29WiSrVvBcJVF3I/UcwW1eSldR0tFqZf6NWtsuwx2FuF6kBydYdCqVmO7ggIX9vu9GCg1YXihqMKFwTjTCr4vJyqTAeU2y5wm3uC1ydjgqtsWdmUx3KB//crnB+JA4cf25m1DCmEwAwi3/kzEdN+V3wn3EBkOy3V0o1/Iqu6/tO+meR0G8mD8ztenRk9XHJlVk+xw6EURVakW6V+9oyzS2yPxTSPE2wXm3KgIq4O2E437AP8qaQV0sex0Vu3SqeBngRB0snFA0VelJDWiFXw9Uclexm2o3bRJzuYj3u0GY1X4yWx0ChN41Em7l9ZeNppg==\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/creaOfferta?idAsta=30",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"creaOfferta"
+							],
+							"query": [
+								{
+									"key": "idAsta",
+									"value": "30"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "creaOffertaLuca-crypto",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "text/plain",
+										"type": "text",
+										"disabled": true
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"msg\": \"DUA3t7IN3dF0xiqPpV6Lj29WiSrVvBcJVF3I/UcwW1eSldR0tFqZf6NWtsuwx2FuF6kBydYdCqVmO7ggIX9vu9GCg1YXihqMKFwTjTCr4vJyqTAeU2y5wm3uC1ydjgqtsWdmUx3KB//crnB+JA4cf25m1DCmEwAwi3/kzEdN+V3wn3EBkOy3V0o1/Iqu6/tO+meR0G8mD8ztenRk9XHJlVk+xw6EURVakW6V+9oyzS2yPxTSPE2wXm3KgIq4O2E437AP8qaQV0sex0Vu3SqeBngRB0snFA0VelJDWiFXw9Uclexm2o3bRJzuYj3u0GY1X4yWx0ChN41Em7l9ZeNppg==\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/creaOfferta?idAsta=30",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"creaOfferta"
+									],
+									"query": [
+										{
+											"key": "idAsta",
+											"value": "30"
+										}
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "140"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"8c-uhRPBfVfXx5yoOfwUIBp72Q66zg\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 15 Sep 2022 11:26:20 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"stato\": \"La creazione dell'offerta è avvenuta correttamente\",\n    \"risultato\": {\n        \"idOfferta\": 3022,\n        \"quota\": 70,\n        \"idUtente\": \"luca_ms\",\n        \"idAsta\": \"30\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "creaOffertaDani-crypto",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZFV0ZW50ZSI6ImRhbmlkYW5pIiwicnVvbG8iOiJiaWRfcGFydGljaXBhbnQifQ.3vDogzK7u190-UvAK7WJM6c3cUdH35nz3jxVc8h9CbM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "text/plain",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"msg\": \"t2GLpf74Jums6YUB6TwHayD9hoWGN29tRQ0neNNCVbFmiWeYo5LEQTy/ETNVBLy9gR4Egmb0AUScRqJz4onHqb7Xjc6yNbgfEc5+ujrH3Hlp2+3oAjklku4d6iPrS5c/ryAdqicReUbmju/UjAQaEiAu1rp0IfnfzeT5cllE0lqxws1I09L9lCqFtqK9OBBFqww6oKfb1gnBXQvRvKY7366nC/A0TMJdt6OsWLjo84lBCoFCD1G3ldzrdglEhevA4SmZ36dt65y6IxopIUUoPFrdKGs3Qg8vq+nuNYzTMD3XTgHru398fjcGnXHtO2CRvvkt0hLhjitbd1/7IGADZg==\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/creaOfferta?idAsta=30",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"creaOfferta"
+							],
+							"query": [
+								{
+									"key": "idAsta",
+									"value": "30"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "creaOffertaDani-crypto",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "text/plain",
+										"type": "text",
+										"disabled": true
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"msg\": \"t2GLpf74Jums6YUB6TwHayD9hoWGN29tRQ0neNNCVbFmiWeYo5LEQTy/ETNVBLy9gR4Egmb0AUScRqJz4onHqb7Xjc6yNbgfEc5+ujrH3Hlp2+3oAjklku4d6iPrS5c/ryAdqicReUbmju/UjAQaEiAu1rp0IfnfzeT5cllE0lqxws1I09L9lCqFtqK9OBBFqww6oKfb1gnBXQvRvKY7366nC/A0TMJdt6OsWLjo84lBCoFCD1G3ldzrdglEhevA4SmZ36dt65y6IxopIUUoPFrdKGs3Qg8vq+nuNYzTMD3XTgHru398fjcGnXHtO2CRvvkt0hLhjitbd1/7IGADZg==\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/creaOfferta?idAsta=30",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"creaOfferta"
+									],
+									"query": [
+										{
+											"key": "idAsta",
+											"value": "30"
+										}
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "141"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"8d-BU5x2op41i8MPIM8omrv3khoTlw\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 15 Sep 2022 11:26:30 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"stato\": \"La creazione dell'offerta è avvenuta correttamente\",\n    \"risultato\": {\n        \"idOfferta\": 3033,\n        \"quota\": 90,\n        \"idUtente\": \"danidani\",\n        \"idAsta\": \"30\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "creaOffertaHermes-crypto",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJydW9sbyI6ImJpZF9wYXJ0aWNpcGFudCIsImlkVXRlbnRlIjoiaGVybWVzXyJ9.rpUdj24YyA9ogY5hgDTMdrUQuTfACH5AY3WOnuy1zFw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "text/plain",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"msg\": \"JMHm+ThlnihJtUQ+rTtxZRVYIxWZ+IF0fIf3W+yRnVTkml+OpdC+jNZR1mTmwXw/M3mFx+xpoQWk8qPkDlZfV6lLJycnKCc47oIFzAKITk5if6Mj1UbI0V/vjzLF0HGMZJ4tV18eL8P90TxnGmf1944mRv+L2xyslLpQBhhiRRYwAccDPlhKXLdYUXcJQCVinnNITPpciDw2sxBGH/R2v9PAUMsNsQstVAiQVbKmkRbvQI8QYN8Bblsbutk7L7AFmEZ1r16AnykUHvVnheRU0ZofoHV2Ge1aKUORZoN9nvhI4NAZm0zLtnHNNgOLAGY5pdR/nmtEeBFGZcCxvzBCuA==\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/creaOfferta?idAsta=30",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"creaOfferta"
+							],
+							"query": [
+								{
+									"key": "idAsta",
+									"value": "30"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "creaOffertaDani-crypto",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "text/plain",
+										"type": "text",
+										"disabled": true
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"msg\": \"t2GLpf74Jums6YUB6TwHayD9hoWGN29tRQ0neNNCVbFmiWeYo5LEQTy/ETNVBLy9gR4Egmb0AUScRqJz4onHqb7Xjc6yNbgfEc5+ujrH3Hlp2+3oAjklku4d6iPrS5c/ryAdqicReUbmju/UjAQaEiAu1rp0IfnfzeT5cllE0lqxws1I09L9lCqFtqK9OBBFqww6oKfb1gnBXQvRvKY7366nC/A0TMJdt6OsWLjo84lBCoFCD1G3ldzrdglEhevA4SmZ36dt65y6IxopIUUoPFrdKGs3Qg8vq+nuNYzTMD3XTgHru398fjcGnXHtO2CRvvkt0hLhjitbd1/7IGADZg==\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/creaOfferta?idAsta=30",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"creaOfferta"
+									],
+									"query": [
+										{
+											"key": "idAsta",
+											"value": "30"
+										}
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "141"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"8d-BU5x2op41i8MPIM8omrv3khoTlw\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 15 Sep 2022 11:26:30 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"stato\": \"La creazione dell'offerta è avvenuta correttamente\",\n    \"risultato\": {\n        \"idOfferta\": 3033,\n        \"quota\": 90,\n        \"idUtente\": \"danidani\",\n        \"idAsta\": \"30\"\n    }\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "asta44-chiusaSecond",
+			"item": [
+				{
+					"name": "creaAstaMonica",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZFV0ZW50ZSI6Im1vbmljYV9tcyIsInJ1b2xvIjoiYmlkX2NyZWF0b3IifQ.xyctNgedRQcNMHNz3Q9aKYakg8HemusB_3j_quss_aQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"idAsta\" : 44,\r\n    \"titolo_asta\": \"Panda\" ,\r\n    \"tipo_asta\": \"Second Price Sealed Bid Auction\",\r\n    \"min_partecipanti\": 1,\r\n    \"max_partecipanti\": 11,\r\n    \"quota_iscrizione\": 10,\r\n    \"min_prezzo_puntata\": 50,\r\n    \"min_rialzo\": 5,\r\n    \"durata_asta\": 2\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/creaAsta",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"creaAsta"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "creaAstaMonica",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"idAsta\" : 44,\r\n    \"titolo_asta\": \"Panda\" ,\r\n    \"tipo_asta\": \"Second Price Sealed Bid Auction\",\r\n    \"min_partecipanti\": 1,\r\n    \"max_partecipanti\": 11,\r\n    \"quota_iscrizione\": 10,\r\n    \"min_prezzo_puntata\": 50,\r\n    \"min_rialzo\": 5,\r\n    \"durata_asta\": 360\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/creaAsta",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"creaAsta"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "437"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"1b5-vm4fX5SESW2ks1od3ulwEmkjzUc\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 15 Sep 2022 11:46:16 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"stato\": \"La creazione dell'asta è avvenuta correttamente\",\n    \"risultato\": {\n        \"num_partecipanti\": 0,\n        \"idUtente_vincitore\": null,\n        \"tot_prezzo_aggiudicato\": 0,\n        \"idChiave\": null,\n        \"room\": null,\n        \"idAsta\": 44,\n        \"idUtente_creator\": \"monica_ms\",\n        \"titolo_asta\": \"Panda\",\n        \"tipo_asta\": \"Second Price Sealed Bid Auction\",\n        \"min_partecipanti\": 1,\n        \"max_partecipanti\": 11,\n        \"quota_iscrizione\": 10,\n        \"min_prezzo_puntata\": 50,\n        \"min_rialzo\": 5,\n        \"durata_asta\": 360,\n        \"stato\": \"non ancora aperta\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "partecipaAsta-Bene",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZFV0ZW50ZSI6ImJlbmVfZHIiLCJydW9sbyI6ImJpZF9wYXJ0aWNpcGFudCJ9.hVl6CG9r51ZOZmSgKybWpzgQRKrRG8cgxXKywY0k5VI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"idPartecipazione\": \"441\",\r\n    \"idAsta\": \"44\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/partecipaAsta?idAsta=44",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"partecipaAsta"
+							],
+							"query": [
+								{
+									"key": "idAsta",
+									"value": "44"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "partecipaAsta-Bene",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"idPartecipazione\": \"441\",\r\n    \"idAsta\": \"44\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/partecipaAsta?idAsta=44",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"partecipaAsta"
+									],
+									"query": [
+										{
+											"key": "idAsta",
+											"value": "44"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "250"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"fa-QF/WxaVEMZdL+dBLCc+k85ZtM3k\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 15 Sep 2022 11:47:07 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"stato\": \"L'iscrizione è avvenuta con successo.\",\n    \"risultato\": {\n        \"socket_id\": null,\n        \"idPartecipazione\": \"441\",\n        \"idAsta\": \"44\",\n        \"idUtente\": \"bene_dr\",\n        \"costo_partecipazione\": 10,\n        \"vincita\": false,\n        \"contatore_rilanci\": 0,\n        \"data_iscrizione\": \"2022-09-15T11:47:07.327Z\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "partecipaAsta-Luca",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZFV0ZW50ZSI6Imx1Y2FfbXMiLCJydW9sbyI6ImJpZF9wYXJ0aWNpcGFudCJ9.cy_ULFMExK-Ofq_wKy8QZdLtJL-zoE1-8RASZnChcPE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"idPartecipazione\": \"442\",\r\n    \"idAsta\": \"44\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/partecipaAsta?idAsta=44",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"partecipaAsta"
+							],
+							"query": [
+								{
+									"key": "idAsta",
+									"value": "44"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "partecipaAsta-Luca",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"idPartecipazione\": \"442\",\r\n    \"idAsta\": \"44\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/partecipaAsta?idAsta=44",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"partecipaAsta"
+									],
+									"query": [
+										{
+											"key": "idAsta",
+											"value": "44"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "250"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"fa-XvtGBHOT5OcSp9ehx7x21Jfl3jg\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 15 Sep 2022 11:47:17 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"stato\": \"L'iscrizione è avvenuta con successo.\",\n    \"risultato\": {\n        \"socket_id\": null,\n        \"idPartecipazione\": \"442\",\n        \"idAsta\": \"44\",\n        \"idUtente\": \"luca_ms\",\n        \"costo_partecipazione\": 10,\n        \"vincita\": false,\n        \"contatore_rilanci\": 0,\n        \"data_iscrizione\": \"2022-09-15T11:47:17.085Z\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "partecipaAsta-Dani",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZFV0ZW50ZSI6ImRhbmlkYW5pIiwicnVvbG8iOiJiaWRfcGFydGljaXBhbnQifQ.3vDogzK7u190-UvAK7WJM6c3cUdH35nz3jxVc8h9CbM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"idPartecipazione\": \"443\",\r\n    \"idAsta\": \"44\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/partecipaAsta?idAsta=44",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"partecipaAsta"
+							],
+							"query": [
+								{
+									"key": "idAsta",
+									"value": "44"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "partecipaAsta-Dani",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"idPartecipazione\": \"443\",\r\n    \"idAsta\": \"44\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/partecipaAsta?idAsta=44",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"partecipaAsta"
+									],
+									"query": [
+										{
+											"key": "idAsta",
+											"value": "44"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "251"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"fb-pIbgWiMfUtlKa6HzgZ69y2nfqss\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 15 Sep 2022 11:47:41 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"stato\": \"L'iscrizione è avvenuta con successo.\",\n    \"risultato\": {\n        \"socket_id\": null,\n        \"idPartecipazione\": \"443\",\n        \"idAsta\": \"44\",\n        \"idUtente\": \"danidani\",\n        \"costo_partecipazione\": 10,\n        \"vincita\": false,\n        \"contatore_rilanci\": 0,\n        \"data_iscrizione\": \"2022-09-15T11:47:41.361Z\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "partecipaAsta-Hermes",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJydW9sbyI6ImJpZF9wYXJ0aWNpcGFudCIsImlkVXRlbnRlIjoiaGVybWVzXyJ9.rpUdj24YyA9ogY5hgDTMdrUQuTfACH5AY3WOnuy1zFw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"idPartecipazione\": \"444\",\r\n    \"idAsta\": \"44\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/partecipaAsta?idAsta=44",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"partecipaAsta"
+							],
+							"query": [
+								{
+									"key": "idAsta",
+									"value": "44"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "partecipaAsta-Hermes",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"idPartecipazione\": \"444\",\r\n    \"idAsta\": \"44\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/partecipaAsta?idAsta=44",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"partecipaAsta"
+									],
+									"query": [
+										{
+											"key": "idAsta",
+											"value": "44"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "250"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"fa-yX6B7UnsGTy9syvCphqU3WSNS+M\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 15 Sep 2022 12:15:01 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"stato\": \"L'iscrizione è avvenuta con successo.\",\n    \"risultato\": {\n        \"socket_id\": null,\n        \"idPartecipazione\": \"444\",\n        \"idAsta\": \"44\",\n        \"idUtente\": \"hermes_\",\n        \"costo_partecipazione\": 10,\n        \"vincita\": false,\n        \"contatore_rilanci\": 0,\n        \"data_iscrizione\": \"2022-09-15T12:15:01.649Z\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "creaOffertaBene-crypto",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZFV0ZW50ZSI6ImJlbmVfZHIiLCJydW9sbyI6ImJpZF9wYXJ0aWNpcGFudCJ9.hVl6CG9r51ZOZmSgKybWpzgQRKrRG8cgxXKywY0k5VI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "text/plain",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"msg\": \"ntHsxTgTA1IaEbpI62j0NQ9xxUG9o1n9r6sMZcYD8fOqLdF10vQhTSJIHFJ+UCvsnUq72xzLC2xK1/UAqRIF5uccpgmiMkRGXMz0mupp4MACRb8IOHrg6oV21rTTy6SAhnuCnLjvv5OjuSCVX/+D6DU/8t9V9YixtyF3OnQdWGY3sw0V2Hmiz/cWqmNCQ6Uee467kp70ZIFaudfqvyyTB94FiKNgpkx9jPZONrcMmGpyxA86YrWYrxZdH5D6P/OZZBEHL00QDqX0cDnTxrDIibzRMqstmQmGswzlT5iOCU9eqL+A+krh5UnsLihhcv235wVPYnCBkY8KikB/UhsYyw==\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/creaOfferta?idAsta=44",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"creaOfferta"
+							],
+							"query": [
+								{
+									"key": "idAsta",
+									"value": "44"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "creaOffertaBene-crypto",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "text/plain",
+										"type": "text",
+										"disabled": true
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"msg\": \"ntHsxTgTA1IaEbpI62j0NQ9xxUG9o1n9r6sMZcYD8fOqLdF10vQhTSJIHFJ+UCvsnUq72xzLC2xK1/UAqRIF5uccpgmiMkRGXMz0mupp4MACRb8IOHrg6oV21rTTy6SAhnuCnLjvv5OjuSCVX/+D6DU/8t9V9YixtyF3OnQdWGY3sw0V2Hmiz/cWqmNCQ6Uee467kp70ZIFaudfqvyyTB94FiKNgpkx9jPZONrcMmGpyxA86YrWYrxZdH5D6P/OZZBEHL00QDqX0cDnTxrDIibzRMqstmQmGswzlT5iOCU9eqL+A+krh5UnsLihhcv235wVPYnCBkY8KikB/UhsYyw==\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/creaOfferta?idAsta=44",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"creaOfferta"
+									],
+									"query": [
+										{
+											"key": "idAsta",
+											"value": "44"
+										}
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "140"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"8c-Agc9PTR5eMzks5suYEaPvcE0rzY\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 15 Sep 2022 11:47:36 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"stato\": \"La creazione dell'offerta è avvenuta correttamente\",\n    \"risultato\": {\n        \"idOfferta\": 4411,\n        \"quota\": 55,\n        \"idUtente\": \"bene_dr\",\n        \"idAsta\": \"44\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "creaOffertaLuca-crypto",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZFV0ZW50ZSI6Imx1Y2FfbXMiLCJydW9sbyI6ImJpZF9wYXJ0aWNpcGFudCJ9.cy_ULFMExK-Ofq_wKy8QZdLtJL-zoE1-8RASZnChcPE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "text/plain",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"msg\": \"hn7/m5J1U4PLW74x3JKTOwNRABmPKKBIt4UveXismyuJYeGeg2dOsmSzaHoF3urZWI7ysvCjUDylpB/QrXJZvWz16mRUSeJGRMbQ3+QOL+piVsWxqFVTVd1eZBQHRXFQMtaR9xcwr8cSEV7D6RQ5LTy9QXUoi2CKXjgWY3Ce/SEBmJMGf9cwcbGTjKZYgVNKplRfbGjFJ7ixORi/UgiVz0LdA43aU+GA3mVKj3XABxzv7FN4C/vfiujnQ9JHjzFeX8/gWf0aWZIprT6EVFZlVHITlnQXvw75NNLG6aL0uv/5CC9WPX33LoV/KLPl7y/ZcDsvCTRRQnzSs2WGDHQiyQ==\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/creaOfferta?idAsta=44",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"creaOfferta"
+							],
+							"query": [
+								{
+									"key": "idAsta",
+									"value": "44"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "creaOffertaLuca-crypto",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "text/plain",
+										"type": "text",
+										"disabled": true
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"msg\": \"hn7/m5J1U4PLW74x3JKTOwNRABmPKKBIt4UveXismyuJYeGeg2dOsmSzaHoF3urZWI7ysvCjUDylpB/QrXJZvWz16mRUSeJGRMbQ3+QOL+piVsWxqFVTVd1eZBQHRXFQMtaR9xcwr8cSEV7D6RQ5LTy9QXUoi2CKXjgWY3Ce/SEBmJMGf9cwcbGTjKZYgVNKplRfbGjFJ7ixORi/UgiVz0LdA43aU+GA3mVKj3XABxzv7FN4C/vfiujnQ9JHjzFeX8/gWf0aWZIprT6EVFZlVHITlnQXvw75NNLG6aL0uv/5CC9WPX33LoV/KLPl7y/ZcDsvCTRRQnzSs2WGDHQiyQ==\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/creaOfferta?idAsta=44",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"creaOfferta"
+									],
+									"query": [
+										{
+											"key": "idAsta",
+											"value": "44"
+										}
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "140"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"8c-0U7h8j9rUf+IwYqpxdjutPFOy1M\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 15 Sep 2022 11:47:31 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"stato\": \"La creazione dell'offerta è avvenuta correttamente\",\n    \"risultato\": {\n        \"idOfferta\": 4422,\n        \"quota\": 90,\n        \"idUtente\": \"luca_ms\",\n        \"idAsta\": \"44\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "creaOffertaDani-crypto",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZFV0ZW50ZSI6ImRhbmlkYW5pIiwicnVvbG8iOiJiaWRfcGFydGljaXBhbnQifQ.3vDogzK7u190-UvAK7WJM6c3cUdH35nz3jxVc8h9CbM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "text/plain",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"msg\": \"OBSrEJ16ypXIsskHEQYRobCIf7h/lrK2tTXGA5o6XIenPQFhONhEqv48QK4nUaSLtyxuwgtkD+uPJTf+5YsKixhvw+IfJZXCILsQBuGMt7C9oTDWwQgAtJRm9sV5tLZotEX8+AeBA4NTyvP3C2lnQA8WRa1XQu9a6x6TxUXMtnGicPI8AkI9wz7JJ7iUm+ZJPtNrbw0sUHU9dy+vm9MZKmtwjEiBniFbcDbKeadbdSF61n7fAUp27TWPVYFyg5TVCHVjq0Rd/aEoAgPF52SC7pstgZJsX+rkdBFB+2SeScLn88tK6kpnm3aZ521rGDv78gQYV7iXyNujgEKyA7Cuog==\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/creaOfferta?idAsta=44",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"creaOfferta"
+							],
+							"query": [
+								{
+									"key": "idAsta",
+									"value": "44"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "creaOffertaDani-crypto",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "text/plain",
+										"type": "text",
+										"disabled": true
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"msg\": \"OBSrEJ16ypXIsskHEQYRobCIf7h/lrK2tTXGA5o6XIenPQFhONhEqv48QK4nUaSLtyxuwgtkD+uPJTf+5YsKixhvw+IfJZXCILsQBuGMt7C9oTDWwQgAtJRm9sV5tLZotEX8+AeBA4NTyvP3C2lnQA8WRa1XQu9a6x6TxUXMtnGicPI8AkI9wz7JJ7iUm+ZJPtNrbw0sUHU9dy+vm9MZKmtwjEiBniFbcDbKeadbdSF61n7fAUp27TWPVYFyg5TVCHVjq0Rd/aEoAgPF52SC7pstgZJsX+rkdBFB+2SeScLn88tK6kpnm3aZ521rGDv78gQYV7iXyNujgEKyA7Cuog==\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/creaOfferta?idAsta=44",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"creaOfferta"
+									],
+									"query": [
+										{
+											"key": "idAsta",
+											"value": "44"
+										}
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "142"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"8e-rly0yw60mrLxvuBxmeDL1hJsVBs\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 15 Sep 2022 11:47:45 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"stato\": \"La creazione dell'offerta è avvenuta correttamente\",\n    \"risultato\": {\n        \"idOfferta\": 4433,\n        \"quota\": 120,\n        \"idUtente\": \"danidani\",\n        \"idAsta\": \"44\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "creaOffertaHermes-crypto",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJydW9sbyI6ImJpZF9wYXJ0aWNpcGFudCIsImlkVXRlbnRlIjoiaGVybWVzXyJ9.rpUdj24YyA9ogY5hgDTMdrUQuTfACH5AY3WOnuy1zFw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "text/plain",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"msg\": \"G0fSZBnBNRzeoKbKcCYYAIaHBORSrO54iZ3HXfCICcZqJbRvUPHXR5UQF6l7OqK3GbVshtsZ1MtaKJNo1pVKBXd15PGSD51r9FjUACFyaMtucEnELsvBexREMortd000RO1GwjBMvtOxWhOwPfWlIoafULi+idasqo7Ka87vOSvMVM/2FmZD/b5pE3wCF1rdjasACZ8hbmqUWfyn0Pq6J7B/IbyaDfFbteL/3h8oUAUi6IRp0h+n9ivqew12eZNkLF2ykt8HP4w1rQYTZzzJT5AJjb7J91neHA9Sc8cdbQFc3dGAk62bvWrbnPnDIHyK/AfRO+GLR37aptxMhs4yAQ==\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/creaOfferta?idAsta=44",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"creaOfferta"
+							],
+							"query": [
+								{
+									"key": "idAsta",
+									"value": "44"
+								}
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		}

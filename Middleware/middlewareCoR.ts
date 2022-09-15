@@ -1,4 +1,7 @@
 import * as middleware from '../Middleware/middleware';
+/**
+ * Chain of responsability utilizzata per richiamare i middleware in cascata
+ */
 
 export const JWT = [
     middleware.myLogger,
@@ -18,11 +21,11 @@ export const partecipaAsta = [
     middleware.controlloBidParticipant,
     middleware.controlloEsistenzaAsta,
     middleware.controlloStatoAstaPartecipazione,
-    middleware.controlloPartecipanti
+    middleware.controlloPartecipanti,
+    middleware.controlloCreditoPartecipazione
 ];
 
 export const visualizzaAsteFiltroTipo = [
-    
     middleware.controlloTipoAsta
 ];
 
@@ -33,14 +36,10 @@ export const visualizzaAsteFiltroStato = [
 export const creaOfferta = [
     middleware.controlloEsistenzaUtente,
     middleware.controlloBidParticipant,
-    middleware.controlloEsistenzaAsta, //controllare anche lo stato dell'asta (da implementare)
+    middleware.controlloEsistenzaAsta,
+    middleware.controlloIscrizioneAsta,
     middleware.controlloStatoAstaOfferta,
     middleware.controlloCodifica
-    /*
-    middleware.creditoSufficiente,
-    middleware.controlloNumOfferte,
-    middleware.controlloCampiOfferta
-    */
 ];
 
 export const controlloWallet = [
@@ -51,14 +50,6 @@ export const controlloWallet = [
 export const visualizzaStoricoAsteRilanci = [
     middleware.controlloEsistenzaUtente,
     middleware.controlloBidParticipant
-];
-
-export const scalaCredito = [
-    middleware.controlloEsistenzaUtente,
-    middleware.controlloEsistenzaAsta,
-    middleware.controlloAdmin,
-    middleware.controlloUtenteVincitore,
-    middleware.controlloScalaCredito
 ];
 
 export const ricaricaWalletUtente = [

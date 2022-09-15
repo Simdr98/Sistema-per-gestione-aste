@@ -1,4 +1,3 @@
-
 CREATE DATABASE IF NOT EXISTS aste;
 
 USE aste;
@@ -106,7 +105,9 @@ INSERT INTO asta (idAsta,
   (6, 'simi_dr98', 'iPhone', 'First Price Sealed Bid Auction', 3, 10, 11, 10, 1, 5000, 'in esecuzione', null, 0, 2),
   (7, 'monica_ms', 'poltrona', 'First Price Sealed Bid Auction', 1, 10, 15, 20, 1, 7000, 'in esecuzione', null, 0, 3),
   (8, 'simi_dr98', 'scaffale', 'Second Price Sealed Bid Auction', 2, 13, 10, 15, 1, 4000, 'non ancora aperta', null, 0, null),
-  (9, 'monica_ms', 'sedia', 'Second Price Sealed Bid Auction', 3, 10, 7, 5, 1, 1000, 'non ancora aperta', null, 0, null);
+  (9, 'monica_ms', 'sedia', 'Second Price Sealed Bid Auction', 3, 10, 7, 5, 1, 1000, 'non ancora aperta', null, 0, null),
+  (21, 'simi_dr98', 'lampada', 'English Auction', 1, 3, 5, 5, 1, 300, 'in esecuzione', null, 0, null),
+  (22, 'monica_ms', 'lampada', 'English Auction', 1, 3, 5, 5, 1, 300, 'in esecuzione', null, 0, null);
 
 INSERT INTO offerta (idOfferta, quota, idUtente, idAsta)
   VALUES
@@ -132,40 +133,40 @@ INSERT INTO partecipazione (idPartecipazione, idAsta, idUtente, costo_partecipaz
 
 INSERT INTO chiavi (idChiave, chiavePrivata, chiavePubblica)
   VALUES
-    (1, 'MIIFLTBXBgkqhkiG9w0BBQ0wSjApBgkqhkiG9w0BBQwwHAQIMx4Z0uVkNawCAggA
-MAwGCCqGSIb3DQIJBQAwHQYJYIZIAWUDBAEqBBAeQ8meaIQWAc+v/RM8L22pBIIE
-0LV1GbaXIIeaAiEdARl6VFW4Z5qs1XrMoc4dGtYCd4FE/nCoxuqf32gk1gcvp1jZ
-JJdO+k4WDh7ZkP31rKnkW/9n+/1nL6BScoZOkMnrKtmkdaUjiZxHv/5fpSlxAygI
-IF+Davl8ctLn0HcnX7QNklcgtQ08yAqgMMGzNhqcjQgZ9tNDzux3LRw4anP5wDXZ
-cc1G+VtSohL6PT+9HdSxrGQlYVkTAHBCAdwRDgakBwnLGOYRiIsJpuvqxDwsznS7
-5Nn5uaoXFFHXIlyXl8Pw6+Sl8WG/W6KHCLP9Y6CH9iD6WkNIPsUQ9OluZeIuoAWH
-irL5j+OQXNh9PFz/JobhSV1IKidRaTqpGscNMyCyDIjZbe6WmRlKMiimBoNbWb+w
-gG5+EM7Zj9mtvVjdATHG039pZAprgsmzTHECbztR4qtIzZfO/Tu8v9U4NkVr3vhn
-/WqmmFIIEV7pknHuSaWrRpJSOfCHPyxeOrSOfIM6jREez34RsrWbmJZhRVoypCXS
-UmVEh68UjipCOGXb1uxIZrBIVomevd0Zx2wNWRsPxU81LzoHIh2xCGcHUkJ+2NsF
-I2Dd+orQ/kH0qHKikfx6wF9HyU5D9cGofl7J4OkpUl2S2HhhoSwhe3ME+5ZchaTw
-xffGZ+QVSJI2NA5A0yIMSYkQ8Hdcwak2CP3MCegj/kzPsVL+/k1TvUMC3Yq1Xdyi
-uRLmOTqYUPvJFmXYroehaBnlT8WYvPAeAdFX3vTebZeLrC+ghfcpODp9nyxVKxV9
-cgQzwIpSHS/GSzzGhgIyzy8UnaOjxYUlrPWE8/l+guqptJwcGRINvtLGopCNjGTn
-rF6eYaBZun2UiwwXxUc+NdFldYM2LsIr3BuLCCq2pN29ETWsy6FjjwLGcggKk8Eg
-u923qjrnFt4jTxePjmAk64BWm/NgS1jGGpQQyFiw5d0/ZvmCpd83gRJ3qQPkbQm/
-cD/1rpPg86CmCR7vv2t4Xn5VhSD0j06I4O8YSqTyPABi6KgkvCr29lv1PZWZvoLA
-v7/uvE0gW7eEY6PWOSB5rGRivaMOkmoRRrtJe3ZBgqtIPnMKL4F8TgKb14ErJaO8
-jUrBIMZ9UHXq7z8GFrcCPRaCSI/fRIQW7vD3qe+eUnjQRr/z3NjCIoWRstKTkA6Y
-5jBiuiEbISfWQnfzpL7qL4qdMGP7Jlq1RV5PwT6k6Z2/LIC35BKnViWilS/yi51f
-Vu4XLA6rhKpLcfQPcT2pui94WJ3J9XkI3zhPal5Fi5fVmhBSgRR7jRm86D+tUeZN
-PNqL4ekGGko0iyguv/D8MSkgz/xJj+cED9sw1lHdfy7e+QI+hTZrEL++wn97jl0g
-XTpGTG7FGGSQVbIz+t/t1cFSnSHUsvpEiapUreiwGerrZ/uZB6OJOyNC0tTyrqr2
-ssPSfVJGuJ1WspkHzflIEotmyVo7KxdRRzmmtFYqVsRTpiaHey+W3vWW5pJbmTsL
-+7e4bAkLKKqA4iIDEy9bqWQ4SjPbfdNmSSEoMrenb2W2wGFH0dEA7NJYK3SvJoM/
-Rs0uoUA7JqSPwjQ+OZKPFxFdLjakBy3DrTR2UcR8BbAlh230Haoi/m+ug0ikmSnm
-4dE3i6XHXTes8wOTdC0Ry7rJlFs5GAga3afps/sEf+5P', '-----BEGIN RSA PUBLIC KEY-----
-MIIBCgKCAQEAyONLdo2jNrNyFHhvw6rLlGKOQdCmCA4RLw8jBearAB9/K0qJKw39
-OJ6xk6GizvfyPYRq/+bhLpG1pd4OvOV0XLz0QtZL3jSjHZjFvheNokTPfe3kVYI1
-kTwX7ho1Y3tevI/xg2j+gmsxsn641T7JWRvHXUGAwPXTp5mMTM0nbH2ND8h99FvN
-o6++sJRlokBKB1TNzgf8I/xcttc2ZNwT+T+rT8kUiYpQej+3egF7J2EfaYjoXTqt
-WK9zYWkTJk1vIF/2nrDpGeGEoXRpDNodEZ3B6cK8GMn/vFiUmtBBzbV7k/tEhlrF
-RCyaNextAmINH0wOjZYEdUP/DBRluMSVnQIDAQAB
+    (1, 'MIIFLTBXBgkqhkiG9w0BBQ0wSjApBgkqhkiG9w0BBQwwHAQIi1w6hk1BSHECAggA
+MAwGCCqGSIb3DQIJBQAwHQYJYIZIAWUDBAEqBBDyrOhRp3AWbSY5Bfwko787BIIE
+0OrdBvLp6kq5Wmg/EdrJTEXMYd78Wv4NXuv9q9QSC+YKqsltleoFbufk0uuRyRH1
+AWVKtDvAUTljv8w2y9Yz8b/N20bZHLjA7hZ9XyCx6ZHY13yO20jQG2mryvz6yBcB
+CvHAViASussGO8/JjMeE1E9U5c0Wf2P1hRTBGhKUGetz6La3vsJvSF6NShOw/RHU
+qI0QdUvmskGB4nkpx9OJ3vYpdll5mwBnVryrBWDcFhvs1XoNRzLQHCvdA29oYyRP
+jMqlwcFPhldrlKMUo5n8xeuWdQJbsElLWLs7glNappwFyOx/EoeL6pdNnCoAN+LF
+r5AIo8CGGKYatWzEjhiAt+XbtAOIOL2Wz9qCoZmeVwsG5GD8Ybc3zJiZYvxItrhJ
+byryFyDggXjdETgCV8dQi5c3sxKv99qO+72AtCx1rr2WDsiYIiWii7APg8+KE0Cn
+qDnbmVTMyGHKHsyl+nDUV8HhfHSzX4dLBzJz/j5PMCMqzkf1KRg9HYBMY69HweRd
+Co+KyZgkNM/BGUhmMPPG5tcmCg/kftl+BWDb187glAHBOXXqUSNHeIvCqP61eNC+
+c5nVE5L/rTmxInDjjBV6wrmn6koicK9zorygaSy283NvuI6xPS08ZoOmS8ZBvK6s
+jKTrcmHQIaF2TCRxcdDDHxQ0BD6hL7QFj5cQQmPNTsZuEN31WJjlYNqz9i60dkhO
+hy5lX4cwhEvHbY5HaVdkQfBHDjWyck5lw75Q82TVTprO+SPF3bEx6vA4IriW3DUu
+K5LJaxjORDkWeIxytZJm9xA9/AUfKiHdHCy9AiFe5Dv32pQf+5hewknEAfNjAo7M
+r4iZjKW382k8SwxmTAMKQsQfy+SBrHb8tSQFD672j2X5tri1JFcZFTHS1gbqCH9K
+PXBFpzqDebqn5lM3WaauiucvvdIYakGe7Q9Q50EbxsmKRSnBabKpfTd+3Rw4nQ01
+OVH5nDgi1MsR3sGx8lksbW1FcutCQIbNsnWk2aAtUb5JlCJEE/niLI0OAsUBTHPw
+YOQVmaHgCsrAHkVY1J5EvDuWeuxZV/pFND93IOJ0rGL/9KCIr729bHZ5WsadN0X9
+LVjXzQAH5gR7CeecXY6VFpdyFzxxN7AVVkVnz4dyupCH4l5nike0umvJbW1dIczV
+g8czqSVsHxOkgzQCftpwYo/PPuCeY7i29epHxaSTF6j7S82ndwOTJRhjMBlp9++P
+Zlx5e6ALB+qHVpNSQ7u3kM3wEMQ/Z340fT9xMaQ0pVynzyehVAz7hx0KBtJDclMw
+EGBWIYEEk99vxJSa34F9ZTtFfGAuYDLIoRv1lGSPumtxCCWjIXbzrd5w70T+z2V6
+Y+F3gv9ukPvDYw573IqGSXDf0iXkIKU3vJl7dAtRHYL2fpk4v5z/VsGFGw1t5trS
+esLvMaSWgDto/tWDJP8F2cU1f3c74WmdbzfLuwtqI0dOK3GkB5dvqejkC6Eh+RZx
+hRaFC+dLA1ETaEKhIZhyl9H99dp/oOjfbk2+5BF4vT54W+fnkrtCeKZPpwyM+blf
+muas6hhKUauYeIwtEfCYv5pGjLY3Gsp5r4XX5p5W4si5wkjXaqFuPcbr55vRjj0A
+Sv3aI7HBsppo08tGAwY/mHs7IpD7otw+8P+LGphftdj1', '-----BEGIN RSA PUBLIC KEY-----
+MIIBCgKCAQEAwZmHw6UKgg/RkYdfzQgM6sejCnTxGkYqADpvJygqjTr0XMl6F1jH
+YTTfVfvCwwTQ9qLQM794t/8ud0Wd0PBIhC0gzGGHxsQnudATOgY2VmgzZvIwP/3/
+SAQkIBCgVv6sr/J3vVH9twg72r8OGaOhrhBmw/kpboH4BdxtDVRv68MUPMgqMYf2
+3mK15I1pAc1s/KSmWhqYMEaZzChiVKXzcP4hDz3BNgtVs6WBpyRyOOBmYE+uGafi
+PuvxfPfZ7LUYkJovOG94a+JTvwgzadxml0svIRLSuooFh9HfdrbLabHjAEMs4W1/
+2WD6FhiH4q2KWNgyARvlhkskf9YbX8RPCQIDAQAB
 -----END RSA PUBLIC KEY-----'),
     (2, 'MIIFLTBXBgkqhkiG9w0BBQ0wSjApBgkqhkiG9w0BBQwwHAQIwxqzO+1llkwCAggA
 MAwGCCqGSIb3DQIJBQAwHQYJYIZIAWUDBAEqBBB0VFIGpDs9qLJMQqMN7FL+BIIE

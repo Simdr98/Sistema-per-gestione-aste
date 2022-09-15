@@ -112,7 +112,10 @@ export const Asta = connection.define('asta', {
     timestamps: false,
     freezeTableName: true
 });
-
+/**
+ * specifica del collegamento tra la tabella Asta e la tabella Offerta.
+ * realizzato con la chiave primaria idAsta di Asta e la chiave esterna idAsta di Offerta.
+ */
 Asta.hasMany(Offerta, {
     foreignKey: 'idAsta',
     sourceKey: 'idAsta',
