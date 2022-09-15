@@ -1,3 +1,7 @@
+/**
+ * Confogurazione server per l'implementazione di WebSocket con Socket.IO
+ */
+
 const express = require('express');
 const http = require('http');
 
