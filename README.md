@@ -2,8 +2,11 @@
 
 ## Obiettivo del progetto
 Realizzazione di un sistema (lato back-end) che consente di gestire delle aste, in particolare tre tipologie di aste:
+
 -asta inglese aperta (“English Auction”): l’asta è di tipo ascendente, cioè vince il prezzo massimo. L’asta inglese,è la più nota forma di asta ed è quella tipicamente utilizzata per le aggiudicazioni di oggetti d’arte. Nell'implementazione del progetto, i concorrenti sono riuniti in una stanza associata all’asta (mediante websocket) e si svolge attraverso un banditore che parte dal più basso prezzo accettabile, detto base d’asta, e che sollecita le offerte al rialzo fino a quando nessuna offerta viene superata da un altro compratore. In questo caso si realizzino anche dei semplici client per simulare un’asta con un numero minimo di partecipanti pari a tre. 
+
 – asta in busta chiusa e pagamento del prezzo più alto (“First Price Sealed Bid Auction”), nella quale gli offerenti inseriscono la loro offerta in una busta sigillata e la consegnano al banditore. Le buste, successivamente, sono aperte e l’individuo con l’offerta più alta vince l’asta, pagando un prezzo pari all’ammontare offerto. La simultaneità temporale non è essenziale, ciò che conta è che quando un offerente formula la propria offerta, entro il termine fissato, non conosca le offerte fatte dagli altri; 
+
 – asta in busta chiusa e pagamento del secondo prezzo più alto (“Second Price Sealed Bid Auction”), nella quale gli offerenti inseriscono la loro offerta in una busta sigillata e la consegnano al banditore. Le buste, successivamente, sono aperte e l’individuo con l’offerta più alta vince l’asta, pagando un prezzo pari al secondo ammontare offerto più alto. Questo tipo di asta viene anche detto “asta di Vickrey”.
 
 L'accesso al sistema avviene tramite autenticazione JWT e ad ogni utente deve essere associato e riconosciuto il proprio ruolo.
